@@ -34,12 +34,12 @@
       "githubUrl": "#"
     },
     {
-      "slug": "data-visualization-tool",
-      "title": "Data Visualization Tool",
-      "description": "A specialized tool for financial analysts to visualize market trends. It offers a variety of chart types and technical indicators, with data streamed in real-time from financial markets.",
-      "challenge": "The primary goal was to render a high volume of data points in real-time charts without causing browser slowdowns. The tool also needed to be highly customizable to fit different analysts' workflows.",
-      "solution": "We utilized WebAssembly and Rust for the high-performance charting engine, which handled data processing and rendering off the main JavaScript thread. This allowed for incredibly smooth and responsive charts, even with thousands of data points being updated every second.",
-      "technologies": ["Rust", "WebAssembly", "React", "WebSockets", "D3.js"],
+      "slug": "sistem-erp-perusahaan",
+      "title": "Sistem ERP Perusahaan",
+      "description": "Solusi Enterprise Resource Planning (ERP) yang komprehensif dan terintegrasi untuk mengoptimalkan proses bisnis, mulai dari keuangan, SDM, hingga manajemen inventaris dan rantai pasok.",
+      "challenge": "Tantangannya adalah membangun sistem modular yang dapat disesuaikan dengan kebutuhan unik setiap perusahaan, mengintegrasikan berbagai alur kerja departemen yang berbeda ke dalam satu platform terpusat, dan memastikan keamanan data yang ketat.",
+      "solution": "Kami mengembangkan arsitektur berbasis modul menggunakan backend yang kuat (seperti Node.js atau Python dengan Django/FastAPI) dan database relasional yang andal. Frontend-nya dibuat responsif untuk memudahkan akses dari mana saja. Sistem ini dirancang untuk skalabilitas, memungkinkan penambahan modul baru seiring pertumbuhan bisnis klien.",
+      "technologies": ["Next.js", "Node.js", "PostgreSQL", "Docker", "Manajemen Inventaris", "Akuntansi"],
       "imageId": "portfolio-4",
       "liveUrl": "#",
       "githubUrl": "#"
