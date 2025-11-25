@@ -55,7 +55,7 @@ export default function Header() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           <Link href="/" className="flex items-center gap-2 text-2xl font-headline font-bold">
-            <Image src="https://iili.io/ffQ8Wqx.jpg" alt="IK Industries Logo" width={32} height={32} className="rounded-full" />
+            <Image src="https://iili.io/ffDrAW7.png" alt="IK Industries Logo" width={32} height={32} className="rounded-full" />
             <span>IK Industries</span>
           </Link>
 
@@ -79,7 +79,7 @@ export default function Header() {
                 </SheetHeader>
                 <div className="flex flex-col h-full p-6">
                    <Link href="/" className="flex items-center gap-2 text-2xl font-headline font-bold mb-8">
-                      <Image src="https://iili.io/ffQ8Wqx.jpg" alt="IK Industries Logo" width={32} height={32} className="rounded-full" />
+                      <Image src="https://iili.io/ffDrAW7.png" alt="IK Industries Logo" width={32} height={32} className="rounded-full" />
                       <span>IK Industries</span>
                    </Link>
                   <nav className="flex flex-col gap-6">
