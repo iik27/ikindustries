@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { Badge } from "@/components/ui/badge";
+import ShineBorderCard from "@/components/shine-border-card";
 
 export default function Blog() {
   const blogImages = PlaceHolderImages.filter(p => p.id.startsWith('blog-'));
@@ -24,10 +25,10 @@ export default function Blog() {
           {postsToShow.map((post) => {
             const image = blogImages.find(img => img.id === post.imageId);
             return (
-              <Card key={post.slug} className="group flex flex-col overflow-hidden shadow-lg transition-all duration-300 hover:ring-2 hover:ring-primary hover:shadow-primary/20">
+              <ShineBorderCard key={post.slug} className="group flex flex-col overflow-hidden">
                 {image && (
                   <CardContent className="p-0">
-                    <Link href={`/blog/${post.slug}`} className="block aspect-[3/2] overflow-hidden relative">
+                    <Link href={`/blog/${post.slug}`} className="block aspect-[3/2] overflow-hidden relative rounded-t-lg">
                       <Image
                         src={image.imageUrl}
                         alt={image.description}
@@ -59,7 +60,7 @@ export default function Blog() {
                     </Link>
                   </Button>
                 </CardFooter>
-              </Card>
+              </ShineBorderCard>
             );
           })}
         </div>

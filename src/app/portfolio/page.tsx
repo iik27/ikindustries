@@ -6,6 +6,7 @@ import Header from "@/components/header";
 import Footer from "@/components/footer";
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import { ArrowRight } from "lucide-react";
+import ShineBorderCard from "@/components/shine-border-card";
 
 export default function PortfolioListPage() {
   const portfolioImages = PlaceHolderImages.filter(p => p.id.startsWith('portfolio-'));
@@ -28,9 +29,9 @@ export default function PortfolioListPage() {
                 if (!image) return null;
                 return (
                   <Link key={item.slug} href={`/portfolio/${item.slug}`} className="block group">
-                    <Card className="h-full overflow-hidden shadow-lg transition-all duration-300 hover:ring-2 hover:ring-primary hover:shadow-primary/20">
+                    <ShineBorderCard className="h-full overflow-hidden">
                       <CardContent className="p-0">
-                        <div className="aspect-[3/2] overflow-hidden relative">
+                        <div className="aspect-[3/2] overflow-hidden relative rounded-t-lg">
                           <Image
                             src={image.imageUrl}
                             alt={image.description}
@@ -40,11 +41,11 @@ export default function PortfolioListPage() {
                           />
                         </div>
                       </CardContent>
-                      <CardFooter className="p-4 flex justify-between items-center bg-background/50">
+                      <CardFooter className="p-4 flex justify-between items-center bg-card">
                         <h3 className="font-headline font-semibold text-foreground">{item.title}</h3>
                         <ArrowRight className="h-5 w-5 text-foreground/60 transform transition-transform duration-300 group-hover:translate-x-1" />
                       </CardFooter>
-                    </Card>
+                    </ShineBorderCard>
                   </Link>
                 );
               })}
