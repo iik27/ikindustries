@@ -24,9 +24,9 @@ const testimonials = [
     imageId: "testimonial-1",
   },
   {
-    quote: "Kemampuan mereka dalam menerjemahkan persyaratan yang kompleks menjadi solusi yang sederhana dan elegan sangat mengesankan. Mereka adalah mitra teknologi yang andal dan sangat terampil.",
-    name: "Klien C",
-    title: "Pendiri, Visionary Ventures",
+    quote: "Aplikasi kasir internal yang dikembangkan oleh IK Industries benar-benar mengubah cara kami mengelola transaksi di seluruh cabang. Sistemnya terintegrasi dengan baik ke pusat, memberikan kami data real-time, dan sangat mudah digunakan oleh staf kami. Solusi yang sangat efisien dan andal!",
+    name: "PT. Multirasa Nusantara",
+    title: "Manajemen",
     imageId: "testimonial-3",
   },
     {
@@ -41,7 +41,7 @@ export default function Testimonials() {
 
   return (
     <section id="testimonials" className="bg-background">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
         <div className="text-center max-w-2xl mx-auto">
           <h2 className="font-headline text-3xl font-bold tracking-tight text-foreground sm:text-4xl">What Our Clients Say</h2>
           <p className="mt-4 text-lg text-foreground/80">
