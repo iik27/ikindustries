@@ -1,10 +1,6 @@
 // This file is for custom or simple SVG icons.
 // For a wider selection, consider using a library like lucide-react.
 
-const imageLoader = ({ src }: { src: string }) => {
-    return src;
-};
-
 export const IconBrandJavascript = (props: React.SVGProps<SVGSVGElement>) => (
     <img src="https://www.svgrepo.com/show/353925/javascript.svg" alt="JavaScript" {...props} />
 );
@@ -45,20 +41,20 @@ export const IconBrandGit = (props: React.SVGProps<SVGSVGElement>) => (
     <img src="https://www.svgrepo.com/show/452210/git.svg" alt="Git" {...props} />
 );
 
-export const IconBrandDocker = (props: React.SVGProps<SVGSVGElement>) => (
-    <img src="https://www.svgrepo.com/show/373531/docker.svg" alt="Docker" {...props} />
+export const IconBrandPHP = (props: React.SVGProps<SVGSVGElement>) => (
+    <img src="https://www.svgrepo.com/show/452088/php.svg" alt="PHP" {...props} />
 );
 
 export const IconBrandTailwind = (props: React.SVGProps<SVGSVGElement>) => (
     <img src="https://www.svgrepo.com/show/374118/tailwind.svg" alt="Tailwind CSS" {...props} />
 );
 
-export const IconBrandExpress = (props: React.SVGProps<SVGSVGElement>) => (
-    <img src="https://www.svgrepo.com/show/330398/express.svg" alt="Express.js" {...props} />
+export const IconBrandDart = (props: React.SVGProps<SVGSVGElement>) => (
+    <img src="https://www.svgrepo.com/show/353641/dart.svg" alt="Dart" {...props} />
 );
 
-export const IconBrandRemix = (props: React.SVGProps<SVGSVGElement>) => (
-    <img src="https://www.svgrepo.com/show/374034/remix.svg" alt="Remix" {...props} />
+export const IconBrandJava = (props: React.SVGProps<SVGSVGElement>) => (
+    <img src="https://www.svgrepo.com/show/452234/java.svg" alt="Java" {...props} />
 );
 
 export const IconBrandAstro = (props: React.SVGProps<SVGSVGElement>) => (

@@ -13,14 +13,13 @@ import {
     IconBrandFirebase,
     IconBrandVercel,
     IconBrandGit,
-    IconBrandDocker,
+    IconBrandPHP,
     IconDatabase,
     IconBrandTailwind,
-    IconBrandExpress,
-    IconBrandRemix,
+    IconBrandDart,
+    IconBrandJava,
     IconBrandAstro,
 } from '@/components/icons';
-import { cn } from '@/lib/utils';
 
 const technologies = [
     { name: "JavaScript", icon: <IconBrandJavascript className="h-10 w-10" /> },
@@ -30,13 +29,13 @@ const technologies = [
     { name: "Next.js", icon: <IconBrandNextjs className="h-10 w-10" /> },
     { name: "Node.js", icon: <IconBrandNodejs className="h-10 w-10" /> },
     { name: "Tailwind CSS", icon: <IconBrandTailwind className="h-10 w-10" /> },
-    { name: "Express.js", icon: <IconBrandExpress className="h-10 w-10" /> },
+    { name: "Dart", icon: <IconBrandDart className="h-10 w-10" /> },
     { name: "Firebase", icon: <IconBrandFirebase className="h-10 w-10" /> },
     { name: "PostgreSQL", icon: <IconDatabase className="h-10 w-10" /> },
     { name: "Git", icon: <IconBrandGit className="h-10 w-10" /> },
-    { name: "Docker", icon: <IconBrandDocker className="h-10 w-10" /> },
+    { name: "PHP", icon: <IconBrandPHP className="h-10 w-10" /> },
     { name: "Vercel", icon: <IconBrandVercel className="h-10 w-10" /> },
-    { name: "Remix", icon: <IconBrandRemix className="h-10 w-10" /> },
+    { name: "Java", icon: <IconBrandJava className="h-10 w-10" /> },
     { name: "Astro", icon: <IconBrandAstro className="h-10 w-10" /> },
 ];
 
