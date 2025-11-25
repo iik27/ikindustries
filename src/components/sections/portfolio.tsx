@@ -27,7 +27,7 @@ export default function Portfolio() {
             if (!image) return null;
             return (
               <Link key={item.slug} href={`/portfolio/${item.slug}`} className="block group">
-                <Card className="h-full overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300">
+                <Card className="h-full overflow-hidden shadow-lg transition-all duration-300 hover:ring-2 hover:ring-primary hover:shadow-primary/20">
                   <CardContent className="p-0">
                     <div className="aspect-[3/2] overflow-hidden relative">
                       <Image

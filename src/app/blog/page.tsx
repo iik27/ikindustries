@@ -28,7 +28,7 @@ export default function BlogListPage() {
               {BlogPosts.map((post) => {
                 const image = blogImages.find(img => img.id === post.imageId);
                 return (
-                  <Card key={post.slug} className="group flex flex-col overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300">
+                  <Card key={post.slug} className="group flex flex-col overflow-hidden shadow-lg transition-all duration-300 hover:ring-2 hover:ring-primary hover:shadow-primary/20">
                     {image && (
                       <CardContent className="p-0">
                         <Link href={`/blog/${post.slug}`} className="block aspect-[3/2] overflow-hidden relative">

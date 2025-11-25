@@ -28,7 +28,7 @@ export default function About() {
               Meet the Visionary
             </h2>
             <p className="mt-4 text-lg text-foreground/80">
-              Muhamad Taufik Hidayat, the founder of IK Industries, is a passionate technologist with a drive for excellence and innovation. With years of experience in full-stack development and artificial intelligence, he leads the company with a vision to create impactful digital solutions that solve real-world problems.
+              Muhamad Taufik Hidayat, the part of IK Industries, is a passionate technologist with a drive for excellence and innovation. With years of experience in full-stack development, frond-end development & system analyst, he leads the company with a vision to create impactful digital solutions that solve real-world problems.
             </p>
             <p className="mt-4 text-foreground/80">
               His expertise spans across modern web technologies, scalable backend architectures, and intelligent system design, ensuring that every project is built on a foundation of quality and forward-thinking.
