@@ -49,14 +49,14 @@ export const IconBrandTailwind = (props: React.SVGProps<SVGSVGElement>) => (
     <img src="https://www.svgrepo.com/show/374118/tailwind.svg" alt="Tailwind CSS" {...props} />
 );
 
-export const IconBrandDart = (props: React.SVGProps<SVGSVGElement>) => (
-    <img src="https://www.svgrepo.com/show/353627/dart.svg" alt="Dart" {...props} />
+export const IconBrandFlutter = (props: React.SVGProps<SVGSVGElement>) => (
+    <img src="https://www.svgrepo.com/show/373622/flutter.svg" alt="Flutter" {...props} />
 );
 
 export const IconBrandJava = (props: React.SVGProps<SVGSVGElement>) => (
     <img src="https://www.svgrepo.com/show/452234/java.svg" alt="Java" {...props} />
 );
 
-export const IconBrandAndroidStudio = (props: React.SVGProps<SVGSVGElement>) => (
-    <img src="https://www.svgrepo.com/show/353392/android-studio.svg" alt="Android Studio" {...props} />
+export const IconBrandKotlin = (props: React.SVGProps<SVGSVGElement>) => (
+    <img src="https://www.svgrepo.com/show/373729/kotlin.svg" alt="Kotlin" {...props} />
 );
