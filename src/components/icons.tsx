@@ -30,7 +30,7 @@ export const IconBrandFirebase = (props: React.SVGProps<SVGSVGElement>) => (
 );
 
 export const IconDatabase = (props: React.SVGProps<SVGSVGElement>) => (
-    <img src="https://www.svgrepo.com/show/374000/postgresql.svg" alt="PostgreSQL" {...props} />
+    <img src="https://www.svgrepo.com/show/354211/postgresql.svg" alt="PostgreSQL" {...props} />
 );
 
 export const IconBrandVercel = (props: React.SVGProps<SVGSVGElement>) => (
@@ -50,7 +50,7 @@ export const IconBrandTailwind = (props: React.SVGProps<SVGSVGElement>) => (
 );
 
 export const IconBrandDart = (props: React.SVGProps<SVGSVGElement>) => (
-    <img src="https://www.svgrepo.com/show/353641/dart.svg" alt="Dart" {...props} />
+    <img src="https://www.svgrepo.com/show/373539/dart.svg" alt="Dart" {...props} />
 );
 
 export const IconBrandJava = (props: React.SVGProps<SVGSVGElement>) => (
