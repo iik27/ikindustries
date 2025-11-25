@@ -2,7 +2,8 @@
 
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { Menu, X, Code } from 'lucide-react';
+import Image from 'next/image';
+import { Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from '@/components/ui/sheet';
 import { cn } from '@/lib/utils';
@@ -54,7 +55,7 @@ export default function Header() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           <Link href="/" className="flex items-center gap-2 text-2xl font-headline font-bold">
-            <Code className="h-8 w-8 text-primary" />
+            <Image src="https://iili.io/ffQ8Wqx.jpg" alt="IK Industries Logo" width={32} height={32} className="rounded-full" />
             <span>IK Industries</span>
           </Link>
 
@@ -78,7 +79,7 @@ export default function Header() {
                 </SheetHeader>
                 <div className="flex flex-col h-full p-6">
                    <Link href="/" className="flex items-center gap-2 text-2xl font-headline font-bold mb-8">
-                      <Code className="h-8 w-8 text-primary" />
+                      <Image src="https://iili.io/ffQ8Wqx.jpg" alt="IK Industries Logo" width={32} height={32} className="rounded-full" />
                       <span>IK Industries</span>
                    </Link>
                   <nav className="flex flex-col gap-6">

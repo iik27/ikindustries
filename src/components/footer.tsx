@@ -1,4 +1,5 @@
-import { Code, Github, Linkedin } from "lucide-react";
+import Image from "next/image";
+import { Github, Linkedin } from "lucide-react";
 import Link from 'next/link';
 
 export default function Footer() {
@@ -10,7 +11,7 @@ export default function Footer() {
         <div className="flex flex-col sm:flex-row justify-between items-center gap-6">
            <div className="flex justify-center md:justify-start items-center">
             <Link href="/" className="flex items-center gap-2 text-xl font-headline font-bold">
-              <Code className="h-7 w-7" />
+              <Image src="https://iili.io/ffQ8Wqx.jpg" alt="IK Industries Logo" width={28} height={28} className="rounded-full" />
               <span>IK Industries</span>
             </Link>
           </div>
