@@ -34,7 +34,7 @@ export default function Strengths() {
             What makes IK Industries stand out from the crowd.
           </p>
         </div>
-        <div className="mt-16 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-16 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4 max-w-6xl mx-auto">
           {strengths.map((strength) => (
             <Card key={strength.title} className="border-0 bg-transparent shadow-none">
               <CardContent className="flex flex-col items-center text-center p-6">

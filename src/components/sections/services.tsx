@@ -29,7 +29,7 @@ export default function Services() {
             We offer a comprehensive suite of technology services to bring your vision to life.
           </p>
         </div>
-        <div className="mt-16 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-16 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 max-w-6xl mx-auto">
           {services.map((service) => (
             <Card key={service.title} className="text-center hover:shadow-xl transition-shadow duration-300 bg-background">
               <CardHeader className="items-center p-8">
