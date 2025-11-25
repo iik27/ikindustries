@@ -11,27 +11,27 @@ import {
 
 const testimonials = [
   {
-    quote: "Working with IK Industries was a game-changer for our business. Their expertise in AI solutions helped us automate critical processes, saving us countless hours and resources. The team is professional, responsive, and truly innovative.",
-    name: "Jane Doe",
-    title: "CEO, Tech Solutions Inc.",
+    quote: "Working with them was a seamless experience. Their professionalism and technical expertise are evident in the final product. We are extremely satisfied with the results.",
+    name: "Client A",
+    title: "CEO, Innovate Ltd.",
     imageId: "testimonial-1",
   },
   {
-    quote: "The web application they developed for us exceeded all our expectations. It's fast, intuitive, and beautifully designed. Their attention to detail and commitment to quality is evident in every aspect of the project.",
-    name: "John Smith",
-    title: "Marketing Director, Creative Co.",
+    quote: "The application they developed has significantly improved our workflow. It's intuitive, fast, and beautifully designed. Highly recommended for any development needs.",
+    name: "Client B",
+    title: "Director, TechForward",
     imageId: "testimonial-2",
   },
   {
-    quote: "I was impressed by their ability to understand our complex requirements and translate them into a functional and elegant mobile app. IK Industries is a reliable partner for any development needs.",
-    name: "Alex Johnson",
-    title: "Founder, Startup Hub",
+    quote: "Their ability to translate complex requirements into a simple, elegant solution was impressive. They are a reliable and highly skilled technology partner.",
+    name: "Client C",
+    title: "Founder, Visionary Ventures",
     imageId: "testimonial-3",
   },
     {
-    quote: "From start to finish, the communication was excellent. They kept us in the loop at every stage and were always available to answer our questions. Highly recommended for their technical skill and customer service.",
-    name: "Emily White",
-    title: "Product Manager, Innovate Corp.",
+    quote: "Communication was excellent throughout the project. They kept us informed at every stage and delivered beyond our expectations. A truly five-star service.",
+    name: "Client D",
+    title: "Manager, NextGen Solutions",
     imageId: "testimonial-4",
   },
 ];
