@@ -71,6 +71,24 @@
       "description": "Portrait of satisfied client 4",
       "imageUrl": "https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHx3b21hbiUyMHBvcnRyYWl0fGVufDB8fHx8MTc2Mzk1OTYyM3ww&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "woman portrait"
+    },
+    {
+      "id": "blog-1",
+      "description": "A person writing on a notebook with a laptop nearby",
+      "imageUrl": "https://images.unsplash.com/photo-1455390582262-044cdead277a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHx3cml0aW5nJTIwYmxvZ3xlbnwwfHx8fDE3NjQxMjUyNzR8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "writing blog"
+    },
+    {
+      "id": "blog-2",
+      "description": "Abstract representation of AI and technology",
+      "imageUrl": "https://images.unsplash.com/photo-1531771686278-2514a400904c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxhcnRpZmljaWFsJTIwaW50ZWxsaWdlbmNlfGVufDB8fHx8MTc2NDE1NjQ1Nnww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "artificial intelligence"
+    },
+    {
+      "id": "blog-3",
+      "description": "Multiple devices showing responsive website design",
+      "imageUrl": "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxyZXNwb25zaXZlJTIwZGVzaWdufGVufDB8fHx8MTc2NDE1NjQ1Nnww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "responsive design"
     }
   ]
 }

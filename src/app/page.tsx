@@ -5,6 +5,7 @@ import Services from '@/components/sections/services';
 import Strengths from '@/components/sections/strengths';
 import Portfolio from '@/components/sections/portfolio';
 import Testimonials from '@/components/sections/testimonials';
+import Blog from '@/components/sections/blog';
 import Footer from '@/components/footer';
 
 export default function Home() {
@@ -17,6 +18,7 @@ export default function Home() {
         <Strengths />
         <Portfolio />
         <Testimonials />
+        <Blog />
         <About />
       </main>
       <Footer />
