@@ -6,6 +6,7 @@ import Strengths from '@/components/sections/strengths';
 import Portfolio from '@/components/sections/portfolio';
 import Testimonials from '@/components/sections/testimonials';
 import Blog from '@/components/sections/blog';
+import Contact from '@/components/sections/contact';
 import Footer from '@/components/footer';
 
 export default function Home() {
@@ -20,6 +21,7 @@ export default function Home() {
         <Testimonials />
         <Blog />
         <About />
+        <Contact />
       </main>
       <Footer />
     </>

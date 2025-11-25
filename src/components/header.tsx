@@ -14,6 +14,7 @@ const NAV_LINKS = [
   { href: '/#testimonials', label: 'Testimonials' },
   { href: '/blog', label: 'Blog' },
   { href: '/#about', label: 'About' },
+  { href: '/#contact', label: 'Contact' },
 ];
 
 export default function Header() {
@@ -63,12 +64,6 @@ export default function Header() {
             ))}
           </nav>
           
-          <div className="hidden md:block">
-             <Button asChild>
-                <a href="#contact">Contact Us</a>
-              </Button>
-          </div>
-
           <div className="md:hidden">
             <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
               <SheetTrigger asChild>
@@ -94,9 +89,6 @@ export default function Header() {
                         />
                     ))}
                   </nav>
-                  <Button asChild className="mt-auto">
-                    <a href="#contact" onClick={() => setIsMobileMenuOpen(false)}>Contact Us</a>
-                  </Button>
                 </div>
               </SheetContent>
             </Sheet>
