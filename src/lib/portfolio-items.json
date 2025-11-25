@@ -12,12 +12,12 @@
       "githubUrl": "#"
     },
     {
-      "slug": "sleek-mobile-app",
-      "title": "Sleek Mobile App",
-      "description": "A cross-platform mobile application for a lifestyle brand, offering a smooth and engaging user experience for both iOS and Android users. It features social sharing, push notifications, and an integrated e-commerce module.",
-      "challenge": "To deliver a native-like performance on both iOS and Android from a single codebase while integrating seamlessly with various third-party APIs for payments and social media.",
-      "solution": "We chose React Native for its cross-platform capabilities, which allowed for rapid development and code reuse. A custom bridge was created to handle specific native functionalities, and Redux was used for state management, ensuring a predictable and stable application state.",
-      "technologies": ["React Native", "Redux", "Firebase", "Stripe API", "iOS", "Android"],
+      "slug": "flutter-mobile-app",
+      "title": "Flutter Mobile App",
+      "description": "A high-performance, cross-platform mobile application built with Flutter for a fast-growing startup. It delivers a beautiful, natively-compiled application for mobile, web, and desktop from a single codebase, ensuring a consistent user experience everywhere.",
+      "challenge": "The client needed a mobile app for both iOS and Android with a highly custom UI, complex animations, and near-native performance, all while keeping the development timeline and budget in check. Maintaining a single codebase was a key requirement.",
+      "solution": "We chose Flutter for its powerful UI toolkit and its ability to compile to native code. This allowed us to build expressive UIs and smooth animations that performed excellently on both platforms. We used the BLoC pattern for state management to handle complex app states efficiently.",
+      "technologies": ["Flutter", "Dart", "Firebase", "BLoC Pattern", "iOS", "Android"],
       "imageId": "portfolio-2",
       "liveUrl": "#",
       "githubUrl": "#"
