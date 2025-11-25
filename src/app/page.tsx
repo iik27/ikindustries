@@ -2,6 +2,7 @@ import Header from '@/components/header';
 import Hero from '@/components/sections/hero';
 import About from '@/components/sections/about';
 import Services from '@/components/sections/services';
+import TechStack from '@/components/sections/tech-stack';
 import Strengths from '@/components/sections/strengths';
 import Portfolio from '@/components/sections/portfolio';
 import Testimonials from '@/components/sections/testimonials';
@@ -16,6 +17,7 @@ export default function Home() {
       <main>
         <Hero />
         <Services />
+        <TechStack />
         <Strengths />
         <Portfolio />
         <Testimonials />

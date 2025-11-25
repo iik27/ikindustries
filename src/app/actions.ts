@@ -25,14 +25,15 @@ export async function submitContactForm(
       message: data.get('message'),
     });
 
-    // In a real application, you would send an email or save this to a database.
-    // For this demo, we'll just log it to the server console.
+    // NOTE: Email sending logic has been removed.
+    // In a real application, you would integrate an email service like Resend, SendGrid, etc.
+    // For now, we'll just log the data to the server console.
     console.log('New contact form submission:');
     console.log('Name:', parsed.name);
     console.log('Email:', parsed.email);
     console.log('Message:', parsed.message);
-
-    return { message: 'Thank you! Your message has been sent successfully.' };
+    
+    return { message: 'Thank you! Your message has been received.' };
   } catch (error) {
      if (error instanceof z.ZodError) {
       return {
@@ -41,6 +42,7 @@ export async function submitContactForm(
         issues: error.issues.map((issue) => issue.message),
       };
     }
+    console.error('Unexpected error:', error);
     return { message: 'An unexpected error occurred. Please try again later.' };
   }
 }

@@ -84,7 +84,7 @@ export default function Contact() {
                 </a>
                 <div className="flex items-center gap-4 text-lg">
                     <Phone className="h-6 w-6 text-primary" />
-                    <span>Indonesia</span>
+                    <span>+6281462202381</span>
                 </div>
             </div>
           </div>

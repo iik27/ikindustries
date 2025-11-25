@@ -25,7 +25,7 @@ export default function About() {
           </div>
           <div className="md:col-span-3">
             <h2 className="font-headline text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-              Meet the Visionary
+              Meet the Enthusiast
             </h2>
             <p className="mt-4 text-lg text-foreground/80">
               Muhamad Taufik Hidayat, the part of IK Industries, is a passionate technologist with a drive for excellence and innovation. With years of experience in full-stack development, frond-end development & system analyst, he leads the company with a vision to create impactful digital solutions that solve real-world problems.
