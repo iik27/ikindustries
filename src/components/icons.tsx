@@ -6,7 +6,7 @@ const imageLoader = ({ src }: { src: string }) => {
 };
 
 export const IconBrandJavascript = (props: React.SVGProps<SVGSVGElement>) => (
-    <img src="https://icon.icepanel.io/AWS/18/Arch_Compute/18_AWS-Lambda-Lambda-Function.svg" alt="JavaScript" {...props} />
+    <img src="https://www.svgrepo.com/show/353925/javascript.svg" alt="JavaScript" {...props} />
 );
 
 export const IconBrandTypescript = (props: React.SVGProps<SVGSVGElement>) => (
@@ -22,7 +22,7 @@ export const IconBrandReact = (props: React.SVGProps<SVGSVGElement>) => (
 );
 
 export const IconBrandNextjs = (props: React.SVGProps<SVGSVGElement>) => (
-    <img src="https://www.svgrepo.com/show/368858/nextjs.svg" alt="Next.js" {...props} />
+    <img src="https://www.svgrepo.com/show/354113/nextjs-icon.svg" alt="Next.js" {...props} />
 );
 
 export const IconBrandNodejs = (props: React.SVGProps<SVGSVGElement>) => (
@@ -54,7 +54,7 @@ export const IconBrandTailwind = (props: React.SVGProps<SVGSVGElement>) => (
 );
 
 export const IconBrandExpress = (props: React.SVGProps<SVGSVGElement>) => (
-    <img src="https://www.svgrepo.com/show/373566/express.svg" alt="Express.js" {...props} />
+    <img src="https://www.svgrepo.com/show/330398/express.svg" alt="Express.js" {...props} />
 );
 
 export const IconBrandRemix = (props: React.SVGProps<SVGSVGElement>) => (
