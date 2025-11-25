@@ -8,12 +8,12 @@ import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { cn } from '@/lib/utils';
 
 const NAV_LINKS = [
-  { href: '#services', label: 'Services' },
-  { href: '#strengths', label: 'Strengths' },
-  { href: '#portfolio', label: 'Portfolio' },
-  { href: '#testimonials', label: 'Testimonials' },
-  { href: '#blog', label: 'Blog' },
-  { href: '#about', label: 'About' },
+  { href: '/#services', label: 'Services' },
+  { href: '/#strengths', label: 'Strengths' },
+  { href: '/portfolio', label: 'Portfolio' },
+  { href: '/#testimonials', label: 'Testimonials' },
+  { href: '/blog', label: 'Blog' },
+  { href: '/#about', label: 'About' },
 ];
 
 export default function Header() {
@@ -27,6 +27,21 @@ export default function Header() {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  const NavLink = ({ href, label, isMobile = false, onClick }: { href: string, label: string, isMobile?: boolean, onClick?: () => void }) => {
+    const isExternal = href.startsWith('http') || href.startsWith('#');
+    const Component = isExternal ? 'a' : Link;
+    const props = {
+      href: href,
+      onClick: onClick,
+      className: isMobile 
+        ? "text-lg font-medium text-foreground hover:text-primary transition-colors"
+        : "text-sm font-medium text-foreground/80 hover:text-primary transition-colors",
+      ...(isExternal && { target: '_blank', rel: 'noopener noreferrer' })
+    };
+    // @ts-ignore
+    return <Component {...props}>{label}</Component>;
+  };
 
   return (
     <header
@@ -44,13 +59,7 @@ export default function Header() {
 
           <nav className="hidden md:flex items-center gap-6">
             {NAV_LINKS.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors"
-              >
-                {link.label}
-              </a>
+               <NavLink key={link.href} href={link.href} label={link.label} />
             ))}
           </nav>
           
@@ -76,14 +85,13 @@ export default function Header() {
                    </Link>
                   <nav className="flex flex-col gap-6">
                     {NAV_LINKS.map((link) => (
-                      <a
-                        key={link.href}
-                        href={link.href}
-                        onClick={() => setIsMobileMenuOpen(false)}
-                        className="text-lg font-medium text-foreground hover:text-primary transition-colors"
-                      >
-                        {link.label}
-                      </a>
+                       <NavLink 
+                          key={link.href} 
+                          href={link.href} 
+                          label={link.label} 
+                          isMobile 
+                          onClick={() => setIsMobileMenuOpen(false)}
+                        />
                     ))}
                   </nav>
                   <Button asChild className="mt-auto">

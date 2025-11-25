@@ -1,0 +1,70 @@
+{
+  "portfolioItems": [
+    {
+      "slug": "modern-web-app",
+      "title": "Modern Web App",
+      "description": "A comprehensive web application designed for a SaaS company, providing a seamless user experience for managing complex workflows. The dashboard is intuitive and powerful, built with the latest web technologies.",
+      "challenge": "The main challenge was to create a highly interactive and real-time dashboard that could handle a large volume of data without sacrificing performance. The UI needed to be complex yet intuitive for non-technical users.",
+      "solution": "We implemented a frontend using React and Next.js, leveraging server components for optimal performance. For real-time data synchronization, we used WebSockets. The backend was built on a microservices architecture to ensure scalability and maintainability.",
+      "technologies": ["Next.js", "React", "TypeScript", "Tailwind CSS", "Node.js", "WebSockets"],
+      "imageId": "portfolio-1",
+      "liveUrl": "#",
+      "githubUrl": "#"
+    },
+    {
+      "slug": "sleek-mobile-app",
+      "title": "Sleek Mobile App",
+      "description": "A cross-platform mobile application for a lifestyle brand, offering a smooth and engaging user experience for both iOS and Android users. It features social sharing, push notifications, and an integrated e-commerce module.",
+      "challenge": "To deliver a native-like performance on both iOS and Android from a single codebase while integrating seamlessly with various third-party APIs for payments and social media.",
+      "solution": "We chose React Native for its cross-platform capabilities, which allowed for rapid development and code reuse. A custom bridge was created to handle specific native functionalities, and Redux was used for state management, ensuring a predictable and stable application state.",
+      "technologies": ["React Native", "Redux", "Firebase", "Stripe API", "iOS", "Android"],
+      "imageId": "portfolio-2",
+      "liveUrl": "#",
+      "githubUrl": "#"
+    },
+    {
+      "slug": "ai-analytics-dashboard",
+      "title": "AI Analytics Dashboard",
+      "description": "An advanced analytics dashboard that uses machine learning to provide business intelligence and predictive insights. It visualizes complex data sets in an easy-to-understand format, helping stakeholders make data-driven decisions.",
+      "challenge": "Processing and visualizing terabytes of data in real-time while running complex machine learning models in the background. The solution needed to be highly available and provide results with low latency.",
+      "solution": "The backend was powered by a Python data stack (Pandas, Scikit-learn) and served via a FastAPI application. We used Google's Vertex AI for model training and deployment. The frontend was built with React, using D3.js for custom, interactive data visualizations.",
+      "technologies": ["Python", "FastAPI", "Vertex AI", "React", "D3.js", "BigQuery"],
+      "imageId": "portfolio-3",
+      "liveUrl": "#",
+      "githubUrl": "#"
+    },
+    {
+      "slug": "data-visualization-tool",
+      "title": "Data Visualization Tool",
+      "description": "A specialized tool for financial analysts to visualize market trends. It offers a variety of chart types and technical indicators, with data streamed in real-time from financial markets.",
+      "challenge": "The primary goal was to render a high volume of data points in real-time charts without causing browser slowdowns. The tool also needed to be highly customizable to fit different analysts' workflows.",
+      "solution": "We utilized WebAssembly and Rust for the high-performance charting engine, which handled data processing and rendering off the main JavaScript thread. This allowed for incredibly smooth and responsive charts, even with thousands of data points being updated every second.",
+      "technologies": ["Rust", "WebAssembly", "React", "WebSockets", "D3.js"],
+      "imageId": "portfolio-4",
+      "liveUrl": "#",
+      "githubUrl": "#"
+    },
+    {
+      "slug": "tech-company-site",
+      "title": "Tech Company Site",
+      "description": "A sleek and modern corporate website for a leading technology firm. The site is designed to reflect the company's innovative spirit, with a focus on clean design, smooth animations, and a clear presentation of their services and portfolio.",
+      "challenge": "To create a visually stunning website that was also highly performant and accessible, ensuring a great user experience across all devices and for all users, including those with disabilities.",
+      "solution": "Built with Next.js for its static site generation (SSG) capabilities, ensuring fast load times and excellent SEO. We used GSAP for subtle and performant animations and followed WCAG guidelines to ensure full accessibility.",
+      "technologies": ["Next.js", "Tailwind CSS", "GSAP", "Contentful CMS", "Vercel"],
+      "imageId": "portfolio-5",
+      "liveUrl": "#",
+      "githubUrl": "#"
+    },
+    {
+      "slug": "e-commerce-platform",
+      "title": "E-commerce Platform",
+      "description": "A full-featured e-commerce platform with a custom-built product management system, secure checkout process, and an admin dashboard for managing orders and customers.",
+      "challenge": "Developing a secure, scalable, and user-friendly e-commerce solution from scratch. Key challenges included PCI compliance for payments, inventory management, and creating a seamless checkout flow.",
+      "solution": "We built the platform on a robust backend framework and integrated with Stripe for secure payment processing. The frontend provided a fast, app-like experience using modern JavaScript frameworks, and the admin panel was designed for ease of use by non-technical staff.",
+      "technologies": ["Node.js", "Express", "React", "PostgreSQL", "Stripe", "Docker"],
+      "imageId": "portfolio-6",
+      "liveUrl": "#",
+      "githubUrl": "#"
+    }
+  ]
+}
