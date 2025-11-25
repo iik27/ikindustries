@@ -35,7 +35,7 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
       <Header />
       <main>
         <article className="bg-background pt-32 pb-16 sm:pt-40 sm:pb-24">
-          <div className="container px-4 sm:px-6 lg:px-8">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-3xl mx-auto">
               <div className="mb-8">
                 <Button variant="ghost" asChild className="pl-0">
@@ -81,8 +81,7 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
               />
             </div>
           </div>
-        </article>
-      </main>
+        </article>      </main>
       <Footer />
     </>
   );

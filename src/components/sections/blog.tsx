@@ -13,7 +13,7 @@ export default function Blog() {
 
   return (
     <section id="blog" className="bg-secondary">
-      <div className="container px-4 sm:px-6 lg:px-8">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-2xl mx-auto">
           <h2 className="font-headline text-3xl font-bold tracking-tight text-foreground sm:text-4xl">From Our Blog</h2>
           <p className="mt-4 text-lg text-foreground/80">

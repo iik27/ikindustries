@@ -5,7 +5,7 @@ export default function Hero() {
   return (
     <section className="relative min-h-[80vh] flex items-center justify-center text-center overflow-hidden bg-gradient-to-b from-background to-secondary pt-24">
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(176,226,255,0.3),rgba(255,255,255,0))]"></div>
-      <div className="container relative px-4 sm:px-6 lg:px-8">
+      <div className="container mx-auto relative px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto">
           <h1 className="font-headline text-4xl font-bold tracking-tight text-foreground sm:text-6xl lg:text-7xl">
             Building the Future of Digital,

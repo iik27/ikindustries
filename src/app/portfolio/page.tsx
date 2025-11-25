@@ -15,7 +15,7 @@ export default function PortfolioListPage() {
       <Header />
       <main>
         <section className="bg-background pt-32 pb-16 sm:pt-40 sm:pb-24">
-          <div className="container px-4 sm:px-6 lg:px-8">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center max-w-2xl mx-auto">
               <h1 className="font-headline text-4xl font-bold tracking-tight text-foreground sm:text-5xl">Our Work</h1>
               <p className="mt-4 text-xl text-foreground/80">
