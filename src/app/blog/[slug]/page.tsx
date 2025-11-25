@@ -76,7 +76,7 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
               )}
 
               <div
-                className="prose"
+                className="prose mx-auto"
                 dangerouslySetInnerHTML={{ __html: post.content }}
               />
             </div>

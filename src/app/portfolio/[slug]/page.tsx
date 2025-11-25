@@ -68,7 +68,7 @@ export default function PortfolioItemPage({ params }: PortfolioItemPageProps) {
               )}
 
               <div className="grid md:grid-cols-3 gap-8 md:gap-12">
-                <div className="md:col-span-2 prose">
+                <div className="md:col-span-2 prose mx-auto">
                     <h2>About The Project</h2>
                     
                     <h3>Challenge</h3>

@@ -22,7 +22,7 @@ export default function PortfolioListPage() {
                 A showcase of our passion, creativity, and commitment to excellence.
               </p>
             </div>
-            <div className="mt-16 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+            <div className="mt-16 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 max-w-6xl mx-auto">
               {PortfolioItems.map((item) => {
                 const image = portfolioImages.find(img => img.id === item.imageId);
                 if (!image) return null;
