@@ -35,7 +35,7 @@ export default function About() {
             </p>
             <div className="mt-6 flex items-center gap-4">
               <Button variant="outline" size="icon" asChild>
-                <a href="https://github.com" target="_blank" rel="noopener noreferrer" aria-label="GitHub Profile">
+                <a href="https://github.com/iik27" target="_blank" rel="noopener noreferrer" aria-label="GitHub Profile">
                   <Github className="h-5 w-5" />
                 </a>
               </Button>

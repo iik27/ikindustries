@@ -20,7 +20,7 @@ export default function Footer() {
           </div>
 
           <div className="flex gap-4 justify-center md:justify-start">
-            <a href="https://github.com" target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="hover:opacity-80 transition-opacity"><Github /></a>
+            <a href="https://github.com/iik27" target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="hover:opacity-80 transition-opacity"><Github /></a>
             <a href="https://www.linkedin.com/in/iiiikkk" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="hover:opacity-80 transition-opacity"><Linkedin /></a>
           </div>
         </div>

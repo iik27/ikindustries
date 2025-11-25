@@ -10,7 +10,7 @@
       "technologies": ["Next.js", "React", "TypeScript", "Tailwind CSS", "Node.js", "WebSockets"],
       "imageId": "portfolio-1",
       "liveUrl": "#",
-      "githubUrl": "#"
+      "githubUrl": "https://github.com/iik27"
     },
     {
       "slug": "flutter-mobile-app",
@@ -21,7 +21,7 @@
       "technologies": ["Flutter", "Dart", "Firebase", "BLoC Pattern", "iOS", "Android"],
       "imageId": "portfolio-2",
       "liveUrl": "#",
-      "githubUrl": "#"
+      "githubUrl": "https://github.com/iik27"
     },
     {
       "slug": "ai-analytics-dashboard",
@@ -32,7 +32,7 @@
       "technologies": ["Python", "FastAPI", "Vertex AI", "React", "D3.js", "BigQuery"],
       "imageId": "portfolio-3",
       "liveUrl": "#",
-      "githubUrl": "#"
+      "githubUrl": "https://github.com/iik27"
     },
     {
       "slug": "enterprise-erp-system",
@@ -43,7 +43,7 @@
       "technologies": ["Next.js", "Node.js", "PostgreSQL", "Docker", "Inventory Management", "Accounting"],
       "imageId": "portfolio-4",
       "liveUrl": "#",
-      "githubUrl": "#"
+      "githubUrl": "https://github.com/iik27"
     },
     {
       "slug": "tech-company-site",
@@ -54,7 +54,7 @@
       "technologies": ["Next.js", "Tailwind CSS", "GSAP", "Contentful CMS", "Vercel"],
       "imageId": "portfolio-5",
       "liveUrl": "#",
-      "githubUrl": "#"
+      "githubUrl": "https://github.com/iik27"
     },
     {
       "slug": "e-commerce-platform",
@@ -65,7 +65,7 @@
       "technologies": ["Node.js", "Express", "React", "PostgreSQL", "Stripe", "Docker"],
       "imageId": "portfolio-6",
       "liveUrl": "#",
-      "githubUrl": "#"
+      "githubUrl": "https://github.com/iik27"
     }
   ]
 }
