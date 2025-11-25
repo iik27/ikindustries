@@ -67,12 +67,15 @@
 }
 
 @layer base {
+  html {
+    @apply scroll-smooth;
+    scroll-padding-top: 5.5rem; /* Adjust this value based on header height */
+  }
   * {
     @apply border-border;
   }
   body {
     @apply bg-background text-foreground;
-    scroll-behavior: smooth;
   }
   section {
     @apply py-16 sm:py-24;
