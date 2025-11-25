@@ -20,7 +20,7 @@ export default function Blog() {
             Insights, trends, and stories from the world of technology and development.
           </p>
         </div>
-        <div className="mt-16 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-16 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 max-w-6xl mx-auto">
           {postsToShow.map((post) => {
             const image = blogImages.find(img => img.id === post.imageId);
             return (
