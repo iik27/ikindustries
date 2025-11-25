@@ -8,7 +8,7 @@ export default function About() {
 
   return (
     <section id="about" className="bg-background">
-      <div className="container px-4 sm:px-6 lg:px-8">
+      <div className="container px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
         <div className="grid md:grid-cols-5 gap-8 md:gap-12 items-center">
           <div className="md:col-span-2">
             {profileImage && (

@@ -68,7 +68,7 @@ export default function Contact() {
 
   return (
     <section id="contact" className="bg-background">
-      <div className="container px-4 sm:px-6 lg:px-8">
+      <div className="container px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div>
              <h2 className="font-headline text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
