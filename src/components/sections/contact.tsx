@@ -1,6 +1,7 @@
 'use client';
 
-import { useFormState, useFormStatus } from 'react-dom';
+import { useActionState } from 'react';
+import { useFormStatus } from 'react-dom';
 import { Mail, Phone } from 'lucide-react';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
@@ -10,7 +11,6 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
 import { submitContactForm, type ContactFormState } from '@/app/actions';
 import { useToast } from '@/hooks/use-toast';
 import { useEffect } from 'react';
@@ -34,7 +34,7 @@ function SubmitButton() {
 
 export default function Contact() {
   const { toast } = useToast();
-  const [state, formAction] = useFormState<ContactFormState, FormData>(submitContactForm, {
+  const [state, formAction] = useActionState<ContactFormState, FormData>(submitContactForm, {
     message: '',
   });
 
