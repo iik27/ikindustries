@@ -1,3 +1,4 @@
+
 {
   "portfolioItems": [
     {
@@ -34,12 +35,12 @@
       "githubUrl": "#"
     },
     {
-      "slug": "sistem-erp-perusahaan",
-      "title": "Sistem ERP Perusahaan",
-      "description": "Solusi Enterprise Resource Planning (ERP) yang komprehensif dan terintegrasi untuk mengoptimalkan proses bisnis, mulai dari keuangan, SDM, hingga manajemen inventaris dan rantai pasok.",
-      "challenge": "Tantangannya adalah membangun sistem modular yang dapat disesuaikan dengan kebutuhan unik setiap perusahaan, mengintegrasikan berbagai alur kerja departemen yang berbeda ke dalam satu platform terpusat, dan memastikan keamanan data yang ketat.",
-      "solution": "Kami mengembangkan arsitektur berbasis modul menggunakan backend yang kuat (seperti Node.js atau Python dengan Django/FastAPI) dan database relasional yang andal. Frontend-nya dibuat responsif untuk memudahkan akses dari mana saja. Sistem ini dirancang untuk skalabilitas, memungkinkan penambahan modul baru seiring pertumbuhan bisnis klien.",
-      "technologies": ["Next.js", "Node.js", "PostgreSQL", "Docker", "Manajemen Inventaris", "Akuntansi"],
+      "slug": "enterprise-erp-system",
+      "title": "Enterprise ERP System",
+      "description": "A comprehensive and integrated Enterprise Resource Planning (ERP) solution to optimize business processes, from finance and HR to inventory management and supply chain.",
+      "challenge": "The challenge was to build a modular system that could be customized to the unique needs of each company, integrate various departmental workflows into a single centralized platform, and ensure strict data security.",
+      "solution": "We developed a module-based architecture using a robust backend (like Node.js or Python with Django/FastAPI) and a reliable relational database. The frontend was made responsive for easy access from anywhere. The system is designed for scalability, allowing new modules to be added as the client's business grows.",
+      "technologies": ["Next.js", "Node.js", "PostgreSQL", "Docker", "Inventory Management", "Accounting"],
       "imageId": "portfolio-4",
       "liveUrl": "#",
       "githubUrl": "#"
