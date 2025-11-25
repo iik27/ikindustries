@@ -11,27 +11,27 @@ import {
 
 const testimonials = [
   {
-    quote: "Working with them was a seamless experience. Their professionalism and technical expertise are evident in the final product. We are extremely satisfied with the results.",
-    name: "Client A",
-    title: "CEO, Innovate Ltd.",
-    imageId: "testimonial-1",
-  },
-  {
-    quote: "The application they developed has significantly improved our workflow. It's intuitive, fast, and beautifully designed. Highly recommended for any development needs.",
-    name: "Client B",
-    title: "Director, TechForward",
+    quote: "Proses kerja dengan IK Industries sangat luar biasa. Website untuk program Undian Keluarga Emas kami berhasil dibuat dengan cepat, aman, dan sesuai dengan semua kebutuhan kami. Profesionalisme dan keahlian teknis mereka benar-benar melampaui ekspektasi.",
+    name: "Muhamad Rosad",
+    title: "PT. Rasa Jiwa Indonesia",
     imageId: "testimonial-2",
   },
   {
-    quote: "Their ability to translate complex requirements into a simple, elegant solution was impressive. They are a reliable and highly skilled technology partner.",
-    name: "Client C",
-    title: "Founder, Visionary Ventures",
+    quote: "Aplikasi yang mereka kembangkan telah meningkatkan alur kerja kami secara signifikan. Intuitif, cepat, dan dirancang dengan indah. Sangat direkomendasikan untuk segala kebutuhan pengembangan.",
+    name: "Klien B",
+    title: "Direktur, TechForward",
+    imageId: "testimonial-1",
+  },
+  {
+    quote: "Kemampuan mereka dalam menerjemahkan persyaratan yang kompleks menjadi solusi yang sederhana dan elegan sangat mengesankan. Mereka adalah mitra teknologi yang andal dan sangat terampil.",
+    name: "Klien C",
+    title: "Pendiri, Visionary Ventures",
     imageId: "testimonial-3",
   },
     {
-    quote: "Communication was excellent throughout the project. They kept us informed at every stage and delivered beyond our expectations. A truly five-star service.",
-    name: "Client D",
-    title: "Manager, NextGen Solutions",
+    quote: "Komunikasi sangat baik selama proyek berlangsung. Mereka selalu memberi kami informasi di setiap tahap dan memberikan hasil yang melebihi ekspektasi kami. Layanan yang benar-benar bintang lima.",
+    name: "Klien D",
+    title: "Manajer, NextGen Solutions",
     imageId: "testimonial-4",
   },
 ];
