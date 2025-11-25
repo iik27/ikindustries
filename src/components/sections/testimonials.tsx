@@ -17,9 +17,9 @@ const testimonials = [
     imageId: "testimonial-2",
   },
   {
-    quote: "Aplikasi yang mereka kembangkan telah meningkatkan alur kerja kami secara signifikan. Intuitif, cepat, dan dirancang dengan indah. Sangat direkomendasikan untuk segala kebutuhan pengembangan.",
-    name: "Klien B",
-    title: "Direktur, TechForward",
+    quote: "Inovasi yang luar biasa! Aplikasi berbasis WA to Web dari IK Industries sangat memudahkan kami dalam pelayanan pembuatan Kartu Identitas Anak dan Kartu Keluarga. Prosesnya menjadi jauh lebih efisien, cepat, dan mudah diakses oleh masyarakat. Solusi yang sangat membantu instansi pemerintah seperti kami.",
+    name: "Disdukcapil Kab. Purwakarta",
+    title: "Pemerintah Kab. Purwakarta",
     imageId: "testimonial-1",
   },
   {
