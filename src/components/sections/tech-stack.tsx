@@ -1,8 +1,8 @@
-
 'use client';
 
-import React, { useState } from 'react';
+import React from 'react';
 import { Card, CardContent } from "@/components/ui/card";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { 
     IconBrandJavascript, 
     IconBrandTypescript, 
@@ -21,140 +21,122 @@ import {
     IconBrandAstro,
 } from '@/components/icons';
 import { cn } from '@/lib/utils';
-import { Check, Clipboard } from 'lucide-react';
-import { Button } from '../ui/button';
 
 const technologies = [
-    { name: "JavaScript", icon: <IconBrandJavascript className="h-7 w-7" /> },
-    { name: "TypeScript", icon: <IconBrandTypescript className="h-7 w-7" /> },
-    { name: "Python", icon: <IconBrandPython className="h-7 w-7" /> },
-    { name: "React", icon: <IconBrandReact className="h-7 w-7" /> },
-    { name: "Next.js", icon: <IconBrandNextjs className="h-7 w-7" /> },
-    { name: "Node.js", icon: <IconBrandNodejs className="h-7 w-7" /> },
-    { name: "Tailwind CSS", icon: <IconBrandTailwind className="h-7 w-7" /> },
-    { name: "Firebase", icon: <IconBrandFirebase className="h-7 w-7" /> },
-    { name: "PostgreSQL", icon: <IconDatabase className="h-7 w-7" /> },
-    { name: "Git", icon: <IconBrandGit className="h-7 w-7" /> },
-    { name: "Docker", icon: <IconBrandDocker className="h-7 w-7" /> },
-    { name: "Vercel", icon: <IconBrandVercel className="h-7 w-7" /> },
+    { name: "JavaScript", icon: <IconBrandJavascript className="h-10 w-10" /> },
+    { name: "TypeScript", icon: <IconBrandTypescript className="h-10 w-10" /> },
+    { name: "Python", icon: <IconBrandPython className="h-10 w-10" /> },
+    { name: "React", icon: <IconBrandReact className="h-10 w-10" /> },
+    { name: "Next.js", icon: <IconBrandNextjs className="h-10 w-10" /> },
+    { name: "Node.js", icon: <IconBrandNodejs className="h-10 w-10" /> },
+    { name: "Tailwind CSS", icon: <IconBrandTailwind className="h-10 w-10" /> },
+    { name: "Express.js", icon: <IconBrandExpress className="h-10 w-10" /> },
+    { name: "Firebase", icon: <IconBrandFirebase className="h-10 w-10" /> },
+    { name: "PostgreSQL", icon: <IconDatabase className="h-10 w-10" /> },
+    { name: "Git", icon: <IconBrandGit className="h-10 w-10" /> },
+    { name: "Docker", icon: <IconBrandDocker className="h-10 w-10" /> },
+    { name: "Vercel", icon: <IconBrandVercel className="h-10 w-10" /> },
+    { name: "Remix", icon: <IconBrandRemix className="h-10 w-10" /> },
+    { name: "Astro", icon: <IconBrandAstro className="h-10 w-10" /> },
 ];
 
 const codeSnippets = {
-  'node': {
-    label: 'Node.js',
-    icon: <IconBrandNodejs className="h-5 w-5 mr-2" />,
-    code: `const express = require('express');
-const app = express();
+  nodejs: `
+const http = require('http');
+
+const hostname = '127.0.0.1';
 const port = 3000;
 
-app.get('/', (req, res) => {
-  res.send('Hello World from Node.js!');
+const server = http.createServer((req, res) => {
+  res.statusCode = 200;
+  res.setHeader('Content-Type', 'text/plain');
+  res.end('Hello, World!\\n');
 });
 
-app.listen(port, () => {
-  console.log(\`Example app listening on port \${port}\`);
-});`,
-    lang: 'javascript',
-  },
-  'next': {
-    label: 'Next.js',
-    icon: <IconBrandNextjs className="h-5 w-5 mr-2" />,
-    code: `import type { Metadata } from 'next';
- 
-export const metadata: Metadata = {
-  title: 'My Awesome App',
-};
- 
-export default function Page() {
-  return <h1>Hello, Next.js!</h1>;
-}`,
-    lang: 'typescript',
-  },
-  'python': {
-    label: 'Python',
-    icon: <IconBrandPython className="h-5 w-5 mr-2" />,
-    code: `from fastapi import FastAPI
+server.listen(port, hostname, () => {
+  console.log(\`Server running at http://\${hostname}:\${port}/\`);
+});
+`.trim(),
+  nextjs: `
+import type { NextPage } from 'next';
 
-app = FastAPI()
-
-@app.get("/")
-def read_root():
-    return {"Hello": "World"}
-
-@app.get("/items/{item_id}")
-def read_item(item_id: int, q: str | None = None):
-    return {"item_id": item_id, "q": q}`,
-    lang: 'python',
-  },
+const Home: NextPage = () => {
+  return (
+    <div>
+      <h1>Welcome to Next.js!</h1>
+      <p>This is a sample page.</p>
+    </div>
+  );
 };
 
-type SnippetKey = keyof typeof codeSnippets;
+export default Home;
+`.trim(),
+  python: `
+def greet(name):
+    """
+    This function greets the person passed in as a parameter.
+    """
+    print(f"Hello, {name}!")
+
+greet('IK Industries')
+# Output: Hello, IK Industries!
+`.trim(),
+};
+
+const CodeViewer = () => (
+  <Card className="bg-card/50 shadow-lg">
+    <CardContent className="p-0">
+      <Tabs defaultValue="nextjs" className="w-full">
+        <div className="flex justify-between items-center px-4 py-2 border-b">
+          <TabsList className="grid grid-cols-3 w-fit">
+            <TabsTrigger value="nextjs">Next.js</TabsTrigger>
+            <TabsTrigger value="nodejs">Node.js</TabsTrigger>
+            <TabsTrigger value="python">Python</TabsTrigger>
+          </TabsList>
+          <div className="flex items-center gap-1.5">
+            <div className="w-3 h-3 rounded-full bg-red-500"></div>
+            <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
+            <div className="w-3 h-3 rounded-full bg-green-500"></div>
+          </div>
+        </div>
+        <TabsContent value="nodejs">
+          <pre className="p-4 text-sm overflow-x-auto"><code className="font-code">{codeSnippets.nodejs}</code></pre>
+        </TabsContent>
+        <TabsContent value="nextjs">
+          <pre className="p-4 text-sm overflow-x-auto"><code className="font-code">{codeSnippets.nextjs}</code></pre>
+        </TabsContent>
+        <TabsContent value="python">
+          <pre className="p-4 text-sm overflow-x-auto"><code className="font-code">{codeSnippets.python}</code></pre>
+        </TabsContent>
+      </Tabs>
+    </CardContent>
+  </Card>
+);
 
 export default function TechStack() {
-  const [activeTab, setActiveTab] = useState<SnippetKey>('node');
-  const [copied, setCopied] = useState(false);
-
-  const handleCopy = () => {
-    navigator.clipboard.writeText(codeSnippets[activeTab].code);
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2000);
-  };
-
   return (
-    <section id="tech-stack" className="bg-gray-900 text-gray-200">
+    <section id="tech-stack" className="bg-background">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-2xl mx-auto">
-          <h2 className="font-headline text-3xl font-bold tracking-tight text-white sm:text-4xl">Integrate with Your Stack</h2>
-          <p className="mt-4 text-lg text-gray-400">
+          <h2 className="font-headline text-3xl font-bold tracking-tight text-foreground sm:text-4xl">My Tech Stack</h2>
+          <p className="mt-4 text-lg text-foreground/80">
             I leverage a modern, robust tech stack to build high-quality applications. Here are some of the technologies I love to work with.
           </p>
         </div>
         
-        <div className="mt-16 max-w-5xl mx-auto">
-          <div className="grid grid-cols-4 sm:grid-cols-6 gap-x-4 gap-y-8 text-center">
-            {technologies.map((tech) => (
-              <div key={tech.name} className="flex flex-col items-center gap-3">
-                 <div className="flex items-center justify-center w-16 h-16 rounded-xl bg-gray-800 border border-gray-700/50 shadow-inner-md">
-                   {tech.icon}
+        <div className="mt-16 max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div className="flex flex-wrap justify-center gap-6 lg:justify-start">
+              {technologies.map((tech) => (
+                <div key={tech.name} className="flex flex-col items-center justify-center gap-2 w-24 text-center">
+                  {tech.icon}
+                  <p className="text-sm font-medium text-foreground/90">{tech.name}</p>
                 </div>
-                <p className="text-sm font-medium text-gray-300">{tech.name}</p>
-              </div>
-            ))}
+              ))}
           </div>
-        </div>
 
-        <div className="mt-16 max-w-4xl mx-auto">
-          <Card className="bg-[#161B22] border border-gray-700/50 shadow-2xl shadow-blue-500/10">
-            <div className="flex items-center justify-between p-2 border-b border-gray-700/50">
-                <div className="flex items-center gap-1">
-                    {Object.keys(codeSnippets).map((key) => (
-                        <button
-                            key={key}
-                            onClick={() => setActiveTab(key as SnippetKey)}
-                            className={cn(
-                                "flex items-center rounded-md px-3 py-1.5 text-sm font-medium transition-colors",
-                                activeTab === key
-                                ? 'bg-gray-700/50 text-white'
-                                : 'text-gray-400 hover:bg-gray-800/50 hover:text-white'
-                            )}
-                        >
-                            {codeSnippets[key as SnippetKey].icon}
-                            {codeSnippets[key as SnippetKey].label}
-                        </button>
-                    ))}
-                </div>
-                <Button variant="ghost" size="icon" onClick={handleCopy} className="text-gray-400 hover:bg-gray-800/50 hover:text-white">
-                    {copied ? <Check className="h-5 w-5 text-green-400" /> : <Clipboard className="h-5 w-5" />}
-                </Button>
-            </div>
-            <CardContent className="p-0">
-              <pre className="p-6 text-sm overflow-x-auto bg-transparent">
-                <code className={`language-${codeSnippets[activeTab].lang} font-code`}>
-                  {codeSnippets[activeTab].code}
-                </code>
-              </pre>
-            </CardContent>
-          </Card>
+          <div className="lg:max-w-md">
+             <CodeViewer />
+          </div>
         </div>
       </div>
     </section>
