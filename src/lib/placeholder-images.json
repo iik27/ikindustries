@@ -1,3 +1,52 @@
 {
-  "placeholderImages": []
+  "placeholderImages": [
+    {
+      "id": "profile",
+      "description": "Profile picture of Muhamad Taufik Hidayat",
+      "imageUrl": "https://images.unsplash.com/photo-1583195763986-0231686dcd43?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxtYW4lMjBwb3J0cmFpdHxlbnwwfHx8fDE3NjM5MjU3NzF8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "man portrait"
+    },
+    {
+      "id": "hero",
+      "description": "Abstract technology background for hero section",
+      "imageUrl": "https://images.unsplash.com/photo-1604011237320-8e0506614fdf?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxhYnN0cmFjdCUyMHRlY2hub2xvZ3l8ZW58MHx8fHwxNzY0MDE0MjEzfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "abstract technology"
+    },
+    {
+      "id": "portfolio-1",
+      "description": "A modern web application dashboard",
+      "imageUrl": "https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHx3ZWIlMjBhcHBsaWNhdGlvbnxlbnwwfHx8fDE3NjQwMDA0Mzl8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "web application"
+    },
+    {
+      "id": "portfolio-2",
+      "description": "A sleek mobile application interface",
+      "imageUrl": "https://images.unsplash.com/photo-1512428559087-560fa5ceab42?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxtb2JpbGUlMjBhcHB8ZW58MHx8fHwxNzYzOTc4MTU3fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "mobile app"
+    },
+    {
+      "id": "portfolio-3",
+      "description": "An AI-powered data analytics dashboard",
+      "imageUrl": "https://images.unsplash.com/photo-1584301952952-8544e5ae7a26?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxhaSUyMGRhc2hib2FyZHxlbnwwfHx8fDE3NjQwMzU4MDF8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "ai dashboard"
+    },
+    {
+      "id": "portfolio-4",
+      "description": "Interactive data visualization chart",
+      "imageUrl": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxkYXRhJTIwdmlzdWFsaXphdGlvbnxlbnwwfHx8fDE3NjM5ODAxNzd8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "data visualization"
+    },
+    {
+      "id": "portfolio-5",
+      "description": "A clean and modern technology company website",
+      "imageUrl": "https://images.unsplash.com/photo-1762330465633-2f517c1782a6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHx0ZWNoJTIwd2Vic2l0ZXxlbnwwfHx8fDE3NjQwMzU4MDF8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "tech website"
+    },
+    {
+      "id": "portfolio-6",
+      "description": "An e-commerce platform showing product listings",
+      "imageUrl": "https://images.unsplash.com/photo-1716300983244-07a6b7f535c8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxlY29tbWVyY2UlMjBwbGF0Zm9ybXxlbnwwfHx8fDE3NjQwMzU4MDB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "ecommerce platform"
+    }
+  ]
 }
