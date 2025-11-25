@@ -71,14 +71,15 @@ export default function Testimonials() {
                         <div className="bg-secondary/50 p-6 pt-4 mt-auto">
                           <div className="flex items-center gap-4">
                             {image && (
-                              <Image
-                                src={image.imageUrl}
-                                alt={`Portrait of ${testimonial.name}`}
-                                width={56}
-                                height={56}
-                                className="rounded-full object-cover"
-                                data-ai-hint={image.imageHint}
-                              />
+                              <div className="relative h-14 w-14 rounded-full overflow-hidden">
+                                <Image
+                                  src={image.imageUrl}
+                                  alt={`Portrait of ${testimonial.name}`}
+                                  fill
+                                  className="object-cover"
+                                  data-ai-hint={image.imageHint}
+                                />
+                              </div>
                             )}
                             <div>
                               <p className="font-headline font-semibold text-foreground">{testimonial.name}</p>

@@ -31,12 +31,11 @@ export default function BlogListPage() {
                   <Card key={post.slug} className="group flex flex-col overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300">
                     {image && (
                       <CardContent className="p-0">
-                        <Link href={`/blog/${post.slug}`} className="block aspect-[3/2] overflow-hidden">
+                        <Link href={`/blog/${post.slug}`} className="block aspect-[3/2] overflow-hidden relative">
                           <Image
                             src={image.imageUrl}
                             alt={image.description}
-                            width={600}
-                            height={400}
+                            fill
                             className="object-cover w-full h-full transform transition-transform duration-500 group-hover:scale-110"
                             data-ai-hint={image.imageHint}
                           />
