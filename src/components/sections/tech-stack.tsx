@@ -80,6 +80,18 @@ def greet(name):
 greet('IK Industries')
 # Output: Hello, IK Industries!
 `.trim(),
+  java: `
+class HelloWorld {
+    public static void main(String[] args) {
+        System.out.println("Hello, World!"); 
+    }
+}
+`.trim(),
+  php: `
+<?php
+  echo "Hello, World!";
+?>
+`.trim(),
 };
 
 const CodeViewer = () => (
@@ -87,10 +99,12 @@ const CodeViewer = () => (
     <CardContent className="p-0">
       <Tabs defaultValue="nextjs" className="w-full">
         <div className="flex justify-between items-center px-4 py-2 border-b">
-          <TabsList className="grid grid-cols-3 w-fit">
+          <TabsList className="grid grid-cols-5 w-fit">
             <TabsTrigger value="nextjs">Next.js</TabsTrigger>
             <TabsTrigger value="nodejs">Node.js</TabsTrigger>
             <TabsTrigger value="python">Python</TabsTrigger>
+            <TabsTrigger value="java">Java</TabsTrigger>
+            <TabsTrigger value="php">PHP</TabsTrigger>
           </TabsList>
           <div className="flex items-center gap-1.5">
             <div className="w-3 h-3 rounded-full bg-red-500"></div>
@@ -106,6 +120,12 @@ const CodeViewer = () => (
         </TabsContent>
         <TabsContent value="python">
           <pre className="p-4 text-sm overflow-x-auto"><code className="font-code">{codeSnippets.python}</code></pre>
+        </TabsContent>
+        <TabsContent value="java">
+          <pre className="p-4 text-sm overflow-x-auto"><code className="font-code">{codeSnippets.java}</code></pre>
+        </TabsContent>
+        <TabsContent value="php">
+          <pre className="p-4 text-sm overflow-x-auto"><code className="font-code">{codeSnippets.php}</code></pre>
         </TabsContent>
       </Tabs>
     </CardContent>
