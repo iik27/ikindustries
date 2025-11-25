@@ -11,14 +11,14 @@ import {
     IconBrandNextjs,
     IconBrandNodejs,
     IconBrandFirebase,
-    IconBrandVercel,
+    IconBrandVSCode,
     IconBrandGit,
     IconBrandPHP,
     IconDatabase,
     IconBrandTailwind,
     IconBrandDart,
     IconBrandJava,
-    IconBrandAstro,
+    IconBrandAndroidStudio,
 } from '@/components/icons';
 
 const technologies = [
@@ -34,9 +34,9 @@ const technologies = [
     { name: "PostgreSQL", icon: <IconDatabase className="h-10 w-10" /> },
     { name: "Git", icon: <IconBrandGit className="h-10 w-10" /> },
     { name: "PHP", icon: <IconBrandPHP className="h-10 w-10" /> },
-    { name: "Vercel", icon: <IconBrandVercel className="h-10 w-10" /> },
+    { name: "VS Code", icon: <IconBrandVSCode className="h-10 w-10" /> },
     { name: "Java", icon: <IconBrandJava className="h-10 w-10" /> },
-    { name: "Astro", icon: <IconBrandAstro className="h-10 w-10" /> },
+    { name: "Android Studio", icon: <IconBrandAndroidStudio className="h-10 w-10" /> },
 ];
 
 const codeSnippets = {
