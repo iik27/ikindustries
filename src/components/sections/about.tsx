@@ -17,6 +17,7 @@ export default function About() {
                   src={profileImage.imageUrl}
                   alt={profileImage.description}
                   fill
+                  sizes="100vw"
                   className="object-cover"
                   data-ai-hint={profileImage.imageHint}
                 />

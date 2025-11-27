@@ -37,6 +37,7 @@ export default function BlogListPage() {
                             src={image.imageUrl}
                             alt={image.description}
                             fill
+                            sizes="100vw"
                             className="object-cover w-full h-full transform transition-transform duration-500 group-hover:scale-110"
                             data-ai-hint={image.imageHint}
                           />

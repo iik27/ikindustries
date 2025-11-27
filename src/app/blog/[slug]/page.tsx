@@ -68,6 +68,7 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
                     src={image.imageUrl}
                     alt={post.title}
                     fill
+                    sizes="100vw"
                     className="object-cover"
                     data-ai-hint={image.imageHint}
                     priority
