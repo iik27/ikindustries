@@ -1,11 +1,8 @@
 'use client';
 
-import { useActionState } from 'react';
+import { useActionState, useEffect } from 'react';
 import { useFormStatus } from 'react-dom';
 import { Mail, Phone } from 'lucide-react';
-import { zodResolver } from '@hookform/resolvers/zod';
-import { useForm } from 'react-hook-form';
-import { z } from 'zod';
 
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -13,15 +10,7 @@ import { Textarea } from '@/components/ui/textarea';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { submitContactForm, type ContactFormState } from '@/app/actions';
 import { useToast } from '@/hooks/use-toast';
-import { useEffect } from 'react';
 
-const contactFormSchema = z.object({
-  name: z.string().min(2, { message: 'Name must be at least 2 characters.' }),
-  email: z.string().email({ message: 'Please enter a valid email.' }),
-  message: z.string().min(10, { message: 'Message must be at least 10 characters.' }),
-});
-
-type ContactFormValues = z.infer<typeof contactFormSchema>;
 
 function SubmitButton() {
   const { pending } = useFormStatus();
@@ -38,21 +27,12 @@ export default function Contact() {
     message: '',
   });
 
-  const form = useForm<ContactFormValues>({
-    resolver: zodResolver(contactFormSchema),
-    defaultValues: {
-      name: '',
-      email: '',
-      message: '',
-    },
-  });
-
-  useEffect(() => {
+   useEffect(() => {
     if (state.message) {
       if (state.issues) {
         toast({
-          title: 'Error',
-          description: state.message,
+          title: "We couldn't submit the form.",
+          description: state.issues[0] || 'Please check the fields below.',
           variant: 'destructive',
         });
       } else {
@@ -60,10 +40,12 @@ export default function Contact() {
           title: 'Success!',
           description: state.message,
         });
-        form.reset();
+        // Note: Resetting the form requires the form element.
+        // We can get it via the event or by giving the form an ID.
+        // For simplicity with server actions, a full-page redirect or just showing a success message is often easier.
       }
     }
-  }, [state, toast, form]);
+  }, [state, toast]);
 
 
   return (
@@ -97,15 +79,15 @@ export default function Contact() {
               <form action={formAction} className="space-y-4">
                 <div className="space-y-2">
                   <label htmlFor="name" className="text-sm font-medium">Name</label>
-                  <Input id="name" name="name" placeholder="Your Name" required />
+                  <Input id="name" name="name" placeholder="Your Name" required defaultValue={state.fields?.name} />
                 </div>
                 <div className="space-y-2">
                   <label htmlFor="email" className="text-sm font-medium">Email</label>
-                  <Input id="email" name="email" type="email" placeholder="your.email@example.com" required />
+                  <Input id="email" name="email" type="email" placeholder="your.email@example.com" required defaultValue={state.fields?.email} />
                 </div>
                 <div className="space-y-2">
                   <label htmlFor="message" className="text-sm font-medium">Message</label>
-                  <Textarea id="message" name="message" placeholder="Your message here..." required minLength={10} />
+                  <Textarea id="message" name="message" placeholder="Your message here..." required minLength={10} defaultValue={state.fields?.message} />
                 </div>
                 <SubmitButton />
               </form>
