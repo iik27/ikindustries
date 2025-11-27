@@ -55,7 +55,7 @@ export default function Header() {
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
-          <Link href="/" className="flex items-center gap-2 text-2xl font-headline font-bold">
+          <Link href="/" className="flex-shrink-0 flex items-center gap-2 text-2xl font-headline font-bold whitespace-nowrap">
             <Image src="https://iili.io/ffDrAW7.png" alt="IK Industries Logo" width={32} height={32} className="rounded-full" />
             <span>IK Industries</span>
           </Link>
