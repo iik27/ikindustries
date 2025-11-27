@@ -82,10 +82,10 @@ export default function Contact() {
                     <Mail className="h-6 w-6 text-primary" />
                     <span>contact@ikindustries.com</span>
                 </a>
-                <div className="flex items-center gap-4 text-lg">
+                <a href="https://wa.me/6281462202381" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 text-lg hover:text-primary transition-colors">
                     <Phone className="h-6 w-6 text-primary" />
                     <span>+6281462202381</span>
-                </div>
+                </a>
             </div>
           </div>
           <Card className="shadow-lg">
