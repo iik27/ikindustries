@@ -9,6 +9,7 @@ import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from '@/co
 import { cn } from '@/lib/utils';
 
 const NAV_LINKS = [
+  { href: '/#development-process', label: 'Process' },
   { href: '/#services', label: 'Services' },
   { href: '/#strengths', label: 'Strengths' },
   { href: '/portfolio', label: 'Portfolio' },

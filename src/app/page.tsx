@@ -1,5 +1,6 @@
 import Header from '@/components/header';
 import Hero from '@/components/sections/hero';
+import DevelopmentProcess from '@/components/sections/development-process';
 import About from '@/components/sections/about';
 import Services from '@/components/sections/services';
 import TechStack from '@/components/sections/tech-stack';
@@ -16,6 +17,7 @@ export default function Home() {
       <Header />
       <main>
         <Hero />
+        <DevelopmentProcess />
         <Services />
         <TechStack />
         <Strengths />
