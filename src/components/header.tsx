@@ -5,7 +5,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from '@/components/ui/sheet';
+import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger, SheetDescription } from '@/components/ui/sheet';
 import { cn } from '@/lib/utils';
 
 const NAV_LINKS = [
@@ -70,6 +70,7 @@ export default function Header() {
             <SheetContent side="right" className="w-[300px] bg-background p-0">
               <SheetHeader className="p-6 pb-0">
                 <SheetTitle className="sr-only">Mobile Menu</SheetTitle>
+                <SheetDescription className="sr-only">A list of navigation links for the site.</SheetDescription>
               </SheetHeader>
               <div className="flex flex-col h-full p-6">
                  <Link href="/" className="flex items-center gap-2 text-2xl font-headline font-bold mb-8">
