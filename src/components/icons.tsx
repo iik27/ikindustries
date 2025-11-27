@@ -30,7 +30,7 @@ export const IconBrandFirebase = (props: React.SVGProps<SVGSVGElement>) => (
 );
 
 export const IconDatabase = (props: React.SVGProps<SVGSVGElement>) => (
-    <img src="https://www.svgrepo.com/show/374012/postgresql.svg" alt="PostgreSQL" {...props} />
+    <img src="https://www.svgrepo.com/show/439268/postgresql.svg" alt="PostgreSQL" {...props} />
 );
 
 export const IconBrandVSCode = (props: React.SVGProps<SVGSVGElement>) => (
@@ -50,7 +50,7 @@ export const IconBrandTailwind = (props: React.SVGProps<SVGSVGElement>) => (
 );
 
 export const IconBrandFlutter = (props: React.SVGProps<SVGSVGElement>) => (
-    <img src="https://www.svgrepo.com/show/373622/flutter.svg" alt="Flutter" {...props} />
+    <img src="https://www.svgrepo.com/show/373604/flutter.svg" alt="Flutter" {...props} />
 );
 
 export const IconBrandJava = (props: React.SVGProps<SVGSVGElement>) => (
@@ -58,5 +58,5 @@ export const IconBrandJava = (props: React.SVGProps<SVGSVGElement>) => (
 );
 
 export const IconBrandKotlin = (props: React.SVGProps<SVGSVGElement>) => (
-    <img src="https://www.svgrepo.com/show/373729/kotlin.svg" alt="Kotlin" {...props} />
+    <img src="https://www.svgrepo.com/show/353980/kotlin.svg" alt="Kotlin" {...props} />
 );
