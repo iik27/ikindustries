@@ -58,6 +58,7 @@ export default function Testimonials() {
           >
             <CarouselContent>
               {testimonials.map((testimonial, index) => {
+                const image = PlaceHolderImages.find(p => p.id === testimonial.imageId);
                 return (
                   <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
                     <div className="p-1 h-full">
@@ -70,7 +71,17 @@ export default function Testimonials() {
                         <div className="bg-secondary/50 p-6 pt-4 mt-auto">
                           <div className="flex items-center gap-4">
                             <div className="relative h-14 w-14 rounded-full overflow-hidden flex items-center justify-center bg-muted">
+                              {image ? (
+                                <Image
+                                  src={image.imageUrl}
+                                  alt={testimonial.name}
+                                  fill
+                                  className="object-cover"
+                                  data-ai-hint={image.imageHint}
+                                />
+                              ) : (
                                 <User className="h-8 w-8 text-foreground/50" />
+                              )}
                             </div>
                             <div>
                               <p className="font-headline font-semibold text-foreground">{testimonial.name}</p>
