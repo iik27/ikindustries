@@ -54,50 +54,55 @@ export default function Header() {
       )}
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-20">
+        {/* Mobile Header */}
+        <div className="flex items-center justify-between h-20 md:hidden">
           <Link href="/" className="flex-shrink-0 flex items-center gap-2 text-2xl font-headline font-bold whitespace-nowrap">
             <Image src="https://iili.io/ffDrAW7.png" alt="IK Industries Logo" width={32} height={32} className="rounded-full" />
             <span>IK Industries</span>
           </Link>
+          <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
+            <SheetTrigger asChild>
+              <Button variant="ghost" size="icon">
+                <Menu className="h-6 w-6" />
+                <span className="sr-only">Open menu</span>
+              </Button>
+            </SheetTrigger>
+            <SheetContent side="right" className="w-[300px] bg-background p-0">
+              <SheetHeader className="p-6 pb-0">
+                <SheetTitle className="sr-only">Mobile Menu</SheetTitle>
+              </SheetHeader>
+              <div className="flex flex-col h-full p-6">
+                 <Link href="/" className="flex items-center gap-2 text-2xl font-headline font-bold mb-8">
+                    <Image src="https://iili.io/ffDrAW7.png" alt="IK Industries Logo" width={32} height={32} className="rounded-full" />
+                    <span>IK Industries</span>
+                 </Link>
+                <nav className="flex flex-col gap-6">
+                  {NAV_LINKS.map((link) => (
+                     <NavLink 
+                        key={link.href} 
+                        href={link.href} 
+                        label={link.label} 
+                        isMobile 
+                        onClick={() => setIsMobileMenuOpen(false)}
+                      />
+                  ))}
+                </nav>
+              </div>
+            </SheetContent>
+          </Sheet>
+        </div>
 
-          <nav className="hidden md:flex items-center gap-6">
+        {/* Desktop Header */}
+        <div className="hidden md:flex flex-col items-center justify-center py-4">
+          <Link href="/" className="flex-shrink-0 flex items-center gap-2 text-2xl font-headline font-bold whitespace-nowrap">
+            <Image src="https://iili.io/ffDrAW7.png" alt="IK Industries Logo" width={32} height={32} className="rounded-full" />
+            <span>IK Industries</span>
+          </Link>
+          <nav className="flex items-center gap-6 mt-4">
             {NAV_LINKS.map((link) => (
                <NavLink key={link.href} href={link.href} label={link.label} />
             ))}
           </nav>
-          
-          <div className="md:hidden">
-            <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
-              <SheetTrigger asChild>
-                <Button variant="ghost" size="icon">
-                  <Menu className="h-6 w-6" />
-                  <span className="sr-only">Open menu</span>
-                </Button>
-              </SheetTrigger>
-              <SheetContent side="right" className="w-[300px] bg-background p-0">
-                <SheetHeader className="p-6 pb-0">
-                  <SheetTitle className="sr-only">Mobile Menu</SheetTitle>
-                </SheetHeader>
-                <div className="flex flex-col h-full p-6">
-                   <Link href="/" className="flex items-center gap-2 text-2xl font-headline font-bold mb-8">
-                      <Image src="https://iili.io/ffDrAW7.png" alt="IK Industries Logo" width={32} height={32} className="rounded-full" />
-                      <span>IK Industries</span>
-                   </Link>
-                  <nav className="flex flex-col gap-6">
-                    {NAV_LINKS.map((link) => (
-                       <NavLink 
-                          key={link.href} 
-                          href={link.href} 
-                          label={link.label} 
-                          isMobile 
-                          onClick={() => setIsMobileMenuOpen(false)}
-                        />
-                    ))}
-                  </nav>
-                </div>
-              </SheetContent>
-            </Sheet>
-          </div>
         </div>
       </div>
     </header>
