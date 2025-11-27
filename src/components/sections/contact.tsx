@@ -82,7 +82,7 @@ export default function Contact() {
                     <Mail className="h-6 w-6 text-primary" />
                     <span>contact@ikindustries.com</span>
                 </a>
-                <a href="https://wa.me/6281462202381" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 text-lg hover:text-primary transition-colors">
+                <a href="https://wa.me/6281462202381?text=Halo%2C%20saya%20tertarik%20dengan%20layanan%20Anda%20dan%20ingin%20bertanya%20lebih%20lanjut." target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 text-lg hover:text-primary transition-colors">
                     <Phone className="h-6 w-6 text-primary" />
                     <span>+6281462202381</span>
                 </a>
