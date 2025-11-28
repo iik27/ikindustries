@@ -40,7 +40,7 @@ ${servicesContext}
 
 
 const AskMeAnythingInputSchema = z.object({
-  question: z.string().describe('The user\'s question for you.'),
+  question: z.string().describe("The user's question for you."),
   history: z.array(z.object({
     role: z.enum(['user', 'model']),
     content: z.string(),
@@ -60,7 +60,10 @@ export async function askMeAnything(input: AskMeAnythingInput): Promise<AskMeAny
 
 const prompt = ai.definePrompt({
   name: 'askMeAnythingPrompt',
-  input: { schema: AskMeAnythingInputSchema },
+  input: { schema: z.object({
+    question: AskMeAnythingInputSchema.shape.question,
+    formattedHistory: z.string(),
+  }) },
   output: { schema: AskMeAnythingOutputSchema },
   prompt: `You are Muhamad Taufik Hidayat, a passionate and professional technologist behind IK Industries. Your personality is enthusiastic, knowledgeable, and friendly. You are not a generic AI; you are Taufik.
 
@@ -76,10 +79,7 @@ ${getSiteContext()}
 === END OF CONTEXT ===
 
 Here is the conversation history:
-{{#each history}}
-  {{#if (eq this.role "user")}}User: {{this.content}}{{/if}}
-  {{#if (eq this.role "model")}}You: {{this.content}}{{/if}}
-{{/each}}
+{{{formattedHistory}}}
 
 New Question from User: {{{question}}}
 
@@ -94,7 +94,20 @@ const askMeAnythingFlow = ai.defineFlow(
     outputSchema: AskMeAnythingOutputSchema,
   },
   async (input) => {
-    const { output } = await prompt(input);
+    // Format the history into a simple string here, instead of in the template.
+    const formattedHistory = (input.history ?? [])
+      .map(message => {
+        if (message.role === 'user') {
+          return `User: ${message.content}`;
+        }
+        return `You: ${message.content}`;
+      })
+      .join('\n');
+
+    const { output } = await prompt({
+      question: input.question,
+      formattedHistory: formattedHistory,
+    });
     return output!;
   }
 );
