@@ -122,7 +122,7 @@ export default function InteractiveTechStack() {
                     <div className="w-3 h-3 rounded-full bg-green-500"></div>
                 </div>
             </div>
-            <pre className="p-4 text-sm overflow-x-auto min-h-[300px] bg-muted/30">
+            <pre className="p-4 text-sm overflow-x-auto min-h-[300px] bg-muted/30 whitespace-pre-wrap">
                 <code className={cn("font-code", `language-${generatedCode.language}`)}>
                     {isPending ? (
                         <div className="space-y-2">
