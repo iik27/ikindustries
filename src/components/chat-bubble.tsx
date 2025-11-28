@@ -25,7 +25,7 @@ export function ChatBubble({ role, children }: ChatBubbleProps) {
         className={cn(
           'max-w-xs md:max-w-md rounded-lg px-4 py-2',
           isUser
-            ? 'bg-blue-600 text-white dark:bg-blue-600 dark:text-white' // Always use a specific blue for high contrast
+            ? 'bg-primary text-primary-foreground' // Menggunakan warna tema utama
             : 'bg-muted text-foreground'
         )}
       >
