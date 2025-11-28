@@ -3,7 +3,7 @@ import Hero from '@/components/sections/hero';
 import DevelopmentProcess from '@/components/sections/development-process';
 import About from '@/components/sections/about';
 import Services from '@/components/sections/services';
-import TechStack from '@/components/sections/tech-stack';
+import InteractiveTechStack from '@/components/sections/interactive-tech-stack';
 import Strengths from '@/components/sections/strengths';
 import Portfolio from '@/components/sections/portfolio';
 import Testimonials from '@/components/sections/testimonials';
@@ -19,7 +19,7 @@ export default function Home() {
         <Hero />
         <DevelopmentProcess />
         <Services />
-        <TechStack />
+        <InteractiveTechStack />
         <Strengths />
         <Portfolio />
         <Testimonials />
