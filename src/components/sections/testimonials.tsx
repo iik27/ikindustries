@@ -61,7 +61,6 @@ export default function Testimonials() {
             plugins={[plugin.current]}
             opts={{
               align: "start",
-              loop: true,
             }}
             className="w-full max-w-5xl mx-auto"
             onMouseEnter={plugin.current.stop}
