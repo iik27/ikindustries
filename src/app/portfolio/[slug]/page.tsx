@@ -21,8 +21,9 @@ export function generateStaticParams() {
   }));
 }
 
-export default function PortfolioItemPage({ params }: PortfolioItemPageProps) {
-  const item = PortfolioItems.find((p) => p.slug === params.slug);
+export default async function PortfolioItemPage({ params }: PortfolioItemPageProps) {
+  const awaitedParams = await params;
+  const item = PortfolioItems.find((p) => p.slug === awaitedParams.slug);
 
   if (!item) {
     notFound();

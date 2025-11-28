@@ -21,8 +21,9 @@ export function generateStaticParams() {
   }));
 }
 
-export default function BlogPostPage({ params }: BlogPostPageProps) {
-  const post = BlogPosts.find((p) => p.slug === params.slug);
+export default async function BlogPostPage({ params }: BlogPostPageProps) {
+  const awaitedParams = await params;
+  const post = BlogPosts.find((p) => p.slug === awaitedParams.slug);
 
   if (!post) {
     notFound();
