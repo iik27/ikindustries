@@ -3,10 +3,11 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { Menu, X } from 'lucide-react';
+import { Menu } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger, SheetDescription } from '@/components/ui/sheet';
+import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetDescription } from '@/components/ui/sheet';
 import { cn } from '@/lib/utils';
+import { ThemeToggle } from '@/components/theme-toggle';
 
 const NAV_LINKS = [
   { href: '/#development-process', label: 'Process' },
@@ -60,45 +61,56 @@ export default function Header() {
             <Image src="https://iili.io/ffDrAW7.png" alt="IK Industries Logo" width={32} height={32} className="rounded-full" />
             <span>IK Industries</span>
           </Link>
-          <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
-            <SheetTrigger asChild>
-              <Button variant="ghost" size="icon">
-                <Menu className="h-6 w-6" />
-                <span className="sr-only">Open menu</span>
-              </Button>
-            </SheetTrigger>
-            <SheetContent side="right" className="w-[300px] bg-background p-0">
-              <SheetHeader className="p-6 pb-0">
-                <SheetTitle className="sr-only">Mobile Menu</SheetTitle>
-                <SheetDescription className="sr-only">A list of navigation links for the site.</SheetDescription>
-              </SheetHeader>
-              <div className="flex flex-col h-full p-6">
-                 <Link href="/" className="flex items-center gap-2 text-2xl font-headline font-bold mb-8">
-                    <Image src="https://iili.io/ffDrAW7.png" alt="IK Industries Logo" width={32} height={32} className="rounded-full" />
-                    <span>IK Industries</span>
-                 </Link>
-                <nav className="flex flex-col gap-6">
-                  {NAV_LINKS.map((link) => (
-                     <NavLink 
-                        key={link.href} 
-                        href={link.href} 
-                        label={link.label} 
-                        isMobile 
-                        onClick={() => setIsMobileMenuOpen(false)}
-                      />
-                  ))}
-                </nav>
-              </div>
-            </SheetContent>
-          </Sheet>
+          <div className="flex items-center gap-2">
+            <ThemeToggle />
+            <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
+              <SheetTrigger asChild>
+                <Button variant="ghost" size="icon">
+                  <Menu className="h-6 w-6" />
+                  <span className="sr-only">Open menu</span>
+                </Button>
+              </SheetTrigger>
+              <SheetContent side="right" className="w-[300px] bg-background p-0">
+                <SheetHeader className="p-6 pb-0">
+                  <SheetTitle className="sr-only">Mobile Menu</SheetTitle>
+                  <SheetDescription className="sr-only">A list of navigation links for the site.</SheetDescription>
+                </SheetHeader>
+                <div className="flex flex-col h-full p-6">
+                  <Link href="/" className="flex items-center gap-2 text-2xl font-headline font-bold mb-8">
+                      <Image src="https://iili.io/ffDrAW7.png" alt="IK Industries Logo" width={32} height={32} className="rounded-full" />
+                      <span>IK Industries</span>
+                  </Link>
+                  <nav className="flex flex-col gap-6">
+                    {NAV_LINKS.map((link) => (
+                      <NavLink 
+                          key={link.href} 
+                          href={link.href} 
+                          label={link.label} 
+                          isMobile 
+                          onClick={() => setIsMobileMenuOpen(false)}
+                        />
+                    ))}
+                  </nav>
+                </div>
+              </SheetContent>
+            </Sheet>
+          </div>
         </div>
 
         {/* Desktop Header */}
         <div className="hidden md:flex flex-col items-center justify-center py-4">
-          <Link href="/" className="flex-shrink-0 flex items-center gap-2 text-2xl font-headline font-bold whitespace-nowrap">
-            <Image src="https://iili.io/ffDrAW7.png" alt="IK Industries Logo" width={32} height={32} className="rounded-full" />
-            <span>IK Industries</span>
-          </Link>
+          <div className="flex items-center justify-between w-full">
+            <div className="w-1/3"></div> {/* Spacer */}
+            <div className="w-1/3 flex justify-center">
+              <Link href="/" className="flex-shrink-0 flex items-center gap-2 text-2xl font-headline font-bold whitespace-nowrap">
+                <Image src="https://iili.io/ffDrAW7.png" alt="IK Industries Logo" width={32} height={32} className="rounded-full" />
+                <span>IK Industries</span>
+              </Link>
+            </div>
+            <div className="w-1/3 flex justify-end">
+              <ThemeToggle />
+            </div>
+          </div>
           <nav className="flex items-center gap-6 mt-4">
             {NAV_LINKS.map((link) => (
                <NavLink key={link.href} href={link.href} label={link.label} />
