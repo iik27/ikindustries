@@ -3,19 +3,17 @@
  * @fileOverview An AI flow to generate sample code for a given technology.
  *
  * - generateCode - A function that handles the code generation process.
- * - GenerateCodeInput - The input type for the generateCode function.
- * - GenerateCodeOutput - The return type for the generateCode function.
  */
 
 import { ai } from '@/ai/genkit';
 import { z } from 'zod';
 
-export const GenerateCodeInputSchema = z.object({
+const GenerateCodeInputSchema = z.object({
   technology: z.string().describe('The programming language or technology to generate a code snippet for.'),
 });
 export type GenerateCodeInput = z.infer<typeof GenerateCodeInputSchema>;
 
-export const GenerateCodeOutputSchema = z.object({
+const GenerateCodeOutputSchema = z.object({
   code: z.string().describe('The generated code snippet.'),
   language: z.string().describe('The language of the generated code (e.g., "javascript", "python").'),
 });

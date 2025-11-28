@@ -1,9 +1,9 @@
 'use client';
 
 import React, { useState, useEffect, useCallback, useTransition } from 'react';
+import { z } from 'zod';
 import { Card, CardContent } from "@/components/ui/card";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { generateCode, GenerateCodeOutput } from '@/ai/flows/generate-code-flow';
+import { generateCode } from '@/ai/flows/generate-code-flow';
 import { 
     IconBrandJavascript, 
     IconBrandTypescript, 
@@ -23,6 +23,12 @@ import {
 } from '@/components/icons';
 import { cn } from '@/lib/utils';
 import { Skeleton } from '../ui/skeleton';
+
+const GenerateCodeOutputSchema = z.object({
+  code: z.string().describe('The generated code snippet.'),
+  language: z.string().describe('The language of the generated code (e.g., "javascript", "python").'),
+});
+export type GenerateCodeOutput = z.infer<typeof GenerateCodeOutputSchema>;
 
 const technologies = [
     { name: "Next.js", icon: <IconBrandNextjs className="h-10 w-10" />, language: "jsx" },
@@ -78,66 +84,6 @@ const Typewriter = ({ text, onDone }: { text: string, onDone: () => void }) => {
 
     return <>{displayedText}</>;
 };
-
-const CodeViewer = () => {
-  const [activeTab, setActiveTab] = useState("Next.js");
-  const [codeSnippet, setCodeSnippet] = useState<GenerateCodeOutput>({ code: defaultCode, language: 'jsx' });
-  const [isPending, startTransition] = useTransition();
-  const [isTyping, setIsTyping] = useState(false);
-  const [isLoading, setIsLoading] = useState(false);
-
-
-  const handleTabChange = useCallback((techName: string) => {
-    setActiveTab(techName);
-    setIsLoading(true);
-    startTransition(async () => {
-      try {
-        const result = await generateCode({ technology: techName });
-        setCodeSnippet(result);
-        setIsTyping(true);
-      } catch (error) {
-        console.error("Failed to generate code:", error);
-        setCodeSnippet({ code: `// Error generating code for ${techName}`, language: 'text' });
-      } finally {
-        setIsLoading(false);
-      }
-    });
-  }, []);
-  
-  const handleTypingDone = useCallback(() => {
-    setIsTyping(false);
-  }, []);
-
-  return (
-    <Card className="bg-card/50 shadow-lg">
-      <CardContent className="p-0">
-        <div className="flex justify-between items-center px-4 py-2 border-b">
-          <p className="text-sm font-medium">{activeTab}</p>
-          <div className="flex items-center gap-1.5">
-            <div className="w-3 h-3 rounded-full bg-red-500"></div>
-            <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
-            <div className="w-3 h-3 rounded-full bg-green-500"></div>
-          </div>
-        </div>
-        <pre className="p-4 text-sm overflow-x-auto min-h-[300px] bg-muted/30">
-          <code className={cn("font-code", `language-${codeSnippet.language}`)}>
-            {isLoading || isPending ? (
-              <div className="space-y-2">
-                <Skeleton className="h-4 w-[80%]" />
-                <Skeleton className="h-4 w-[90%]" />
-                <Skeleton className="h-4 w-[70%]" />
-                <Skeleton className="h-4 w-[85%]" />
-              </div>
-            ) : (
-                <Typewriter text={codeSnippet.code} onDone={handleTypingDone} />
-            )}
-          </code>
-        </pre>
-      </CardContent>
-    </Card>
-  );
-};
-
 
 export default function InteractiveTechStack() {
   const [activeTech, setActiveTech] = useState('Next.js');
