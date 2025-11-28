@@ -96,7 +96,7 @@ export default function About() {
               <div className="mt-4 border rounded-lg bg-secondary/30 h-96 flex flex-col">
                 <div ref={chatContainerRef} className="flex-1 p-4 space-y-4 overflow-y-auto">
                   <ChatBubble role="model">
-                    <p>Hello! I'm Taufik's AI assistant. Feel free to ask me anything about my skills, projects, or services.</p>
+                    <p>Hello! I'm Iik's AI assistant. Feel free to ask me anything about my skills, projects, or services.</p>
                   </ChatBubble>
                   {conversation.map((msg, index) => (
                     <ChatBubble key={index} role={msg.role}>
