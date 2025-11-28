@@ -60,7 +60,7 @@ export default function PortfolioItemPage({ params }: PortfolioItemPageProps) {
                     src={image.imageUrl}
                     alt={item.title}
                     fill
-                    sizes="100vw"
+                    sizes="(max-width: 1024px) 100vw, 1024px"
                     className="object-cover"
                     data-ai-hint={image.imageHint}
                     priority

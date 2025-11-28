@@ -36,7 +36,7 @@ export default function PortfolioListPage() {
                             src={image.imageUrl}
                             alt={image.description}
                             fill
-                            sizes="100vw"
+                            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                             className="object-cover w-full h-full transform transition-transform duration-500 group-hover:scale-110"
                             data-ai-hint={image.imageHint}
                           />
