@@ -1,14 +1,19 @@
-import Image from "next/image";
-import { PlaceHolderImages } from "@/lib/placeholder-images";
-import { Card, CardContent } from "@/components/ui/card";
+'use client';
+
+import React from 'react';
+import Image from 'next/image';
+import Autoplay from 'embla-carousel-autoplay';
+
+import { PlaceHolderImages } from '@/lib/placeholder-images';
+import { Card, CardContent } from '@/components/ui/card';
 import {
   Carousel,
   CarouselContent,
   CarouselItem,
   CarouselNext,
   CarouselPrevious,
-} from "@/components/ui/carousel";
-import { User } from "lucide-react";
+} from '@/components/ui/carousel';
+import { User } from 'lucide-react';
 
 const testimonials = [
   {
@@ -38,6 +43,9 @@ const testimonials = [
 ];
 
 export default function Testimonials() {
+  const plugin = React.useRef(
+    Autoplay({ delay: 3000, stopOnInteraction: true, stopOnMouseEnter: true })
+  );
 
   return (
     <section id="testimonials" className="bg-background">
@@ -50,11 +58,14 @@ export default function Testimonials() {
         </div>
         <div className="mt-16">
           <Carousel
+            plugins={[plugin.current]}
             opts={{
               align: "start",
               loop: true,
             }}
             className="w-full max-w-5xl mx-auto"
+            onMouseEnter={plugin.current.stop}
+            onMouseLeave={plugin.current.reset}
           >
             <CarouselContent>
               {testimonials.map((testimonial, index) => {
