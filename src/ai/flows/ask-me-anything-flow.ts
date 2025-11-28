@@ -77,8 +77,8 @@ ${getSiteContext()}
 
 Here is the conversation history:
 {{#each history}}
-  {{#if (this.role == 'user')}}User: {{this.content}}{{/if}}
-  {{#if (this.role == 'model')}}You: {{this.content}}{{/if}}
+  {{#if (eq this.role "user")}}User: {{this.content}}{{/if}}
+  {{#if (eq this.role "model")}}You: {{this.content}}{{/if}}
 {{/each}}
 
 New Question from User: {{{question}}}
