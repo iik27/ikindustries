@@ -94,7 +94,7 @@ const askMeAnythingFlow = ai.defineFlow(
     outputSchema: AskMeAnythingOutputSchema,
   },
   async (input) => {
-    // Format the history into a simple string here, instead of in the template.
+    // Format the history into a simple string here to avoid logic in Handlebars.
     const formattedHistory = (input.history ?? [])
       .map(message => {
         if (message.role === 'user') {
