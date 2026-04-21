@@ -19,13 +19,18 @@ export default function Hero() {
   const t = translations[language].hero;
 
   useEffect(() => {
-    // Reset contents for character-level animation
+    // Reset contents for character-level animation with word wrapping protection
     if (titleRef.current) {
       const fullText = `${t.title} ${t.subtitle}`;
-      // Split by characters for the precise "Laboratory" effect
-      titleRef.current.innerHTML = fullText.split('').map(char => 
-        `<span class="inline-block opacity-0 hero-char">${char === ' ' ? '&nbsp;' : char}</span>`
-      ).join('');
+      const words = fullText.split(' ');
+      
+      titleRef.current.innerHTML = words.map(word => 
+        `<span class="inline-block whitespace-nowrap">
+          ${word.split('').map(char => 
+            `<span class="inline-block opacity-0 hero-char">${char}</span>`
+          ).join('')}
+        </span>`
+      ).join(' ');
     }
 
     // Main entrance timeline
@@ -37,7 +42,7 @@ export default function Hero() {
     tl.add({
       targets: '.hero-char',
       translateY: [
-        { value: -44, duration: 600, easing: 'easeOutExpo' },
+        { value: -40, duration: 600, easing: 'easeOutExpo' },
         { value: 0, duration: 800, easing: 'easeOutBounce', delay: 100 }
       ],
       rotate: {
@@ -63,13 +68,13 @@ export default function Hero() {
 
     // Subtle background animation
     if (bgRef.current) {
-      bgRef.current.innerHTML = '<div class="absolute inset-0 bg-[radial-gradient(ellipse_60%_60%_at_50%_-10%,rgba(var(--primary),0.1),transparent)]"></div>';
+      bgRef.current.innerHTML = '<div class="absolute inset-0 bg-[radial-gradient(ellipse_60%_60%_at_50%_-10%,rgba(var(--primary),0.05),transparent)]"></div>';
       
       const particlesCount = 20;
       for (let i = 0; i < particlesCount; i++) {
         const dot = document.createElement('div');
-        dot.className = 'absolute bg-primary/20 rounded-full pointer-events-none particle-dot';
-        const size = Math.random() * 6 + 2;
+        dot.className = 'absolute bg-primary/10 rounded-full pointer-events-none particle-dot';
+        const size = Math.random() * 4 + 2;
         dot.style.width = `${size}px`;
         dot.style.height = `${size}px`;
         dot.style.left = `${Math.random() * 100}%`;
@@ -79,13 +84,12 @@ export default function Hero() {
 
       anime({
         targets: '.particle-dot',
-        translateX: () => anime.random(-60, 60),
-        translateY: () => anime.random(-60, 60),
-        scale: () => [0.5, 1.5],
-        opacity: () => [0.1, 0.4],
+        translateX: () => anime.random(-50, 50),
+        translateY: () => anime.random(-50, 50),
+        scale: () => [0.8, 1.2],
+        opacity: () => [0.1, 0.3],
         easing: 'easeInOutQuad',
-        duration: () => anime.random(4000, 10000),
-        delay: () => anime.random(0, 3000),
+        duration: () => anime.random(5000, 12000),
         loop: true,
         direction: 'alternate'
       });
@@ -99,31 +103,31 @@ export default function Hero() {
   }, [language, t.title, t.subtitle]);
 
   return (
-    <section className="relative min-h-[70vh] flex items-center justify-center text-center overflow-hidden bg-background pt-16">
+    <section className="relative min-h-[85vh] flex items-center justify-center text-center overflow-hidden bg-background pt-16">
       <div ref={bgRef} className="absolute inset-0 z-0 opacity-50"></div>
       
       <div className="container mx-auto relative z-10 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-4xl mx-auto">
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-primary/5 blur-[120px] rounded-full -z-10 pointer-events-none"></div>
+        <div className="max-w-5xl mx-auto">
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-primary/5 blur-[100px] rounded-full -z-10 pointer-events-none"></div>
           
-          <h1 ref={titleRef} className="font-headline text-3xl font-bold tracking-tight text-foreground sm:text-5xl lg:text-7xl leading-[1.1] mb-8 min-h-[4rem]">
-            {t.title} {t.subtitle}
+          <h1 ref={titleRef} className="font-headline text-4xl font-bold tracking-tight text-foreground sm:text-6xl lg:text-7xl leading-[1.15] mb-8 min-h-[8rem] flex flex-wrap justify-center gap-x-[0.3em]">
+            {/* Split characters will be injected here */}
           </h1>
           
-          <p ref={descriptionRef} className="text-lg leading-relaxed text-foreground/70 max-w-2xl mx-auto opacity-0">
+          <p ref={descriptionRef} className="text-lg sm:text-xl leading-relaxed text-foreground/70 max-w-2xl mx-auto opacity-0 font-medium">
             {t.description}
           </p>
           
-          <div ref={actionsRef} className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4 opacity-0">
-            <Button size="lg" asChild className="rounded-full px-8 h-12 shadow-lg hover:shadow-primary/20 transition-all font-brand font-semibold">
+          <div ref={actionsRef} className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-6 opacity-0">
+            <Button size="lg" asChild className="rounded-full px-10 h-14 shadow-xl hover:shadow-primary/30 transition-all font-brand font-bold text-base bg-primary hover:scale-105 active:scale-95">
               <Link href="/portfolio">
                 {t.viewProjects}
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Link>
             </Button>
-            <Button size="lg" variant="ghost" asChild className="rounded-full h-12 hover:bg-primary/5 font-medium">
+            <Button size="lg" variant="ghost" asChild className="rounded-full h-14 px-8 hover:bg-primary/10 font-bold text-base transition-all">
               <a href="#services">
-                {t.ourExpertise} <span aria-hidden="true" className="ml-1">→</span>
+                {t.ourExpertise} <span aria-hidden="true" className="ml-2">→</span>
               </a>
             </Button>
           </div>
