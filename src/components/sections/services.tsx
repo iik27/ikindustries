@@ -4,27 +4,31 @@ import { useEffect, useRef } from 'react';
 import { Card, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Globe, Smartphone, LayoutDashboard } from "lucide-react";
 import anime from 'animejs';
-
-const services = [
-  {
-    icon: <Globe className="h-10 w-10 text-primary" />,
-    title: "Pengembangan Website",
-    description: "Menciptakan website profesional dengan performa tinggi. Dari landing page yang memukau hingga platform e-commerce kompleks yang memberikan hasil nyata.",
-  },
-  {
-    icon: <Smartphone className="h-10 w-10 text-primary" />,
-    title: "Aplikasi Mobile",
-    description: "Membangun aplikasi mobile native dan cross-platform. Kami menghadirkan pengalaman pengguna yang mulus di iOS dan Android agar bisnis Anda selalu dapat diakses.",
-  },
-  {
-    icon: <LayoutDashboard className="h-10 w-10 text-primary" />,
-    title: "Sistem Perusahaan",
-    description: "Mengembangkan sistem internal yang tangguh seperti ERP, CRM, dan dashboard kustom. Kami mengotomatiskan alur kerja dan memusatkan data bisnis Anda.",
-  },
-];
+import { useLanguage } from '../language-provider';
+import { translations } from '@/lib/translations';
 
 export default function Services() {
+  const { language } = useLanguage();
+  const t = translations[language].services;
   const sectionRef = useRef<HTMLDivElement>(null);
+
+  const servicesData = [
+    {
+      icon: <Globe className="h-10 w-10 text-primary" />,
+      title: t.web.title,
+      description: t.web.description,
+    },
+    {
+      icon: <Smartphone className="h-10 w-10 text-primary" />,
+      title: t.mobile.title,
+      description: t.mobile.description,
+    },
+    {
+      icon: <LayoutDashboard className="h-10 w-10 text-primary" />,
+      title: t.enterprise.title,
+      description: t.enterprise.description,
+    },
+  ];
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -55,13 +59,13 @@ export default function Services() {
     <section id="services" className="bg-secondary" ref={sectionRef}>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-2xl mx-auto">
-          <h2 className="font-headline text-3xl font-bold tracking-tight text-foreground sm:text-4xl">Spesialisasi Kami</h2>
+          <h2 className="font-headline text-3xl font-bold tracking-tight text-foreground sm:text-4xl">{t.title}</h2>
           <p className="mt-4 text-lg text-foreground/80">
-            Kami menyediakan solusi digital khusus untuk membantu bisnis Anda beroperasi lebih efisien dan menjangkau lebih banyak pelanggan.
+            {t.subtitle}
           </p>
         </div>
         <div className="mt-16 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 max-w-6xl mx-auto">
-          {services.map((service) => (
+          {servicesData.map((service) => (
             <Card key={service.title} className="service-card opacity-0 text-center hover:shadow-xl transition-shadow duration-300 bg-background">
               <CardHeader className="items-center p-8">
                 <div className="bg-primary/10 p-4 rounded-full">

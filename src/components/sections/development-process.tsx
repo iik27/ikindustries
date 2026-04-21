@@ -3,42 +3,27 @@
 import { useEffect, useRef } from 'react';
 import { Code, FlaskConical, Lightbulb, BookText, Palette, Rocket } from "lucide-react";
 import anime from 'animejs';
-
-const processSteps = [
-  {
-    icon: <Lightbulb className="h-10 w-10 text-primary" />,
-    title: "Ideasi",
-    description: "Kami mulai dengan memahami visi, tujuan, dan tantangan Anda untuk membentuk fondasi proyek yang kuat.",
-  },
-  {
-    icon: <BookText className="h-10 w-10 text-primary" />,
-    title: "Perencanaan",
-    description: "Peta jalan dan strategi komprehensif dikembangkan, merinci pencapaian, timeline, dan persyaratan teknis.",
-  },
-  {
-    icon: <Palette className="h-10 w-10 text-primary" />,
-    title: "Desain",
-    description: "Kami merancang desain UI/UX yang intuitif, menarik, dan visual yang berfokus pada pengalaman pengguna.",
-  },
-  {
-    icon: <Code className="h-10 w-10 text-primary" />,
-    title: "Pengembangan",
-    description: "Pengembang ahli kami menghidupkan desain, menulis kode yang bersih, efisien, dan terukur.",
-  },
-  {
-    icon: <FlaskConical className="h-10 w-10 text-primary" />,
-    title: "Pengujian",
-    description: "Pengujian ketat dilakukan untuk memastikan produk bebas bug, aman, dan berkinerja sempurna.",
-  },
-  {
-    icon: <Rocket className="h-10 w-10 text-primary" />,
-    title: "Peluncuran",
-    description: "Produk akhir diluncurkan, dan kami memberikan dukungan berkelanjutan untuk memastikan kesuksesan.",
-  },
-];
+import { useLanguage } from '../language-provider';
+import { translations } from '@/lib/translations';
 
 export default function DevelopmentProcess() {
+  const { language } = useLanguage();
+  const t = translations[language].process;
   const sectionRef = useRef<HTMLDivElement>(null);
+
+  const icons = [
+    <Lightbulb className="h-10 w-10 text-primary" />,
+    <BookText className="h-10 w-10 text-primary" />,
+    <Palette className="h-10 w-10 text-primary" />,
+    <Code className="h-10 w-10 text-primary" />,
+    <FlaskConical className="h-10 w-10 text-primary" />,
+    <Rocket className="h-10 w-10 text-primary" />
+  ];
+
+  const processSteps = t.steps.map((step, index) => ({
+    ...step,
+    icon: icons[index]
+  }));
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -69,9 +54,9 @@ export default function DevelopmentProcess() {
     <section id="development-process" className="bg-background" ref={sectionRef}>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-2xl mx-auto">
-          <h2 className="font-headline text-3xl font-bold tracking-tight text-foreground sm:text-4xl">Proses Pengembangan Kami</h2>
+          <h2 className="font-headline text-3xl font-bold tracking-tight text-foreground sm:text-4xl">{t.title}</h2>
           <p className="mt-4 text-lg text-foreground/80">
-            Dari konsep hingga peluncuran, kami mengikuti proses yang terstruktur dan transparan untuk memastikan keberhasilan proyek Anda.
+            {t.subtitle}
           </p>
         </div>
 

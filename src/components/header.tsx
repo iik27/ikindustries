@@ -94,13 +94,13 @@ export default function Header() {
               <SheetTrigger asChild>
                 <Button variant="ghost" size="icon">
                   <Menu className="h-6 w-6" />
-                  <span className="sr-only">Buka menu</span>
+                  <span className="sr-only">Menu</span>
                 </Button>
               </SheetTrigger>
               <SheetContent side="right" className="w-[300px] bg-background p-0">
                 <SheetHeader className="p-6 pb-0 text-left">
                   <SheetTitle className="text-xl font-brand font-bold">IK Labs Menu</SheetTitle>
-                  <SheetDescription className="sr-only">Navigasi utama situs.</SheetDescription>
+                  <SheetDescription className="sr-only">Situs navigasi utama.</SheetDescription>
                 </SheetHeader>
                 <div className="flex flex-col h-full p-6 pt-2">
                   <nav className="flex flex-col gap-4">

@@ -4,32 +4,25 @@ import { useEffect, useRef } from 'react';
 import { Card, CardContent } from "@/components/ui/card";
 import { Cpu, Palette, TabletSmartphone, Zap } from "lucide-react";
 import anime from 'animejs';
-
-const strengths = [
-  {
-    icon: <Palette className="h-8 w-8 text-primary" />,
-    title: "Desain UI/UX Modern",
-    description: "Terinspirasi oleh yang terbaik, kami menciptakan antarmuka yang intuitif, indah, dan ramah pengguna."
-  },
-  {
-    icon: <TabletSmartphone className="h-8 w-8 text-primary" />,
-    title: "Sepenuhnya Responsif",
-    description: "Proyek kami terlihat dan berfungsi sempurna di perangkat apa pun, dari ponsel hingga desktop."
-  },
-  {
-    icon: <Zap className="h-8 w-8 text-primary" />,
-    title: "Performa Tinggi",
-    description: "Kami mengoptimalkan kecepatan dan efisiensi, memastikan pengalaman pengguna yang cepat dan lancar."
-  },
-  {
-    icon: <Cpu className="h-8 w-8 text-primary" />,
-    title: "Teknologi Inovatif",
-    description: "Memanfaatkan framework terbaru dan AI untuk membangun solusi yang siap menghadapi masa depan."
-  }
-];
+import { useLanguage } from '../language-provider';
+import { translations } from '@/lib/translations';
 
 export default function Strengths() {
+  const { language } = useLanguage();
+  const t = translations[language].strengths;
   const sectionRef = useRef<HTMLDivElement>(null);
+
+  const icons = [
+    <Palette className="h-8 w-8 text-primary" />,
+    <TabletSmartphone className="h-8 w-8 text-primary" />,
+    <Zap className="h-8 w-8 text-primary" />,
+    <Cpu className="h-8 w-8 text-primary" />
+  ];
+
+  const strengthsData = t.items.map((item, index) => ({
+    ...item,
+    icon: icons[index]
+  }));
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -61,13 +54,13 @@ export default function Strengths() {
     <section id="strengths" className="bg-background" ref={sectionRef}>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-2xl mx-auto">
-          <h2 className="font-headline text-3xl font-bold tracking-tight text-foreground sm:text-4xl">Keunggulan Utama Kami</h2>
+          <h2 className="font-headline text-3xl font-bold tracking-tight text-foreground sm:text-4xl">{t.title}</h2>
           <p className="mt-4 text-lg text-foreground/80">
-            Hal-hal yang membuat IK Labs unggul dan berbeda dari yang lain.
+            {t.subtitle}
           </p>
         </div>
         <div className="mt-16 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4 max-w-6xl mx-auto">
-          {strengths.map((strength) => (
+          {strengthsData.map((strength) => (
             <Card key={strength.title} className="strength-card border-0 bg-transparent shadow-none opacity-0">
               <CardContent className="flex flex-col items-center text-center p-6">
                 <div className="bg-secondary p-4 rounded-full mb-4">

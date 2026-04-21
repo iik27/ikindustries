@@ -4,9 +4,13 @@ import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Cookie } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { useLanguage } from './language-provider';
+import { translations } from '@/lib/translations';
 
 export default function CookieBanner() {
   const [isVisible, setIsVisible] = useState(false);
+  const { language } = useLanguage();
+  const t = translations[language].cookie;
 
   useEffect(() => {
     // Check if consent has been given
@@ -38,11 +42,11 @@ export default function CookieBanner() {
             <div className="flex items-start sm:items-center gap-3">
               <Cookie className="h-6 w-6 sm:h-8 sm:w-8 text-primary flex-shrink-0 mt-1 sm:mt-0" />
               <p className="text-sm text-foreground/80">
-                Situs ini menggunakan cookie untuk memastikan Anda mendapatkan pengalaman terbaik. Dengan melanjutkan, Anda menyetujui penggunaan cookie kami.
+                {t.message}
               </p>
             </div>
             <Button onClick={acceptCookies} className="w-full sm:w-auto flex-shrink-0">
-              Mengerti
+              {t.button}
             </Button>
           </div>
         </div>

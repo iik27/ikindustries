@@ -20,9 +20,18 @@ export const translations = {
     services: {
       title: 'Spesialisasi Kami',
       subtitle: 'Kami menyediakan solusi digital khusus untuk membantu bisnis Anda beroperasi lebih efisien dan menjangkau lebih banyak pelanggan.',
-      web: 'Pengembangan Website',
-      mobile: 'Aplikasi Mobile',
-      enterprise: 'Sistem Perusahaan',
+      web: {
+        title: 'Pengembangan Website',
+        description: 'Menciptakan website profesional dengan performa tinggi. Dari landing page yang memukau hingga platform e-commerce kompleks yang memberikan hasil nyata.'
+      },
+      mobile: {
+        title: 'Aplikasi Mobile',
+        description: 'Membangun aplikasi mobile native dan cross-platform. Kami menghadirkan pengalaman pengguna yang mulus di iOS dan Android agar bisnis Anda selalu dapat diakses.'
+      },
+      enterprise: {
+        title: 'Sistem Perusahaan',
+        description: 'Mengembangkan sistem internal yang tangguh seperti ERP, CRM, dan dashboard kustom. Kami mengotomatiskan alur kerja dan memusatkan data bisnis Anda.'
+      }
     },
     techStack: {
       title: 'Teknologi Kami',
@@ -33,6 +42,24 @@ export const translations = {
     process: {
       title: 'Proses Pengembangan Kami',
       subtitle: 'Dari konsep hingga peluncuran, kami mengikuti proses yang terstruktur dan transparan untuk memastikan keberhasilan proyek Anda.',
+      steps: [
+        { title: "Ideasi", description: "Kami mulai dengan memahami visi, tujuan, dan tantangan Anda untuk membentuk fondasi proyek yang kuat." },
+        { title: "Perencanaan", description: "Peta jalan dan strategi komprehensif dikembangkan, merinci pencapaian, timeline, dan persyaratan teknis." },
+        { title: "Desain", description: "Kami merancang desain UI/UX yang intuitif, menarik, dan visual yang berfokus pada pengalaman pengguna." },
+        { title: "Pengembangan", description: "Pengembang ahli kami menghidupkan desain, menulis kode yang bersih, efisien, dan terukur." },
+        { title: "Pengujian", description: "Pengujian ketat dilakukan untuk memastikan produk bebas bug, aman, dan berkinerja sempurna." },
+        { title: "Peluncuran", description: "Produk akhir diluncurkan, dan kami memberikan dukungan berkelanjutan untuk memastikan kesuksesan." }
+      ]
+    },
+    strengths: {
+      title: 'Keunggulan Utama Kami',
+      subtitle: 'Hal-hal yang membuat IK Labs unggul dan berbeda dari yang lain.',
+      items: [
+        { title: "Desain UI/UX Modern", description: "Terinspirasi oleh yang terbaik, kami menciptakan antarmuka yang intuitif, indah, dan ramah pengguna." },
+        { title: "Sepenuhnya Responsif", description: "Proyek kami terlihat dan berfungsi sempurna di perangkat apa pun, dari ponsel hingga desktop." },
+        { title: "Performa Tinggi", description: "Kami mengoptimalkan kecepatan dan efisiensi, memastikan pengalaman pengguna yang cepat dan lancar." },
+        { title: "Teknologi Inovatif", description: "Memanfaatkan framework terbaru dan AI untuk membangun solusi yang siap menghadapi masa depan." }
+      ]
     },
     portfolio: {
       title: 'Karya Kami',
@@ -75,13 +102,26 @@ export const translations = {
       send: 'Kirim Pesan',
       sending: 'Mengirim...',
       success: 'Terima kasih! Pesan Anda telah kami terima.',
-      error: 'Gagal mengirim formulir. Silakan periksa kembali.'
+      errorTitle: 'Gagal mengirim formulir.',
+      errorDescription: 'Silakan periksa kembali bidang di bawah ini.'
     },
     footer: {
+      contactTitle: 'Hubungi Kami',
+      followTitle: 'Ikuti Kami',
       description: 'Spesialis pengembangan website profesional, aplikasi mobile performa tinggi, dan sistem internal perusahaan yang terintegrasi.',
       rights: 'Seluruh hak cipta dilindungi. Dikembangkan oleh Muhamad Taufik Hidayat.',
       privacy: 'Kebijakan Privasi',
       terms: 'Ketentuan Layanan',
+    },
+    cookie: {
+      message: 'Situs ini menggunakan cookie untuk memastikan Anda mendapatkan pengalaman terbaik. Dengan melanjutkan, Anda menyetujui penggunaan cookie kami.',
+      button: 'Mengerti'
+    },
+    notFound: {
+      title: '404',
+      subtitle: 'Halaman Tidak Ditemukan',
+      description: 'Maaf, kami tidak dapat menemukan halaman yang Anda cari. Mungkin halaman tersebut telah dipindahkan atau dihapus.',
+      button: 'Kembali ke Beranda'
     }
   },
   en: {
@@ -105,9 +145,18 @@ export const translations = {
     services: {
       title: 'Our Specializations',
       subtitle: 'We provide custom digital solutions to help your business operate more efficiently and reach more customers.',
-      web: 'Web Development',
-      mobile: 'Mobile Applications',
-      enterprise: 'Enterprise Systems',
+      web: {
+        title: 'Web Development',
+        description: 'Creating high-performance professional websites. From stunning landing pages to complex e-commerce platforms that deliver real results.'
+      },
+      mobile: {
+        title: 'Mobile Applications',
+        description: 'Building native and cross-platform mobile apps. We provide seamless user experiences on iOS and Android to keep your business accessible.'
+      },
+      enterprise: {
+        title: 'Enterprise Systems',
+        description: 'Developing robust internal systems like ERP, CRM, and custom dashboards. We automate workflows and centralize your business data.'
+      }
     },
     techStack: {
       title: 'Our Tech Stack',
@@ -118,6 +167,24 @@ export const translations = {
     process: {
       title: 'Our Development Process',
       subtitle: 'From concept to launch, we follow a structured and transparent process to ensure your project\'s success.',
+      steps: [
+        { title: "Ideation", description: "We start by understanding your vision, goals, and challenges to form a strong project foundation." },
+        { title: "Planning", description: "A comprehensive roadmap and strategy are developed, detailing milestones, timelines, and technical requirements." },
+        { title: "Design", description: "We design intuitive, engaging UI/UX and visuals focused on user experience." },
+        { title: "Development", description: "Our expert developers bring designs to life, writing clean, efficient, and scalable code." },
+        { title: "Testing", description: "Rigorous testing is conducted to ensure the product is bug-free, secure, and performs perfectly." },
+        { title: "Launch", description: "The final product is launched, and we provide ongoing support to ensure continued success." }
+      ]
+    },
+    strengths: {
+      title: 'Our Key Strengths',
+      subtitle: 'The things that make IK Labs stand out and differ from others.',
+      items: [
+        { title: "Modern UI/UX Design", description: "Inspired by the best, we create intuitive, beautiful, and user-friendly interfaces." },
+        { title: "Fully Responsive", description: "Our projects look and function perfectly on any device, from mobile to desktop." },
+        { title: "High Performance", description: "We optimize for speed and efficiency, ensuring a fast and smooth user experience." },
+        { title: "Innovative Technology", description: "Leveraging the latest frameworks and AI to build future-ready solutions." }
+      ]
     },
     portfolio: {
       title: 'Our Work',
@@ -160,13 +227,26 @@ export const translations = {
       send: 'Send Message',
       sending: 'Sending...',
       success: 'Thank you! Your message has been received.',
-      error: 'Failed to send form. Please check again.'
+      errorTitle: 'Failed to send form.',
+      errorDescription: 'Please check the fields below.'
     },
     footer: {
+      contactTitle: 'Contact Us',
+      followTitle: 'Follow Us',
       description: 'Specialists in professional web development, high-performance mobile apps, and integrated internal company systems.',
       rights: 'All rights reserved. Developed by Muhamad Taufik Hidayat.',
       privacy: 'Privacy Policy',
       terms: 'Terms of Service',
+    },
+    cookie: {
+      message: 'This site uses cookies to ensure you get the best experience. By continuing, you agree to our use of cookies.',
+      button: 'Got it'
+    },
+    notFound: {
+      title: '404',
+      subtitle: 'Page Not Found',
+      description: 'Sorry, we couldn\'t find the page you\'re looking for. It might have been moved or deleted.',
+      button: 'Back to Home'
     }
   }
 };

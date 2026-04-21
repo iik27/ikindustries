@@ -33,7 +33,7 @@ export default function Footer() {
           </div>
           
           <div className="flex flex-col gap-4">
-            <h3 className="font-headline font-semibold text-lg">{language === 'id' ? 'Hubungi Kami' : 'Contact Us'}</h3>
+            <h3 className="font-headline font-semibold text-lg">{t.contactTitle}</h3>
             <div className="flex flex-col gap-3 text-sm">
               <a href="mailto:contact@ikindustries.com" className="flex items-center gap-3 hover:text-white transition-colors">
                 <Mail className="h-4 w-4" />
@@ -47,7 +47,7 @@ export default function Footer() {
           </div>
 
           <div className="flex flex-col gap-4 md:items-end">
-            <h3 className="font-headline font-semibold text-lg">{language === 'id' ? 'Ikuti Kami' : 'Follow Us'}</h3>
+            <h3 className="font-headline font-semibold text-lg">{t.followTitle}</h3>
             <div className="flex gap-4">
               <a href="https://github.com/iik27" target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="bg-primary-foreground/10 p-2 rounded-full hover:bg-primary-foreground/20 transition-colors">
                 <Github className="h-5 w-5" />
