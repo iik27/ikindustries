@@ -28,21 +28,21 @@ import { useLanguage } from '../language-provider';
 import { translations } from '@/lib/translations';
 
 const technologies = [
-    { name: "Next.js", icon: <IconBrandNextjs className="h-10 w-10" />, language: "jsx" },
-    { name: "React", icon: <IconBrandReact className="h-10 w-10" />, language: "jsx" },
-    { name: "TypeScript", icon: <IconBrandTypescript className="h-10 w-10" />, language: "typescript" },
-    { name: "JavaScript", icon: <IconBrandJavascript className="h-10 w-10" />, language: "javascript" },
-    { name: "Node.js", icon: <IconBrandNodejs className="h-10 w-10" />, language: "javascript" },
-    { name: "Python", icon: <IconBrandPython className="h-10 w-10" />, language: "python" },
-    { name: "Tailwind CSS", icon: <IconBrandTailwind className="h-10 w-10" />, language: "html" },
-    { name: "Flutter", icon: <IconBrandFlutter className="h-10 w-10" />, language: "dart" },
-    { name: "Firebase", icon: <IconBrandFirebase className="h-10 w-10" />, language: "javascript" },
-    { name: "PostgreSQL", icon: <IconDatabase className="h-10 w-10" />, language: "sql" },
-    { name: "PHP", icon: <IconBrandPHP className="h-10 w-10" />, language: "php" },
-    { name: "Java", icon: <IconBrandJava className="h-10 w-10" />, language: "java" },
-    { name: "Kotlin", icon: <IconBrandKotlin className="h-10 w-10" />, language: "kotlin" },
-    { name: "Git", icon: <IconBrandGit className="h-10 w-10" />, language: "bash" },
-    { name: "VS Code", icon: <IconBrandVSCode className="h-10 w-10" />, language: "json" },
+    { name: "Next.js", icon: <IconBrandNextjs className="h-10 w-10" /> },
+    { name: "React", icon: <IconBrandReact className="h-10 w-10" /> },
+    { name: "TypeScript", icon: <IconBrandTypescript className="h-10 w-10" /> },
+    { name: "JavaScript", icon: <IconBrandJavascript className="h-10 w-10" /> },
+    { name: "Node.js", icon: <IconBrandNodejs className="h-10 w-10" /> },
+    { name: "Python", icon: <IconBrandPython className="h-10 w-10" /> },
+    { name: "Tailwind CSS", icon: <IconBrandTailwind className="h-10 w-10" /> },
+    { name: "Flutter", icon: <IconBrandFlutter className="h-10 w-10" /> },
+    { name: "Firebase", icon: <IconBrandFirebase className="h-10 w-10" /> },
+    { name: "PostgreSQL", icon: <IconDatabase className="h-10 w-10" /> },
+    { name: "PHP", icon: <IconBrandPHP className="h-10 w-10" /> },
+    { name: "Java", icon: <IconBrandJava className="h-10 w-10" /> },
+    { name: "Kotlin", icon: <IconBrandKotlin className="h-10 w-10" /> },
+    { name: "Git", icon: <IconBrandGit className="h-10 w-10" /> },
+    { name: "VS Code", icon: <IconBrandVSCode className="h-10 w-10" /> },
 ];
 
 const Typewriter = ({ text }: { text: string }) => {
@@ -71,35 +71,14 @@ export default function InteractiveTechStack() {
   const t = translations[language].techStack;
   const terminalRef = useRef<HTMLDivElement>(null);
 
-  const defaultCode = useMemo(() => `
-import type { NextPage } from 'next';
-
-/**
- * IK Labs Code Explorer
- * ${t.defaultCodeMessage}
- */
-const Home: NextPage = () => {
-  return (
-    <div>
-      <h1>IK Labs</h1>
-      <p>Innovative Solutions Lab</p>
-    </div>
-  );
-};
-
-export default Home;
-  `.trim(), [t.defaultCodeMessage]);
-
   const [activeTech, setActiveTech] = useState('Next.js');
-  const [generatedCode, setGeneratedCode] = useState({ code: defaultCode, language: 'jsx'});
+  const [techDetails, setTechDetails] = useState<{ advantages: string[], features: string[] } | null>(null);
   const [isPending, startTransition] = useTransition();
 
-  // Reset code snippet when language changes
+  // Reset state when language changes
   useEffect(() => {
-    if (generatedCode.code.includes('/**') || generatedCode.code.includes('/*')) {
-        setGeneratedCode({ code: defaultCode, language: 'jsx' });
-    }
-  }, [language, defaultCode, generatedCode.code]);
+    setTechDetails(null);
+  }, [language]);
 
   // Terminal Pulse Animation while loading
   useEffect(() => {
@@ -136,18 +115,12 @@ export default Home;
 
       startTransition(async () => {
           try {
-              const result = await generateCode({ technology: techName });
-              if (result && result.code) {
-                setGeneratedCode(result);
-              } else {
-                 throw new Error("Empty result");
+              const result = await generateCode({ technology: techName, language: language });
+              if (result && result.advantages) {
+                setTechDetails(result);
               }
           } catch (error) {
               console.error("AI Generation Error:", error);
-              setGeneratedCode({ 
-                code: `// ${t.errorCode} ${techName}\n// ${t.errorHint}`, 
-                language: 'text' 
-              });
           }
       });
   };
@@ -173,7 +146,7 @@ export default Home;
                         `tech-btn-${tech.name.replace(/\s+/g, '-').toLowerCase()}`,
                         activeTech === tech.name ? 'bg-primary/10 shadow-inner' : 'hover:bg-secondary'
                     )}
-                    aria-label={`Generate code for ${tech.name}`}
+                    aria-label={`Analyze ${tech.name}`}
                 >
                   <div className="bg-background/50 p-2 rounded-lg shadow-sm">
                     {tech.icon}
@@ -202,21 +175,41 @@ export default Home;
                             <div className="space-y-4">
                                 <div className="flex items-center gap-2 text-primary/60">
                                     <div className="w-2 h-2 rounded-full bg-primary animate-pulse"></div>
-                                    <span className="text-xs uppercase tracking-tighter">Analyzing Tech Stack...</span>
+                                    <span className="text-xs uppercase tracking-tighter">Analyzing Lab Data...</span>
                                 </div>
                                 <Skeleton className="h-4 w-[85%] bg-white/5" />
                                 <Skeleton className="h-4 w-[60%] bg-white/5" />
                                 <Skeleton className="h-4 w-[90%] bg-white/5" />
-                                <Skeleton className="h-4 w-[75%] bg-white/5" />
-                                <Skeleton className="h-4 w-[40%] bg-white/5" />
-                                <Skeleton className="h-4 w-[80%] bg-white/5" />
+                            </div>
+                        ) : techDetails ? (
+                            <div className="space-y-6">
+                                <div className="space-y-3">
+                                    <h4 className="text-primary font-bold uppercase tracking-wider text-xs flex items-center gap-2">
+                                        <div className="w-1.5 h-1.5 bg-primary rounded-full"></div>
+                                        {t.advantages}
+                                    </h4>
+                                    <div className="space-y-1.5 ml-3.5">
+                                        {techDetails.advantages.map((adv, i) => (
+                                            <p key={i} className="text-blue-100/70"><Typewriter text={`> ${adv}`} /></p>
+                                        ))}
+                                    </div>
+                                </div>
+                                <div className="space-y-3">
+                                    <h4 className="text-primary font-bold uppercase tracking-wider text-xs flex items-center gap-2">
+                                        <div className="w-1.5 h-1.5 bg-primary rounded-full"></div>
+                                        {t.features}
+                                    </h4>
+                                    <div className="space-y-1.5 ml-3.5">
+                                        {techDetails.features.map((feat, i) => (
+                                            <p key={i} className="text-blue-100/70"><Typewriter text={`> ${feat}`} /></p>
+                                        ))}
+                                    </div>
+                                </div>
                             </div>
                         ) : (
-                            <pre className="whitespace-pre-wrap break-words leading-relaxed">
-                                <code className={cn("text-blue-100/90", `language-${generatedCode.language}`)}>
-                                    <Typewriter text={generatedCode.code} />
-                                </code>
-                            </pre>
+                            <div className="flex items-center justify-center h-[300px] text-blue-100/30">
+                                <p className="text-center font-mono italic">{t.defaultCodeMessage}</p>
+                            </div>
                         )}
                     </div>
                 </CardContent>

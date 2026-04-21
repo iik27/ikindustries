@@ -1,57 +1,46 @@
 'use server';
 /**
- * @fileOverview An AI flow to generate sample code for a given technology.
- *
- * - generateCode - A function that handles the code generation process.
+ * @fileOverview An AI flow to provide advantages and buildable features for a technology.
  */
 
 import { ai } from '@/ai/genkit';
 import { z } from 'zod';
 
-const GenerateCodeInputSchema = z.object({
-  technology: z.string().describe('The programming language or technology to generate a code snippet for.'),
+const GetTechDetailsInputSchema = z.object({
+  technology: z.string().describe('The technology to analyze.'),
+  language: z.enum(['id', 'en']).describe('The language for the output.'),
 });
-export type GenerateCodeInput = z.infer<typeof GenerateCodeInputSchema>;
+export type GetTechDetailsInput = z.infer<typeof GetTechDetailsInputSchema>;
 
-const GenerateCodeOutputSchema = z.object({
-  code: z.string().describe('The generated code snippet.'),
-  language: z.string().describe('The language of the generated code (e.g., "javascript", "python").'),
+const GetTechDetailsOutputSchema = z.object({
+  advantages: z.array(z.string()).describe('List of 3 key advantages.'),
+  features: z.array(z.string()).describe('List of 3 key features buildable with this tech.'),
 });
-export type GenerateCodeOutput = z.infer<typeof GenerateCodeOutputSchema>;
+export type GetTechDetailsOutput = z.infer<typeof GetTechDetailsOutputSchema>;
 
-
-export async function generateCode(input: GenerateCodeInput): Promise<GenerateCodeOutput> {
-  return generateCodeFlow(input);
+export async function generateCode(input: GetTechDetailsInput): Promise<GetTechDetailsOutput> {
+  return getTechDetailsFlow(input);
 }
 
 const prompt = ai.definePrompt({
-  name: 'generateCodePrompt',
-  input: { schema: GenerateCodeInputSchema },
-  output: { schema: GenerateCodeOutputSchema },
-  prompt: `You are an expert software developer. Your task is to generate a simple, elegant, and correct code snippet for the given technology. The code should be a canonical, beginner-friendly example.
+  name: 'getTechDetailsPrompt',
+  input: { schema: GetTechDetailsInputSchema },
+  output: { schema: GetTechDetailsOutputSchema },
+  prompt: `You are a senior technical consultant at IK Labs. For the given technology, provide an expert analysis including key advantages and potential features that can be built.
 
-- Do not include comments in the code.
-- Provide the language identifier (e.g., "javascript", "python", "jsx") for syntax highlighting.
-
-Follow these specific rules for certain technologies:
-- For web frameworks like React, Next.js, or Svelte: Provide a minimal functional "Hello, World!" component.
-- For UI/CSS frameworks like Tailwind CSS: Show a simple HTML snippet with a styled button.
-- For programming languages like Python, JavaScript, Java, Kotlin, PHP, or Dart: Provide a simple "Hello, World!" print statement.
-- For databases like PostgreSQL: Show a SQL statement to create a simple 'users' table with id, username, and email columns.
-- For platforms like Firebase: Show a JavaScript snippet for initializing the Firebase app.
-- For tools like Git: Provide a sample '.gitignore' file for a Node.js project.
-- For editors like VS Code: Provide a sample 'settings.json' with a few common settings (e.g., theme, font size, autosave).
-- For Node.js: Show a simple HTTP server that responds with "Hello, World!".
+- Provide exactly 3 advantages and 3 features.
+- Keep each point concise (max 10 words).
+- Language: {{language}} (If 'id', respond in Bahasa Indonesia. If 'en', respond in English).
 
 Technology: {{{technology}}}
 `,
 });
 
-const generateCodeFlow = ai.defineFlow(
+const getTechDetailsFlow = ai.defineFlow(
   {
-    name: 'generateCodeFlow',
-    inputSchema: GenerateCodeInputSchema,
-    outputSchema: GenerateCodeOutputSchema,
+    name: 'getTechDetailsFlow',
+    inputSchema: GetTechDetailsInputSchema,
+    outputSchema: GetTechDetailsOutputSchema,
   },
   async (input) => {
     const { output } = await prompt(input);
