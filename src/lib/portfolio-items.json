@@ -4,8 +4,8 @@
     {
       "slug": "rajin-erp",
       "title": "Rajin Company Internal ERP",
-      "description": "Sistem manajemen sumber daya perusahaan (Enterprise Resource Planning) yang komprehensif, dirancang khusus untuk mengelola operasional bisnis berbasis kemitraan (franchise).",
-      "challenge": "Menghilangkan silo informasi antar 10 divisi perusahaan (seperti Produksi, Bisdev, hingga Finance) dan mengintegrasikan seluruh rantai nilai bisnis mulai dari pengadaan bahan baku hingga logistik secara real-time dengan keamanan RBAC yang ketat.",
+      "description": "Sistem manajemen sumber daya perusahaan (Enterprise Resource Planning) yang komprehensif untuk operasional franchise.",
+      "challenge": "Menghilangkan silo informasi antar 10 divisi perusahaan dan mengintegrasikan seluruh rantai nilai bisnis mulai dari pengadaan bahan baku hingga logistik secara real-time dengan keamanan RBAC yang ketat.",
       "solution": "Membangun hub pusat menggunakan Next.js 15 dan Firebase Firestore, mengimplementasikan dasbor khusus divisi, serta mengintegrasikan Google Genkit untuk fitur pintar seperti Predictive Stock Recommendations dan Automatic Production Planning.",
       "technologies": [
         "Next.js 15",
@@ -13,18 +13,53 @@
         "Firestore",
         "Genkit AI",
         "ShadCN UI",
-        "RBAC",
-        "Company Systems"
+        "RBAC"
       ],
       "imageId": "portfolio-4",
       "liveUrl": "#",
       "githubUrl": "https://github.com/iik27"
     },
     {
+      "slug": "internal-qc-system",
+      "title": "Internal QC System (AI-Powered)",
+      "description": "Platform manajemen kontrol kualitas (QC) bertenaga AI untuk audit operasional multi-outlet yang efisien.",
+      "challenge": "Merampingkan alur kerja audit operasional pada bisnis dengan banyak cabang dan memberikan analisis mendalam serta rekomendasi objektif terhadap temuan di lapangan.",
+      "solution": "Sistem berbasis Next.js 15 yang mengintegrasikan Genkit (Gemini) untuk analisis defisiensi otomatis. Fitur mencakup login PIN multi-role, kompresi gambar sisi klien (menghemat 90% storage), laporan siap cetak, dan navigasi Google Maps terintegrasi.",
+      "technologies": [
+        "Next.js 15",
+        "Genkit AI",
+        "Google Gemini",
+        "Tailwind CSS",
+        "ShadCN UI",
+        "Zod"
+      ],
+      "imageId": "portfolio-3",
+      "liveUrl": "#",
+      "githubUrl": "https://github.com/iik27"
+    },
+    {
+      "slug": "opsfix-tracker",
+      "title": "OpsFix Tracker Platform",
+      "description": "Platform pelaporan dan manajemen kendala operasional real-time untuk koordinasi staf dan tim teknis.",
+      "challenge": "Mendigitalisasi proses pelaporan manual yang berantakan, meningkatkan akuntabilitas tim perbaikan, dan memberikan transparansi status pengerjaan kendala lapangan.",
+      "solution": "Membangun sistem pelacakan live dengan React 19 dan Supabase. Dilengkapi fitur Live Timer pengerjaan, integrasi Google Drive untuk bukti laporan, dasbor resolusi admin, dan ekspor laporan audit profesional ke Excel.",
+      "technologies": [
+        "React 19",
+        "Supabase",
+        "PostgreSQL",
+        "Vite",
+        "ExcelJS",
+        "Vercel"
+      ],
+      "imageId": "portfolio-1",
+      "liveUrl": "#",
+      "githubUrl": "https://github.com/iik27"
+    },
+    {
       "slug": "kasirin-pos",
       "title": "Kasirin POS",
-      "description": "Aplikasi Point of Sale (POS) modern yang dirancang untuk menyederhanakan dan mempercepat proses transaksi di berbagai jenis usaha seperti kafe, restoran, dan toko ritel.",
-      "challenge": "Menciptakan pengalaman kasir yang cepat dan konsisten di berbagai perangkat (Android dan Web) dari satu basis kode tunggal dengan antarmuka yang responsif dan fleksibel.",
+      "description": "Aplikasi Point of Sale (POS) modern lintas platform untuk percepatan transaksi ritel dan F&B.",
+      "challenge": "Menciptakan pengalaman kasir yang cepat dan konsisten di berbagai perangkat (Android dan Web) dari satu basis kode tunggal dengan antarmuka yang responsif.",
       "solution": "Menggunakan Flutter untuk performa native lintas platform, Provider untuk manajemen state terpusat, dan desain responsif 'Ice Blue' yang adaptif terhadap berbagai ukuran layar.",
       "technologies": [
         "Flutter",
