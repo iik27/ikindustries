@@ -24,7 +24,7 @@ const NavLink = ({ href, label, isMobile = false, onClick }: NavLinkProps) => {
   const isExternal = href.startsWith('http') || href.startsWith('#');
   const className = isMobile 
     ? "text-lg font-brand font-semibold text-foreground hover:text-primary transition-colors py-4 border-b border-border/50"
-    : "text-[13px] font-brand font-bold text-foreground/70 hover:text-primary transition-all uppercase tracking-widest relative after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-[2px] after:bg-primary after:transition-all hover:after:w-full";
+    : "text-[12px] font-brand font-bold text-foreground/70 hover:text-primary transition-all uppercase tracking-[0.15em] relative after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-[2px] after:bg-primary after:transition-all hover:after:w-full";
 
   if (isExternal) {
     return (
@@ -81,7 +81,6 @@ export default function Header() {
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 h-full">
         <div className="flex items-center justify-between h-full">
-          {/* Logo Section */}
           <Link href="/" className="flex items-center gap-3 transition-transform hover:scale-105 active:scale-95 group">
             <div className="relative w-9 h-9 rounded-full overflow-hidden bg-white p-0.5 border border-primary/20 shadow-lg group-hover:shadow-primary/30 transition-shadow">
               <Image src="https://iili.io/ffDrAW7.png" alt="IK Labs Logo" fill className="object-contain" />
@@ -89,21 +88,18 @@ export default function Header() {
             <span className="text-xl font-brand font-bold tracking-tight text-foreground">IK Labs</span>
           </Link>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center gap-10">
+          <nav className="hidden lg:flex items-center gap-8">
             {NAV_LINKS.map((link) => (
               <NavLink key={link.href} href={link.href} label={link.label} />
             ))}
           </nav>
 
-          {/* Actions Section */}
           <div className="flex items-center gap-3">
             <div className="flex items-center gap-1 p-1 bg-secondary/50 rounded-full border border-border/50 backdrop-blur-sm">
               <LanguageToggle />
               <ThemeToggle />
             </div>
 
-            {/* Mobile Menu Trigger */}
             <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
               <SheetTrigger asChild className="lg:hidden">
                 <Button variant="ghost" size="icon" className="rounded-full h-10 w-10 hover:bg-primary/10">
