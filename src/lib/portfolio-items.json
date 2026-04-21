@@ -4,16 +4,16 @@
     {
       "slug": "rajin-erp",
       "title": "Rajin Company Internal ERP",
-      "description": "Sistem manajemen sumber daya perusahaan (Enterprise Resource Planning) komprehensif untuk operasional franchise.",
-      "challenge": "Menghilangkan silo informasi antar 10 divisi perusahaan dan mengintegrasikan seluruh rantai nilai bisnis mulai dari pengadaan bahan baku hingga logistik secara real-time dengan keamanan RBAC yang ketat.",
-      "solution": "Membangun hub pusat menggunakan Next.js 15 dan Firebase Firestore, mengimplementasikan dasbor khusus divisi, serta mengintegrasikan Google Genkit untuk fitur pintar seperti Predictive Stock Recommendations dan Automatic Production Planning.",
+      "description": "Sistem ERP komprehensif untuk mengelola operasional bisnis franchise secara real-time.",
+      "challenge": "Menghilangkan silo informasi antar 10 divisi perusahaan (Produksi, Bisdev, Finance, dll.) dan mengintegrasikan seluruh rantai nilai bisnis dari pengadaan bahan baku hingga logistik dengan keamanan RBAC yang ketat.",
+      "solution": "Membangun hub pusat berbasis Next.js 15 dan Firebase dengan dasbor khusus divisi. Mengintegrasikan Genkit AI untuk fitur Predictive Stock Recommendations dan Automatic Production Planning guna meminimalkan pemborosan.",
       "technologies": [
         "Next.js 15",
-        "Firebase",
-        "Firestore",
+        "Firebase Firestore",
         "Genkit AI",
-        "ShadCN UI",
-        "RBAC"
+        "Multi-Role Auth",
+        "RBAC",
+        "Tailwind CSS"
       ],
       "imageId": "portfolio-4",
       "liveUrl": "#",
@@ -22,16 +22,16 @@
     {
       "slug": "internal-qc-system",
       "title": "Internal QC System (AI-Powered)",
-      "description": "Platform manajemen kontrol kualitas (QC) bertenaga AI untuk audit operasional multi-outlet yang efisien.",
-      "challenge": "Merampingkan alur kerja audit operasional pada bisnis dengan banyak cabang dan memberikan analisis mendalam serta rekomendasi objektif terhadap temuan di lapangan.",
-      "solution": "Sistem berbasis Next.js 15 yang mengintegrasikan Genkit (Gemini) untuk analisis defisiensi otomatis. Fitur mencakup login PIN multi-role, kompresi gambar sisi klien (menghemat 90% storage), laporan siap cetak, dan navigasi Google Maps terintegrasi.",
+      "description": "Platform manajemen kontrol kualitas dengan analisis AI untuk audit operasional multi-outlet.",
+      "challenge": "Merampingkan alur kerja audit operasional pada jaringan outlet yang luas serta memberikan analisis objektif dan rekomendasi perbaikan instan terhadap temuan di lapangan.",
+      "solution": "Sistem berbasis Next.js 15 dengan integrasi Genkit (Gemini) untuk analisis defisiensi otomatis. Fitur utama: Verifikasi PIN multi-role, kompresi gambar 90% di sisi klien, laporan otomatis siap cetak, dan navigasi Google Maps terintegrasi.",
       "technologies": [
         "Next.js 15",
         "Genkit AI",
         "Google Gemini",
-        "Tailwind CSS",
-        "ShadCN UI",
-        "Zod"
+        "React Hook Form",
+        "Zod",
+        "Image Compression"
       ],
       "imageId": "portfolio-3",
       "liveUrl": "#",
@@ -40,16 +40,16 @@
     {
       "slug": "franchise-crm",
       "title": "Franchise Management & CRM System",
-      "description": "Sistem manajemen terpusat untuk operasional bisnis kemitraan yang mengintegrasikan HQ dan Mitra.",
-      "challenge": "Menjaga standarisasi operasional dan kontrol performa di seluruh jaringan gerai mitra yang luas, serta mengintegrasikan sistem bantuan teknis secara terpusat.",
-      "solution": "Membangun platform web terpadu dengan Dashboard Analytics, Asset Tracking, dan Ticketing System menggunakan React 19, Zustand untuk manajemen state, dan Recharts untuk visualisasi data real-time.",
+      "description": "Sistem manajemen terpusat sebagai jembatan operasional antara Kantor Pusat (HQ) dan Mitra.",
+      "challenge": "Menjaga standarisasi operasional dan memantau performa inventaris aset kritis (seperti mesin POS/kopi) di seluruh jaringan mitra yang luas.",
+      "solution": "Membangun platform terpadu dengan Dashboard Analytics (Recharts), Asset Tracking, dan Helpdesk Ticketing System. Menggunakan React 19 dan Zustand untuk manajemen data lokal yang efisien.",
       "technologies": [
         "React 19",
         "TypeScript",
         "Zustand",
         "Recharts",
-        "Lucide React",
-        "SheetJS"
+        "SheetJS",
+        "Vite"
       ],
       "imageId": "portfolio-5",
       "liveUrl": "#",
@@ -58,12 +58,12 @@
     {
       "slug": "automeet",
       "title": "AutoMeet - Booking & Queue System",
-      "description": "Aplikasi mobile otomatisasi booking jadwal dan manajemen antrean pelanggan dengan integrasi video call.",
-      "challenge": "Menghilangkan proses komunikasi manual yang tidak efisien dalam penjadwalan pertemuan antara Customer Service dan pelanggan.",
-      "solution": "Aplikasi mobile lintas platform (React Native & Expo) terintegrasi dengan Jitsi Meet untuk konsultasi video, WhatsApp API, dan sistem notifikasi pengingat otomatis.",
+      "description": "Aplikasi mobile otomatisasi booking jadwal dan manajemen antrean pelanggan terintegrasi video call.",
+      "challenge": "Menghilangkan inefisiensi koordinasi jadwal manual dan memberikan transparansi ketersediaan tim layanan pelanggan secara real-time.",
+      "solution": "Aplikasi native (React Native & Expo) dengan sistem antrean cerdas, integrasi Jitsi Meet untuk video conference, WhatsApp API, dan notifikasi pengingat otomatis menggunakan Expo Notifications.",
       "technologies": [
         "React Native",
-        "Expo",
+        "Expo Router",
         "TypeScript",
         "Jitsi Meet",
         "WhatsApp API",
@@ -76,16 +76,16 @@
     {
       "slug": "opsfix-tracker",
       "title": "OpsFix Tracker Platform",
-      "description": "Platform pelaporan dan manajemen kendala operasional real-time untuk koordinasi staf dan tim teknis.",
-      "challenge": "Mendigitalisasi proses pelaporan manual yang berantakan, meningkatkan akuntabilitas tim perbaikan, dan memberikan transparansi status pengerjaan kendala lapangan.",
-      "solution": "Membangun sistem pelacakan live dengan React 19 dan Supabase. Dilengkapi fitur Live Timer pengerjaan, integrasi Google Drive untuk bukti laporan, dasbor resolusi admin, dan ekspor laporan audit profesional ke Excel.",
+      "description": "Platform manajemen kendala operasional real-time untuk koordinasi staf dan tim teknis.",
+      "challenge": "Mendigitalisasi pelaporan manual yang berantakan, meningkatkan akuntabilitas melalui pelacakan waktu, dan menyediakan transparansi status pengerjaan kendala.",
+      "solution": "Sistem pelacakan live dengan React 19 dan Supabase. Fitur utama: Live Action Tracking (Timer), integrasi Google Drive untuk bukti lapor, dasbor resolusi admin, dan ekspor laporan audit profesional ke Excel.",
       "technologies": [
         "React 19",
         "Supabase",
         "PostgreSQL",
-        "Vite",
         "ExcelJS",
-        "Vercel"
+        "Vite",
+        "RBAC PIN"
       ],
       "imageId": "portfolio-1",
       "liveUrl": "#",
@@ -95,15 +95,15 @@
       "slug": "kasirin-pos",
       "title": "Kasirin POS",
       "description": "Aplikasi Point of Sale (POS) modern lintas platform untuk percepatan transaksi ritel dan F&B.",
-      "challenge": "Menciptakan pengalaman kasir yang cepat dan konsisten di berbagai perangkat (Android dan Web) dari satu basis kode tunggal dengan antarmuka yang responsif.",
-      "solution": "Menggunakan Flutter untuk performa native lintas platform, Provider untuk manajemen state terpusat, dan desain responsif 'Ice Blue' yang adaptif terhadap berbagai ukuran layar.",
+      "challenge": "Menciptakan pengalaman kasir yang cepat, konsisten, dan responsif di berbagai perangkat (Android & Web) dari satu basis kode tunggal.",
+      "solution": "Menggunakan Flutter untuk performa native lintas platform dengan manajemen state Provider. Desain adaptif 'Ice Blue' yang modern dengan tipografi Poppins & Nunito Sans untuk hierarki visual yang jelas.",
       "technologies": [
         "Flutter",
         "Dart",
-        "Android",
-        "Web",
         "Provider",
-        "Mobile App"
+        "LayoutBuilder",
+        "Google Fonts",
+        "Cross-Platform"
       ],
       "imageId": "portfolio-2",
       "liveUrl": "#",
@@ -112,15 +112,15 @@
     {
       "slug": "ngabuburit-fun-meet",
       "title": "Ngabuburit Fun Meet",
-      "description": "Platform sosial berbasis web untuk perencanaan buka puasa bersama secara anonim dan real-time.",
-      "challenge": "Memfasilitasi koordinasi acara sosial yang sensitif terhadap privasi tanpa pendaftaran, serta mengotomatiskan fase aplikasi (diskusi, voting, konfirmasi) berdasarkan waktu lokal.",
-      "solution": "Mengimplementasikan 'Ghost Mode' menggunakan Firebase Anonymous Auth, moderasi konten otomatis berbasis AI dengan Genkit Gemini, dan siklus hidup data otomatis (TTL) untuk menjaga privasi.",
+      "description": "Platform sosial berbasis web untuk perencanaan bukber secara anonim dan real-time.",
+      "challenge": "Memfasilitasi koordinasi sosial yang sensitif privasi tanpa pendaftaran, serta mengotomatiskan alur kerja diskusi, voting, hingga konfirmasi kehadiran.",
+      "solution": "Implementasi 'Ghost Mode' (Firebase Anonymous Auth) dan moderasi konten berbasis AI (Genkit Gemini). Dilengkapi Smart Location Voting dan siklus hidup data otomatis (TTL) yang menghapus data setiap jam 19:00.",
       "technologies": [
         "Next.js 15",
-        "Firebase Auth",
+        "Firebase Anonymous Auth",
         "Firestore",
         "Genkit AI",
-        "Google Gemini",
+        "Google Gemini Pro",
         "Framer Motion"
       ],
       "imageId": "portfolio-7",
