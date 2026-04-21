@@ -8,23 +8,23 @@ import anime from 'animejs';
 const strengths = [
   {
     icon: <Palette className="h-8 w-8 text-primary" />,
-    title: "Modern UI/UX Design",
-    description: "Inspired by the best, we create intuitive, beautiful, and user-friendly interfaces."
+    title: "Desain UI/UX Modern",
+    description: "Terinspirasi oleh yang terbaik, kami menciptakan antarmuka yang intuitif, indah, dan ramah pengguna."
   },
   {
     icon: <TabletSmartphone className="h-8 w-8 text-primary" />,
-    title: "Fully Responsive",
-    description: "Our projects look and work perfectly on any device, from phones to desktops."
+    title: "Sepenuhnya Responsif",
+    description: "Proyek kami terlihat dan berfungsi sempurna di perangkat apa pun, dari ponsel hingga desktop."
   },
   {
     icon: <Zap className="h-8 w-8 text-primary" />,
-    title: "High Performance",
-    description: "We optimize for speed and efficiency, ensuring a fast and smooth user experience."
+    title: "Performa Tinggi",
+    description: "Kami mengoptimalkan kecepatan dan efisiensi, memastikan pengalaman pengguna yang cepat dan lancar."
   },
   {
     icon: <Cpu className="h-8 w-8 text-primary" />,
-    title: "Innovative Technology",
-    description: "Leveraging the latest frameworks and AI to build future-proof solutions."
+    title: "Teknologi Inovatif",
+    description: "Memanfaatkan framework terbaru dan AI untuk membangun solusi yang siap menghadapi masa depan."
   }
 ];
 
@@ -61,9 +61,9 @@ export default function Strengths() {
     <section id="strengths" className="bg-background" ref={sectionRef}>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-2xl mx-auto">
-          <h2 className="font-headline text-3xl font-bold tracking-tight text-foreground sm:text-4xl">Our Key Strengths</h2>
+          <h2 className="font-headline text-3xl font-bold tracking-tight text-foreground sm:text-4xl">Keunggulan Utama Kami</h2>
           <p className="mt-4 text-lg text-foreground/80">
-            What makes IK Labs stand out from the crowd.
+            Hal-hal yang membuat IK Labs unggul dan berbeda dari yang lain.
           </p>
         </div>
         <div className="mt-16 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4 max-w-6xl mx-auto">

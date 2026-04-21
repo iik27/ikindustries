@@ -16,7 +16,7 @@ function SubmitButton() {
   const { pending } = useFormStatus();
   return (
     <Button type="submit" disabled={pending} className="w-full">
-      {pending ? 'Sending...' : 'Send Message'}
+      {pending ? 'Mengirim...' : 'Kirim Pesan'}
     </Button>
   );
 }
@@ -31,18 +31,15 @@ export default function Contact() {
     if (state.message) {
       if (state.issues) {
         toast({
-          title: "We couldn't submit the form.",
-          description: state.issues[0] || 'Please check the fields below.',
+          title: "Gagal mengirim formulir.",
+          description: state.issues[0] || 'Silakan periksa kembali bidang di bawah ini.',
           variant: 'destructive',
         });
       } else {
         toast({
-          title: 'Success!',
+          title: 'Berhasil!',
           description: state.message,
         });
-        // Note: Resetting the form requires the form element.
-        // We can get it via the event or by giving the form an ID.
-        // For simplicity with server actions, a full-page redirect or just showing a success message is often easier.
       }
     }
   }, [state, toast]);
@@ -54,10 +51,10 @@ export default function Contact() {
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div>
              <h2 className="font-headline text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-              Get In Touch
+              Hubungi Kami
             </h2>
             <p className="mt-4 text-lg text-foreground/80">
-              Have a project in mind or just want to say hello? Fill out the form or use the contact information below. I'd love to hear from you.
+              Punya proyek impian atau sekadar ingin menyapa? Isi formulir atau gunakan informasi kontak di bawah ini. Kami akan senang mendengar dari Anda.
             </p>
             <div className="mt-8 space-y-4">
                 <a href="mailto:contact@ikindustries.com" className="flex items-center gap-4 text-lg hover:text-primary transition-colors">
@@ -72,22 +69,22 @@ export default function Contact() {
           </div>
           <Card className="shadow-lg">
             <CardHeader>
-              <CardTitle>Send a Message</CardTitle>
-              <CardDescription>I'll get back to you as soon as possible.</CardDescription>
+              <CardTitle>Kirim Pesan</CardTitle>
+              <CardDescription>Kami akan membalas pesan Anda sesegera mungkin.</CardDescription>
             </CardHeader>
             <CardContent>
               <form action={formAction} className="space-y-4">
                 <div className="space-y-2">
-                  <label htmlFor="name" className="text-sm font-medium">Name</label>
-                  <Input id="name" name="name" placeholder="Your Name" required defaultValue={state.fields?.name} />
+                  <label htmlFor="name" className="text-sm font-medium">Nama</label>
+                  <Input id="name" name="name" placeholder="Nama Anda" required defaultValue={state.fields?.name} />
                 </div>
                 <div className="space-y-2">
                   <label htmlFor="email" className="text-sm font-medium">Email</label>
-                  <Input id="email" name="email" type="email" placeholder="your.email@example.com" required defaultValue={state.fields?.email} />
+                  <Input id="email" name="email" type="email" placeholder="email@contoh.com" required defaultValue={state.fields?.email} />
                 </div>
                 <div className="space-y-2">
-                  <label htmlFor="message" className="text-sm font-medium">Message</label>
-                  <Textarea id="message" name="message" placeholder="Your message here..." required minLength={10} defaultValue={state.fields?.message} />
+                  <label htmlFor="message" className="text-sm font-medium">Pesan</label>
+                  <Textarea id="message" name="message" placeholder="Tuliskan pesan Anda di sini..." required minLength={10} defaultValue={state.fields?.message} />
                 </div>
                 <SubmitButton />
               </form>

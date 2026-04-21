@@ -4,13 +4,13 @@ import { useEffect, useRef } from 'react';
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import anime from 'animejs';
+import Link from 'next/link';
 
 export default function Hero() {
   const bgRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (bgRef.current) {
-      // Create simple particles for a futuristic background effect
       const particles = Array.from({ length: 20 }).map((_, i) => {
         const dot = document.createElement('div');
         dot.className = 'absolute bg-primary/20 rounded-full pointer-events-none';
@@ -46,24 +46,24 @@ export default function Hero() {
       <div className="container mx-auto relative z-10 px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto">
           <h1 className="font-headline text-4xl font-bold tracking-tight text-foreground sm:text-6xl lg:text-7xl">
-            Empowering Business with,
+            Memberdayakan Bisnis dengan,
             <span className="block mt-2 sm:mt-4 bg-gradient-to-r from-primary via-blue-500 to-teal-400 bg-clip-text text-transparent">
-              Advanced Digital Systems.
+              Sistem Digital Terkini.
             </span>
           </h1>
           <p className="mt-6 text-lg leading-8 text-foreground/80 max-w-2xl mx-auto">
-            IK Labs specializes in developing expertly crafted websites, high-performance mobile applications, and integrated company systems that drive operational excellence.
+            IK Labs berspesialisasi dalam mengembangkan website profesional, aplikasi mobile performa tinggi, dan sistem perusahaan terintegrasi yang mendorong keunggulan operasional.
           </p>
           <div className="mt-10 flex items-center justify-center gap-x-6">
             <Button size="lg" asChild>
-              <a href="#portfolio">
-                See Our Projects
+              <Link href="/portfolio">
+                Lihat Proyek Kami
                 <ArrowRight className="ml-2 h-5 w-5" />
-              </a>
+              </Link>
             </Button>
             <Button size="lg" variant="ghost" asChild>
               <a href="#services">
-                Our Expertise <span aria-hidden="true" className="ml-1">→</span>
+                Keahlian Kami <span aria-hidden="true" className="ml-1">→</span>
               </a>
             </Button>
           </div>

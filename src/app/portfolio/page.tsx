@@ -4,7 +4,7 @@ import { PortfolioItems } from "@/lib/portfolio-items";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
-import { Card, CardContent, CardFooter } from "@/components/ui/card";
+import { CardContent, CardFooter } from "@/components/ui/card";
 import { ArrowRight } from "lucide-react";
 import ShineBorderCard from "@/components/shine-border-card";
 
@@ -18,9 +18,9 @@ export default function PortfolioListPage() {
         <section className="bg-background pt-32 pb-16 sm:pt-40 sm:pb-24">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center max-w-2xl mx-auto">
-              <h1 className="font-headline text-4xl font-bold tracking-tight text-foreground sm:text-5xl">Our Work</h1>
+              <h1 className="font-headline text-4xl font-bold tracking-tight text-foreground sm:text-5xl">Karya Kami</h1>
               <p className="mt-4 text-xl text-foreground/80">
-                A showcase of our passion, creativity, and commitment to excellence.
+                Pameran semangat, kreativitas, dan komitmen kami terhadap keunggulan.
               </p>
             </div>
             <div className="mt-16 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 max-w-6xl mx-auto">

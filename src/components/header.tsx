@@ -10,14 +10,14 @@ import { cn } from '@/lib/utils';
 import { ThemeToggle } from '@/components/theme-toggle';
 
 const NAV_LINKS = [
-  { href: '/#development-process', label: 'Process' },
-  { href: '/#services', label: 'Services' },
-  { href: '/#strengths', label: 'Strengths' },
-  { href: '/portfolio', label: 'Portfolio' },
-  { href: '/#testimonials', label: 'Testimonials' },
+  { href: '/#development-process', label: 'Proses' },
+  { href: '/#services', label: 'Layanan' },
+  { href: '/#strengths', label: 'Keunggulan' },
+  { href: '/portfolio', label: 'Portofolio' },
+  { href: '/#testimonials', label: 'Testimoni' },
   { href: '/blog', label: 'Blog' },
-  { href: '/#about', label: 'About' },
-  { href: '/#contact', label: 'Contact' },
+  { href: '/#about', label: 'Tentang' },
+  { href: '/#contact', label: 'Kontak' },
 ];
 
 export default function Header() {
@@ -63,17 +63,18 @@ export default function Header() {
           </Link>
           <div className="flex items-center gap-2">
             <ThemeToggle />
+            <span className="sr-only">Ganti Tema</span>
             <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
               <SheetTrigger asChild>
                 <Button variant="ghost" size="icon">
                   <Menu className="h-6 w-6" />
-                  <span className="sr-only">Open menu</span>
+                  <span className="sr-only">Buka menu</span>
                 </Button>
               </SheetTrigger>
               <SheetContent side="right" className="w-[300px] bg-background p-0">
                 <SheetHeader className="p-6 pb-0">
-                  <SheetTitle className="sr-only">Mobile Menu</SheetTitle>
-                  <SheetDescription className="sr-only">A list of navigation links for the site.</SheetDescription>
+                  <SheetTitle className="sr-only">Menu Navigasi</SheetTitle>
+                  <SheetDescription className="sr-only">Daftar tautan navigasi untuk situs ini.</SheetDescription>
                 </SheetHeader>
                 <div className="flex flex-col h-full p-6">
                   <Link href="/" className="flex items-center gap-2 text-2xl font-headline font-bold mb-8">

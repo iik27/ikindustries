@@ -51,9 +51,9 @@ export default function Testimonials() {
     <section id="testimonials" className="bg-background">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
         <div className="text-center max-w-2xl mx-auto">
-          <h2 className="font-headline text-3xl font-bold tracking-tight text-foreground sm:text-4xl">What Our Clients Say</h2>
+          <h2 className="font-headline text-3xl font-bold tracking-tight text-foreground sm:text-4xl">Apa Kata Klien Kami</h2>
           <p className="mt-4 text-lg text-foreground/80">
-            Real stories from businesses we've helped to grow and succeed.
+            Cerita nyata dari bisnis yang telah kami bantu untuk tumbuh dan sukses.
           </p>
         </div>
         <div className="mt-16">

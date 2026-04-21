@@ -27,7 +27,6 @@ export default function About() {
   const chatContainerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    // Scroll to the bottom of the chat container when a new message is added
     if (chatContainerRef.current) {
       chatContainerRef.current.scrollTop = chatContainerRef.current.scrollHeight;
     }
@@ -46,13 +45,13 @@ export default function About() {
       try {
         const aiResponse = await askMeAnything({
           question: inputValue,
-          history: newConversation.slice(0, -1) // Send history without the latest user message
+          history: newConversation.slice(0, -1)
         });
         const modelMessage: Message = { role: 'model', content: aiResponse.answer };
         setConversation(prev => [...prev, modelMessage]);
       } catch (error) {
         console.error("Error asking AI:", error);
-        const errorMessage: Message = { role: 'model', content: "I'm sorry, I'm having a little trouble connecting right now. Please try again in a moment." };
+        const errorMessage: Message = { role: 'model', content: "Maaf, saya sedang mengalami kendala koneksi. Silakan coba lagi beberapa saat lagi." };
         setConversation(prev => [...prev, errorMessage]);
       }
     });
@@ -63,40 +62,40 @@ export default function About() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
         <div className="grid md:grid-cols-5 gap-8 md:gap-12 items-start">
           
-          {/* Left Column: Profile Info & Chat Interface */}
+          {/* Kolom Kiri: Info Profil & Antarmuka Chat */}
           <div className="md:col-span-3">
             <h2 className="font-headline text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-              The Vision Behind IK Labs
+              Visi di Balik IK Labs
             </h2>
             <p className="mt-4 text-lg text-foreground/80">
-              Muhamad Taufik Hidayat, the founder of **IK Labs**, is a dedicated technologist focused on transforming businesses through digital innovation. With deep expertise in full-stack development and systems analysis, he leads IK Labs to build high-impact websites, mobile apps, and enterprise-grade company systems.
+              Muhamad Taufik Hidayat, pendiri **IK Labs**, adalah seorang teknolog berdedikasi yang fokus pada transformasi bisnis melalui inovasi digital. Dengan keahlian mendalam dalam pengembangan full-stack dan analisis sistem, ia memimpin IK Labs untuk membangun website berdampak tinggi, aplikasi mobile, dan sistem internal perusahaan kelas enterprise.
             </p>
             <p className="mt-4 text-foreground/80">
-              At IK Labs, we don't just write code; we solve operational challenges by designing intelligent systems that grow with your business. **Have a question about how we can help your company? Ask my AI assistant below!**
+              Di IK Labs, kami tidak hanya menulis kode; kami memecahkan tantangan operasional dengan merancang sistem cerdas yang tumbuh bersama bisnis Anda. **Punya pertanyaan tentang bagaimana kami dapat membantu perusahaan Anda? Tanya asisten AI saya di bawah ini!**
             </p>
             <div className="mt-6 flex items-center gap-4">
               <Button variant="outline" size="icon" asChild>
-                <a href="https://github.com/iik27" target="_blank" rel="noopener noreferrer" aria-label="GitHub Profile">
+                <a href="https://github.com/iik27" target="_blank" rel="noopener noreferrer" aria-label="Profil GitHub">
                   <Github className="h-5 w-5" />
                 </a>
               </Button>
               <Button variant="outline" size="icon" asChild>
-                <a href="https://www.linkedin.com/in/iiiikkk" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Profile">
+                <a href="https://www.linkedin.com/in/iiiikkk" target="_blank" rel="noopener noreferrer" aria-label="Profil LinkedIn">
                   <Linkedin className="h-5 w-5" />
                 </a>
               </Button>
             </div>
             
-            {/* Chat Interface */}
+            {/* Antarmuka Chat */}
             <div className="mt-8 pt-8 border-t">
                <h3 className="text-xl font-headline font-semibold flex items-center gap-2">
                 <MessageSquare className="h-6 w-6 text-primary"/>
-                Ask IK Labs Assistant
+                Tanya Asisten IK Labs
               </h3>
               <div className="mt-4 border rounded-lg bg-secondary/30 h-96 flex flex-col">
                 <div ref={chatContainerRef} className="flex-1 p-4 space-y-4 overflow-y-auto">
                   <ChatBubble role="model">
-                    <p>Hello! I'm the AI assistant for IK Labs. Feel free to ask me about our web development, mobile app services, or how we build internal company systems.</p>
+                    <p>Halo! Saya asisten AI untuk IK Labs. Silakan tanya saya tentang pengembangan web, aplikasi mobile, atau bagaimana kami membangun sistem internal perusahaan.</p>
                   </ChatBubble>
                   {conversation.map((msg, index) => (
                     <ChatBubble key={index} role={msg.role}>
@@ -119,13 +118,13 @@ export default function About() {
                       type="text"
                       value={inputValue}
                       onChange={(e) => setInputValue(e.target.value)}
-                      placeholder="e.g., Can you build an ERP system?"
+                      placeholder="Misal: Bisakah Anda membangun sistem ERP?"
                       className="pr-12"
                       disabled={isPending}
                     />
                     <Button type="submit" size="icon" className="absolute right-1 top-1/2 -translate-y-1/2 h-8 w-8" disabled={isPending || !inputValue.trim()}>
                       <Send className="h-4 w-4" />
-                      <span className="sr-only">Send</span>
+                      <span className="sr-only">Kirim</span>
                     </Button>
                   </div>
                 </form>
@@ -133,7 +132,7 @@ export default function About() {
             </div>
           </div>
 
-          {/* Right Column: Profile Image */}
+          {/* Kolom Kanan: Foto Profil */}
           <div className="md:col-span-2 md:sticky md:top-28">
             {profileImage && (
               <div className="aspect-square relative rounded-lg overflow-hidden shadow-lg transform transition-transform duration-500 hover:scale-105">

@@ -42,7 +42,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                 <Button variant="ghost" asChild className="pl-0">
                   <Link href="/blog">
                     <ArrowLeft className="mr-2 h-4 w-4" />
-                    Back to Blog
+                    Kembali ke Blog
                   </Link>
                 </Button>
               </div>
@@ -60,7 +60,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
               </h1>
 
               <p className="mt-4 text-lg text-foreground/70">
-                {post.date} &middot; by {post.author}
+                {post.date} &middot; oleh {post.author}
               </p>
 
               {image && (

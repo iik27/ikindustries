@@ -42,7 +42,7 @@ export default async function PortfolioItemPage({ params }: PortfolioItemPagePro
                 <Button variant="ghost" asChild className="pl-0">
                   <Link href="/portfolio">
                     <ArrowLeft className="mr-2 h-4 w-4" />
-                    Back to Portfolio
+                    Kembali ke Portofolio
                   </Link>
                 </Button>
               </div>
@@ -71,20 +71,20 @@ export default async function PortfolioItemPage({ params }: PortfolioItemPagePro
 
               <div className="grid md:grid-cols-3 gap-8 md:gap-12">
                 <div className="md:col-span-2 prose mx-auto">
-                    <h2>About The Project</h2>
+                    <h2>Tentang Proyek</h2>
                     
-                    <h3>Challenge</h3>
+                    <h3>Tantangan</h3>
                     <p>{item.challenge}</p>
 
-                    <h3>Solution</h3>
+                    <h3>Solusi</h3>
                     <p>{item.solution}</p>
                 </div>
                 <aside className="md:col-span-1">
                   <div className="sticky top-28 bg-secondary p-6 rounded-lg">
-                    <h3 className="font-headline font-semibold text-lg text-foreground">Project Info</h3>
+                    <h3 className="font-headline font-semibold text-lg text-foreground">Info Proyek</h3>
                     
                     <div className="mt-4">
-                      <h4 className="font-semibold text-sm text-foreground/80 mb-2">Technologies</h4>
+                      <h4 className="font-semibold text-sm text-foreground/80 mb-2">Teknologi</h4>
                       <div className="flex flex-wrap gap-2">
                         {item.technologies.map((tech) => (
                           <Badge key={tech} variant="secondary">
@@ -100,7 +100,7 @@ export default async function PortfolioItemPage({ params }: PortfolioItemPagePro
                             {item.liveUrl && item.liveUrl !== '#' && (
                                <Button asChild variant="default">
                                     <a href={item.liveUrl} target="_blank" rel="noopener noreferrer">
-                                        View Live Project
+                                        Lihat Proyek Langsung
                                         <ExternalLink className="ml-2 h-4 w-4" />
                                     </a>
                                </Button>
@@ -109,7 +109,7 @@ export default async function PortfolioItemPage({ params }: PortfolioItemPagePro
                                <Button asChild variant="outline">
                                     <a href={item.githubUrl} target="_blank" rel="noopener noreferrer">
                                         <Github className="mr-2 h-4 w-4" />
-                                        View on GitHub
+                                        Lihat di GitHub
                                     </a>
                                </Button>
                             )}

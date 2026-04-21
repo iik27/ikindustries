@@ -4,7 +4,7 @@ import { BlogPosts } from "@/lib/blog-posts";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
-import { Card, CardContent, CardFooter, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
+import { CardContent, CardFooter, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
@@ -20,9 +20,9 @@ export default function BlogListPage() {
         <section className="bg-background pt-32 pb-16 sm:pt-40 sm:pb-24">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center max-w-2xl mx-auto">
-              <h1 className="font-headline text-4xl font-bold tracking-tight text-foreground sm:text-5xl">Our Blog</h1>
+              <h1 className="font-headline text-4xl font-bold tracking-tight text-foreground sm:text-5xl">Blog Kami</h1>
               <p className="mt-4 text-xl text-foreground/80">
-                Insights, trends, and stories from the world of technology and development.
+                Wawasan, tren, dan cerita dari dunia teknologi dan pengembangan.
               </p>
             </div>
             <div className="mt-16 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 max-w-6xl mx-auto">
@@ -60,7 +60,7 @@ export default function BlogListPage() {
                     <CardFooter className="mt-auto">
                        <Button variant="link" asChild className="px-0">
                         <Link href={`/blog/${post.slug}`}>
-                          Read More
+                          Baca Selengkapnya
                           <ArrowRight className="ml-2 h-4 w-4" />
                         </Link>
                       </Button>

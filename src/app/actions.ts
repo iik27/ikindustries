@@ -3,9 +3,9 @@
 import { z } from 'zod';
 
 const contactSchema = z.object({
-  name: z.string().min(2, { message: 'Name must be at least 2 characters.' }),
-  email: z.string().email({ message: 'Please enter a valid email.' }),
-  message: z.string().min(10, { message: 'Message must be at least 10 characters.' }),
+  name: z.string().min(2, { message: 'Nama harus minimal 2 karakter.' }),
+  email: z.string().email({ message: 'Silakan masukkan email yang valid.' }),
+  message: z.string().min(10, { message: 'Pesan harus minimal 10 karakter.' }),
 });
 
 export type ContactFormState = {
@@ -25,24 +25,21 @@ export async function submitContactForm(
       message: data.get('message'),
     });
 
-    // NOTE: Email sending logic has been removed.
-    // In a real application, you would integrate an email service like Resend, SendGrid, etc.
-    // For now, we'll just log the data to the server console.
-    console.log('New contact form submission:');
-    console.log('Name:', parsed.name);
+    console.log('Pengiriman formulir kontak baru:');
+    console.log('Nama:', parsed.name);
     console.log('Email:', parsed.email);
-    console.log('Message:', parsed.message);
+    console.log('Pesan:', parsed.message);
     
-    return { message: 'Thank you! Your message has been received.' };
+    return { message: 'Terima kasih! Pesan Anda telah kami terima.' };
   } catch (error) {
      if (error instanceof z.ZodError) {
       return {
-        message: "We couldn't submit the form. Please check the fields below.",
+        message: "Kami tidak dapat mengirim formulir. Silakan periksa bidang di bawah ini.",
         fields: Object.fromEntries(data.entries()) as Record<string, string>,
         issues: error.issues.map((issue) => issue.message),
       };
     }
     console.error('Unexpected error:', error);
-    return { message: 'An unexpected error occurred. Please try again later.' };
+    return { message: 'Terjadi kesalahan yang tidak terduga. Silakan coba lagi nanti.' };
   }
 }

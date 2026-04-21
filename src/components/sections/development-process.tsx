@@ -7,33 +7,33 @@ import anime from 'animejs';
 const processSteps = [
   {
     icon: <Lightbulb className="h-10 w-10 text-primary" />,
-    title: "Ideation",
-    description: "We start by understanding your vision, goals, and challenges to form a solid foundation for the project.",
+    title: "Ideasi",
+    description: "Kami mulai dengan memahami visi, tujuan, dan tantangan Anda untuk membentuk fondasi proyek yang kuat.",
   },
   {
     icon: <BookText className="h-10 w-10 text-primary" />,
-    title: "Planning",
-    description: "A comprehensive roadmap and strategy are developed, outlining milestones, timelines, and technical requirements.",
+    title: "Perencanaan",
+    description: "Peta jalan dan strategi komprehensif dikembangkan, merinci pencapaian, timeline, dan persyaratan teknis.",
   },
   {
     icon: <Palette className="h-10 w-10 text-primary" />,
-    title: "Design",
-    description: "We craft an intuitive, engaging, and visually appealing UI/UX design that focuses on user experience.",
+    title: "Desain",
+    description: "Kami merancang desain UI/UX yang intuitif, menarik, dan visual yang berfokus pada pengalaman pengguna.",
   },
   {
     icon: <Code className="h-10 w-10 text-primary" />,
-    title: "Development",
-    description: "Our expert developers bring the design to life, writing clean, efficient, and scalable code.",
+    title: "Pengembangan",
+    description: "Pengembang ahli kami menghidupkan desain, menulis kode yang bersih, efisien, dan terukur.",
   },
   {
     icon: <FlaskConical className="h-10 w-10 text-primary" />,
-    title: "Testing",
-    description: "Rigorous testing is conducted to ensure the product is bug-free, secure, and performs flawlessly.",
+    title: "Pengujian",
+    description: "Pengujian ketat dilakukan untuk memastikan produk bebas bug, aman, dan berkinerja sempurna.",
   },
   {
     icon: <Rocket className="h-10 w-10 text-primary" />,
-    title: "Deployment",
-    description: "The final product is launched, and we provide ongoing support to ensure a smooth and successful release.",
+    title: "Peluncuran",
+    description: "Produk akhir diluncurkan, dan kami memberikan dukungan berkelanjutan untuk memastikan kesuksesan.",
   },
 ];
 
@@ -69,9 +69,9 @@ export default function DevelopmentProcess() {
     <section id="development-process" className="bg-background" ref={sectionRef}>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-2xl mx-auto">
-          <h2 className="font-headline text-3xl font-bold tracking-tight text-foreground sm:text-4xl">Our Development Process</h2>
+          <h2 className="font-headline text-3xl font-bold tracking-tight text-foreground sm:text-4xl">Proses Pengembangan Kami</h2>
           <p className="mt-4 text-lg text-foreground/80">
-            From concept to launch, we follow a structured and transparent process to ensure your project's success.
+            Dari konsep hingga peluncuran, kami mengikuti proses yang terstruktur dan transparan untuk memastikan keberhasilan proyek Anda.
           </p>
         </div>
 
