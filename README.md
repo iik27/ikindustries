@@ -15,23 +15,26 @@ This project uses **Genkit** with Google Gemini. To enable the AI features (AI A
    GOOGLE_GENAI_API_KEY=your_actual_api_key_here
    ```
 
-### 2. Local Development
+### 2. Deployment Configuration (ENV)
+
+#### **Vercel**
+Jika Anda menggunakan Vercel, jangan masukkan file `.env` ke GitHub. Masukkan secara manual di:
+1. **Settings** > **Environment Variables**.
+2. Key: `GOOGLE_GENAI_API_KEY`
+3. Value: `kunci_api_anda_disini`
+4. Simpan dan **Redeploy**.
+
+#### **Firebase App Hosting**
+Jika menggunakan Firebase, Anda bisa mengatur secrets melalui Firebase Console atau menggunakan `apphosting.yaml`.
+
+### 3. Local Development
 1. Run `npm install` to install dependencies.
 2. Run `npm run dev` to start the development server.
 3. Open `http://localhost:9002` in your browser.
 
-## Deployment
-
-### 1. Using Firebase (Recommended)
-Click the **"Publish"** button in your Firebase Studio dashboard. Ensure you have set the `GOOGLE_GENAI_API_KEY` in your deployment secrets/environment variables.
-
-### 2. Using Vercel
-1. Connect this repo to Vercel.
-2. Add the `GOOGLE_GENAI_API_KEY` Environment Variable.
-3. Click **"Deploy"**.
-
 ## Key Features
-- **Futuristic UI:** Laboratory-themed design with smooth Anime.JS animations.
+- **Futuristic UI:** Laboratory-themed design with advanced **Anime.JS** character animations.
 - **AI Assistant:** Interactive chatbot (LabOS) for direct consultation.
 - **Smart Tech Stack:** AI-powered analysis of technology benefits and features.
-- **Bilingual Support:** Full Indonesian and English translations.
+- **Bilingual Support:** Full Indonesian and English translations across all sections.
+- **Responsive Design:** Optimized for all devices with a professional glassmorphism aesthetic.
