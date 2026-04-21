@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect, useTransition, useMemo } from 'react';
+import React, { useState, useEffect, useTransition, useMemo, useRef } from 'react';
 import { Card, CardContent } from "@/components/ui/card";
 import { generateCode } from '@/ai/flows/generate-code-flow';
 import anime from 'animejs';
@@ -68,6 +68,7 @@ const Typewriter = ({ text }: { text: string }) => {
 export default function InteractiveTechStack() {
   const { language } = useLanguage();
   const t = translations[language].techStack;
+  const terminalRef = useRef<HTMLDivElement>(null);
 
   const defaultCode = useMemo(() => `
 import type { NextPage } from 'next';
@@ -92,25 +93,46 @@ export default Home;
   const [generatedCode, setGeneratedCode] = useState({ code: defaultCode, language: 'jsx'});
   const [isPending, startTransition] = useTransition();
 
-  // Reset code snippet when language changes to ensure the comment is translated
+  // Reset code snippet when language changes
   useEffect(() => {
     if (generatedCode.code.includes('/**') || generatedCode.code.includes('/*')) {
         setGeneratedCode({ code: defaultCode, language: 'jsx' });
     }
   }, [language, defaultCode, generatedCode.code]);
 
+  // Terminal Pulse Animation while loading
   useEffect(() => {
-    const targetClass = `.tech-btn-${activeTech.replace(/\s+/g, '-').toLowerCase()}`;
-    anime({
-      targets: targetClass,
-      scale: [1, 1.15, 1],
-      duration: 600,
-      easing: 'easeOutElastic(1, .5)'
-    });
-  }, [activeTech]);
+    if (isPending) {
+        anime({
+            targets: terminalRef.current,
+            boxShadow: [
+                '0 0 0px rgba(var(--primary), 0)',
+                '0 0 20px rgba(var(--primary), 0.3)',
+                '0 0 0px rgba(var(--primary), 0)'
+            ],
+            duration: 1500,
+            loop: true,
+            easing: 'easeInOutQuad'
+        });
+    } else {
+        anime.remove(terminalRef.current);
+        if (terminalRef.current) terminalRef.current.style.boxShadow = '';
+    }
+  }, [isPending]);
 
   const handleTechClick = (techName: string) => {
       setActiveTech(techName);
+      
+      // Button interaction animation
+      const targetClass = `.tech-btn-${techName.replace(/\s+/g, '-').toLowerCase()}`;
+      anime({
+        targets: targetClass,
+        scale: [1, 1.2, 1],
+        rotate: [0, 5, -5, 0],
+        duration: 400,
+        easing: 'easeInOutBack'
+      });
+
       startTransition(async () => {
           try {
               const result = await generateCode({ technology: techName });
@@ -146,42 +168,51 @@ export default Home;
                     key={tech.name} 
                     onClick={() => handleTechClick(tech.name)}
                     className={cn(
-                        "flex flex-col items-center justify-center gap-2 w-24 text-center rounded-lg p-2 transition-all duration-200",
+                        "flex flex-col items-center justify-center gap-2 w-24 text-center rounded-xl p-3 transition-all duration-300",
                         `tech-btn-${tech.name.replace(/\s+/g, '-').toLowerCase()}`,
-                        activeTech === tech.name ? 'bg-primary/10' : 'hover:bg-secondary'
+                        activeTech === tech.name ? 'bg-primary/10 shadow-inner' : 'hover:bg-secondary'
                     )}
                     aria-label={`Generate code for ${tech.name}`}
                 >
-                  {tech.icon}
-                  <p className="text-sm font-medium text-foreground/90">{tech.name}</p>
+                  <div className="bg-background/50 p-2 rounded-lg shadow-sm">
+                    {tech.icon}
+                  </div>
+                  <p className="text-xs font-semibold text-foreground/80 uppercase tracking-wider">{tech.name}</p>
                 </button>
               ))}
           </div>
 
-          <div className="lg:max-w-md w-full">
-             <Card className="bg-card/50 shadow-lg border-primary/20">
+          <div className="lg:max-w-md w-full" ref={terminalRef}>
+             <Card className="bg-card/50 shadow-2xl border-primary/20 overflow-hidden rounded-xl">
                 <CardContent className="p-0">
-                    <div className="flex justify-between items-center px-4 py-2 border-b bg-muted/50 rounded-t-lg">
-                        <p className="text-xs font-mono font-medium text-primary uppercase tracking-widest">{activeTech}</p>
-                        <div className="flex items-center gap-1.5">
-                            <div className="w-2.5 h-2.5 rounded-full bg-red-500/80"></div>
-                            <div className="w-2.5 h-2.5 rounded-full bg-yellow-500/80"></div>
-                            <div className="w-2.5 h-2.5 rounded-full bg-green-500/80"></div>
+                    <div className="flex justify-between items-center px-4 py-2.5 border-b bg-muted/80">
+                        <div className="flex items-center gap-3">
+                            <div className="flex items-center gap-1.5">
+                                <div className="w-3 h-3 rounded-full bg-red-500/80"></div>
+                                <div className="w-3 h-3 rounded-full bg-yellow-500/80"></div>
+                                <div className="w-3 h-3 rounded-full bg-green-500/80"></div>
+                            </div>
+                            <p className="text-[10px] font-mono font-bold text-foreground/40 uppercase tracking-[0.2em] ml-2">Laboratory Terminal</p>
                         </div>
+                        <p className="text-[10px] font-mono font-medium text-primary uppercase tracking-widest">{activeTech}</p>
                     </div>
-                    <div className="p-4 text-sm overflow-x-auto min-h-[350px] bg-muted/20 font-code">
+                    <div className="p-6 text-sm overflow-x-auto min-h-[400px] bg-[#0d1117]/95 text-blue-100/90 font-code">
                         {isPending ? (
-                            <div className="space-y-3">
-                                <Skeleton className="h-4 w-[85%]" />
-                                <Skeleton className="h-4 w-[60%]" />
-                                <Skeleton className="h-4 w-[90%]" />
-                                <Skeleton className="h-4 w-[75%]" />
-                                <Skeleton className="h-4 w-[40%]" />
-                                <Skeleton className="h-4 w-[80%]" />
+                            <div className="space-y-4">
+                                <div className="flex items-center gap-2 text-primary/60">
+                                    <div className="w-2 h-2 rounded-full bg-primary animate-pulse"></div>
+                                    <span className="text-xs uppercase tracking-tighter">Analyzing Tech Stack...</span>
+                                </div>
+                                <Skeleton className="h-4 w-[85%] bg-white/5" />
+                                <Skeleton className="h-4 w-[60%] bg-white/5" />
+                                <Skeleton className="h-4 w-[90%] bg-white/5" />
+                                <Skeleton className="h-4 w-[75%] bg-white/5" />
+                                <Skeleton className="h-4 w-[40%] bg-white/5" />
+                                <Skeleton className="h-4 w-[80%] bg-white/5" />
                             </div>
                         ) : (
                             <pre className="whitespace-pre-wrap break-words leading-relaxed">
-                                <code className={cn("text-foreground/90", `language-${generatedCode.language}`)}>
+                                <code className={cn("text-blue-100/90", `language-${generatedCode.language}`)}>
                                     <Typewriter text={generatedCode.code} />
                                 </code>
                             </pre>
