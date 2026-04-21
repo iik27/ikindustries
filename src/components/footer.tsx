@@ -1,10 +1,17 @@
 
+'use client';
+
+import { useState, useEffect } from 'react';
 import Image from "next/image";
 import { Github, Linkedin, Mail, Phone } from "lucide-react";
 import Link from 'next/link';
 
 export default function Footer() {
-  const currentYear = new Date().getFullYear();
+  const [year, setYear] = useState<number | null>(null);
+
+  useEffect(() => {
+    setYear(new Date().getFullYear());
+  }, []);
 
   return (
     <footer className="bg-primary text-primary-foreground">
@@ -49,7 +56,7 @@ export default function Footer() {
 
         <div className="mt-12 pt-8 border-t border-primary-foreground/10 flex flex-col md:flex-row justify-between items-center gap-6">
           <p className="text-sm text-primary-foreground/60">
-            &copy; {currentYear} IK Labs. Seluruh hak cipta dilindungi. Dikembangkan oleh Muhamad Taufik Hidayat.
+            &copy; {year || '2024'} IK Labs. Seluruh hak cipta dilindungi. Dikembangkan oleh Muhamad Taufik Hidayat.
           </p>
           <div className="flex gap-6 text-xs font-medium uppercase tracking-wider">
             <Link href="/privacy-policy" className="hover:text-white transition-colors">Kebijakan Privasi</Link>
