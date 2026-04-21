@@ -63,7 +63,7 @@
       "title": "AutoMeet - Booking & Queue System",
       "description": "Aplikasi mobile otomatisasi booking jadwal dan manajemen antrean pelanggan terintegrasi video call.",
       "challenge": "Menghilangkan inefisiensi koordinasi jadwal manual dan memberikan transparansi ketersediaan tim layanan pelanggan (CS) secara real-time berdasarkan kuota harian.",
-      "solution": "Aplikasi mobile lintas platform menggunakan React Native & Expo dengan sistem antrean cerdas, integrasi Jitsi Meet untuk video conference, WhatsApp API, dan notifikasi pengingat otomatis menggunakan Expo Notifications. Data tersimpan secara aman di perangkat menggunakan Async Storage.",
+      "solution": "Aplikasi mobile lintas platform menggunakan React Native & Expo dengan sistem antrean cerdas, integrasi Jitsi Meet untuk video conference, WhatsApp API, dan notifikasi pengingat otomatis menggunakan Expo Notifications.",
       "technologies": [
         "React Native",
         "Expo Router",
@@ -100,7 +100,7 @@
       "title": "Kasirin POS",
       "description": "Aplikasi Point of Sale (POS) modern lintas platform untuk percepatan transaksi ritel dan F&B.",
       "challenge": "Menciptakan pengalaman kasir yang cepat, konsisten, dan responsif di berbagai perangkat (Android & Web) dari satu basis kode tunggal dengan dukungan produk paket (bundle) yang kompleks.",
-      "solution": "Menggunakan Flutter untuk performa native lintas platform dengan manajemen state Provider. Desain adaptif 'Ice Blue' menggunakan LayoutBuilder, tipografi Poppins & Nunito Sans, serta fitur manajemen produk CRUD yang lengkap.",
+      "solution": "Aplikasi modern dengan performa native lintas platform. Fitur utama meliputi manajemen produk bundle, desain adaptif 'Ice Blue', tipografi premium, serta sinkronisasi data transaksi yang cepat.",
       "technologies": [
         "Flutter",
         "Dart",
