@@ -1,3 +1,4 @@
+
 "use client";
 
 import React, { useState, useEffect } from 'react';
@@ -11,6 +12,40 @@ import { ThemeToggle } from '@/components/theme-toggle';
 import { LanguageToggle } from '@/components/language-toggle';
 import { useLanguage } from './language-provider';
 import { translations } from '@/lib/translations';
+
+interface NavLinkProps {
+  href: string;
+  label: string;
+  isMobile?: boolean;
+  onClick?: () => void;
+}
+
+const NavLink = ({ href, label, isMobile = false, onClick }: NavLinkProps) => {
+  const isExternal = href.startsWith('http') || href.startsWith('#');
+  const className = isMobile 
+    ? "text-lg font-medium text-foreground hover:text-primary transition-colors py-2"
+    : "text-sm font-medium text-foreground/80 hover:text-primary transition-colors";
+
+  if (isExternal) {
+    return (
+      <a 
+        href={href} 
+        onClick={onClick} 
+        className={className}
+        target={href.startsWith('http') ? '_blank' : undefined}
+        rel={href.startsWith('http') ? 'noopener noreferrer' : undefined}
+      >
+        {label}
+      </a>
+    );
+  }
+
+  return (
+    <Link href={href} onClick={onClick} className={className}>
+      {label}
+    </Link>
+  );
+};
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -37,21 +72,6 @@ export default function Header() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const NavLink = ({ href, label, isMobile = false, onClick }: { href: string, label: string, isMobile?: boolean, onClick?: () => void }) => {
-    const isExternal = href.startsWith('http') || href.startsWith('#');
-    const Component = isExternal ? 'a' : Link;
-    const props = {
-      href: href,
-      onClick: onClick,
-      className: isMobile 
-        ? "text-lg font-medium text-foreground hover:text-primary transition-colors"
-        : "text-sm font-medium text-foreground/80 hover:text-primary transition-colors",
-      ...(isExternal && { target: '_blank', rel: 'noopener noreferrer' })
-    };
-    // @ts-ignore
-    return <Component {...props}>{label}</Component>;
-  };
-
   return (
     <header
       className={cn(
@@ -62,9 +82,11 @@ export default function Header() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Mobile Header */}
         <div className="flex items-center justify-between h-20 md:hidden">
-          <Link href="/" className="flex-shrink-0 flex items-center gap-2 text-2xl font-headline font-bold whitespace-nowrap">
-            <Image src="https://iili.io/ffDrAW7.png" alt="IK Labs Logo" width={32} height={32} className="rounded-full" />
-            <span>IK Labs</span>
+          <Link href="/" className="flex-shrink-0 flex items-center gap-2 text-2xl font-brand font-semibold tracking-tight whitespace-nowrap">
+            <div className="relative w-8 h-8 rounded-full overflow-hidden bg-white p-0.5 border border-primary/20 shadow-sm">
+              <Image src="https://iili.io/ffDrAW7.png" alt="IK Labs Logo" fill className="object-contain" />
+            </div>
+            <span className="text-foreground">IK Labs</span>
           </Link>
           <div className="flex items-center gap-2">
             <LanguageToggle />
@@ -75,18 +97,20 @@ export default function Header() {
                   <Menu className="h-6 w-6" />
                   <span className="sr-only">Buka menu</span>
                 </Button>
-              </SheetTrigger>
+              </Trigger>
               <SheetContent side="right" className="w-[300px] bg-background p-0">
                 <SheetHeader className="p-6 pb-0">
                   <SheetTitle className="sr-only">Menu Navigasi</SheetTitle>
                   <SheetDescription className="sr-only">Daftar tautan navigasi untuk situs ini.</SheetDescription>
                 </SheetHeader>
                 <div className="flex flex-col h-full p-6">
-                  <Link href="/" className="flex items-center gap-2 text-2xl font-headline font-bold mb-8">
-                      <Image src="https://iili.io/ffDrAW7.png" alt="IK Labs Logo" width={32} height={32} className="rounded-full" />
+                  <Link href="/" className="flex items-center gap-2 text-2xl font-brand font-semibold tracking-tight mb-8" onClick={() => setIsMobileMenuOpen(false)}>
+                      <div className="relative w-8 h-8 rounded-full overflow-hidden bg-white p-0.5 border border-primary/20 shadow-sm">
+                        <Image src="https://iili.io/ffDrAW7.png" alt="IK Labs Logo" fill className="object-contain" />
+                      </div>
                       <span>IK Labs</span>
                   </Link>
-                  <nav className="flex flex-col gap-6">
+                  <nav className="flex flex-col gap-4">
                     {NAV_LINKS.map((link) => (
                       <NavLink 
                           key={link.href} 
@@ -110,16 +134,18 @@ export default function Header() {
                <LanguageToggle />
             </div>
             <div className="w-1/3 flex justify-center">
-              <Link href="/" className="flex-shrink-0 flex items-center gap-2 text-2xl font-headline font-bold whitespace-nowrap">
-                <Image src="https://iili.io/ffDrAW7.png" alt="IK Labs Logo" width={32} height={32} className="rounded-full" />
-                <span>IK Labs</span>
+              <Link href="/" className="flex-shrink-0 flex items-center gap-2 text-2xl font-brand font-semibold tracking-tight whitespace-nowrap transition-opacity hover:opacity-80">
+                <div className="relative w-9 h-9 rounded-full overflow-hidden bg-white p-0.5 border border-primary/20 shadow-sm">
+                  <Image src="https://iili.io/ffDrAW7.png" alt="IK Labs Logo" fill className="object-contain" />
+                </div>
+                <span className="text-foreground">IK Labs</span>
               </Link>
             </div>
             <div className="w-1/3 flex justify-end">
               <ThemeToggle />
             </div>
           </div>
-          <nav className="flex items-center gap-6 mt-4">
+          <nav className="flex items-center gap-8 mt-5">
             {NAV_LINKS.map((link) => (
                <NavLink key={link.href} href={link.href} label={link.label} />
             ))}
