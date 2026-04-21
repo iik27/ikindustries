@@ -108,6 +108,24 @@
       "imageId": "portfolio-2",
       "liveUrl": "#",
       "githubUrl": "https://github.com/iik27"
+    },
+    {
+      "slug": "ngabuburit-fun-meet",
+      "title": "Ngabuburit Fun Meet",
+      "description": "Platform sosial berbasis web untuk perencanaan buka puasa bersama secara anonim dan real-time.",
+      "challenge": "Memfasilitasi koordinasi acara sosial yang sensitif terhadap privasi tanpa pendaftaran, serta mengotomatiskan fase aplikasi (diskusi, voting, konfirmasi) berdasarkan waktu lokal.",
+      "solution": "Mengimplementasikan 'Ghost Mode' menggunakan Firebase Anonymous Auth, moderasi konten otomatis berbasis AI dengan Genkit Gemini, dan siklus hidup data otomatis (TTL) untuk menjaga privasi.",
+      "technologies": [
+        "Next.js 15",
+        "Firebase Auth",
+        "Firestore",
+        "Genkit AI",
+        "Google Gemini",
+        "Framer Motion"
+      ],
+      "imageId": "portfolio-7",
+      "liveUrl": "#",
+      "githubUrl": "https://github.com/iik27"
     }
   ]
 }

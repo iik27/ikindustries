@@ -49,6 +49,12 @@
       "imageHint": "mobile app"
     },
     {
+      "id": "portfolio-7",
+      "description": "Social gathering and chat interface",
+      "imageUrl": "https://images.unsplash.com/photo-1511632765486-a01980e01a18?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3",
+      "imageHint": "social gathering"
+    },
+    {
       "id": "testimonial-1",
       "description": "Portrait of satisfied client 1",
       "imageUrl": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=1976&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
