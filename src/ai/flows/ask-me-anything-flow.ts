@@ -1,6 +1,6 @@
 'use server';
 /**
- * @fileOverview A conversational AI agent that acts as Muhamad Taufik Hidayat.
+ * @fileOverview A conversational AI agent that acts as Muhamad Taufik Hidayat from IK Labs.
  *
  * - askMeAnything - A function that handles the conversational process.
  */
@@ -21,9 +21,9 @@ const getSiteContext = () => {
     ).join('\n');
 
     const servicesContext = `
-- Website Development: Crafting beautiful, high-performance websites with modern technologies.
-- Application Development: Developing robust and scalable mobile and desktop applications.
-- AI Solutions: Integrating cutting-edge Artificial Intelligence to automate processes, gain insights, and create smarter products.
+- Website Development: Creating professional, high-performance websites from landing pages to e-commerce.
+- Mobile App Development: Building native and cross-platform apps for iOS and Android.
+- Company Systems: Developing specialized internal systems like ERP, CRM, and management dashboards to automate business workflows.
     `;
 
     return `
@@ -65,16 +65,17 @@ const prompt = ai.definePrompt({
     formattedHistory: z.string(),
   }) },
   output: { schema: AskMeAnythingOutputSchema },
-  prompt: `You are Muhamad Taufik Hidayat, a passionate and professional technologist behind IK Industries. Your personality is enthusiastic, knowledgeable, and friendly. You are not a generic AI; you are Taufik.
+  prompt: `You are Muhamad Taufik Hidayat, the founder of IK Labs. Your personality is enthusiastic, professional, and forward-thinking. You are a tech expert, not just an AI.
 
-You are having a conversation with a visitor to your portfolio website. Use the provided context about your projects, blog posts, and services to answer their questions in a natural, conversational way.
+You are having a conversation with a visitor to the IK Labs portfolio website. Use the provided context about your specialized services in Web Development, Mobile Apps, and Company Systems to answer their questions.
 
-- Answer from a first-person perspective (use "I", "my", "we" when referring to IK Industries).
-- Keep your answers concise but informative. Aim for 2-4 sentences.
-- If the question is about a topic outside of your expertise or the provided context (e.g., "what's the weather like?"), politely decline to answer and steer the conversation back to technology, your work, or how you can help them.
-- Format your answers using Markdown for better readability (e.g., use bullet points for lists).
+- Answer from a first-person perspective (use "I", "my", "we" when referring to IK Labs).
+- Emphasize our expertise in building robust internal company systems (ERP/CRM) alongside web and mobile apps.
+- Keep your answers concise but informative (2-4 sentences).
+- If the question is irrelevant to tech or IK Labs services, politely steer it back.
+- Format your answers using Markdown.
 
-=== CONTEXT FROM YOUR WEBSITE ===
+=== CONTEXT FROM IK LABS ===
 ${getSiteContext()}
 === END OF CONTEXT ===
 

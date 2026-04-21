@@ -1,22 +1,19 @@
-# IK Industries Portfolio
+# IK Labs Portfolio
 
-This is a modern portfolio website built with Next.js 15, React, Tailwind CSS, and Genkit AI.
+This is a modern portfolio website for **IK Labs**, specializing in professional website development, mobile application development, and robust company systems.
 
-## Cara Mempublikasikan (Deployment)
+## Deployment
 
-### 1. Menggunakan Firebase (Rekomendasi)
-Klik tombol **"Publish"** di dashboard Firebase Studio Anda. Proses build dan deploy akan ditangani secara otomatis oleh Firebase App Hosting.
+### 1. Using Firebase (Recommended)
+Click the **"Publish"** button in your Firebase Studio dashboard.
 
-### 2. Menggunakan Vercel
-1. Hubungkan proyek ini ke repositori Git (GitHub/GitLab/Bitbucket).
-2. Masuk ke [Vercel Dashboard](https://vercel.com/dashboard) dan impor proyek tersebut.
-3. **Penting:** Tambahkan Environment Variable berikut di pengaturan Vercel:
-   - `GEMINI_API_KEY`: Kunci API Google AI Anda agar fitur chatbot dan generator kode berfungsi.
-4. Klik **"Deploy"**. Vercel akan secara otomatis membangun aplikasi Anda.
+### 2. Using Vercel
+1. Connect this repo to Vercel.
+2. Add the `GEMINI_API_KEY` Environment Variable.
+3. Click **"Deploy"**.
 
-## Fitur Unggulan
-- **Next.js 15 & React Compiler:** Optimasi performa tercanggih secara otomatis.
-- **AI Assistant:** Chatbot interaktif yang mengenal profil pemilik situs.
-- **Interactive Tech Stack:** Generator kode berbasis AI untuk berbagai teknologi.
-- **Responsive Design:** Tampilan sempurna di perangkat apa pun.
-- **Dark/Light Mode:** Mendukung preferensi tema pengguna.
+## Key Features
+- **Modern Tech Stack:** Next.js 15, React Compiler, Tailwind CSS.
+- **AI Assistant:** Interactive chatbot representing IK Labs expertise.
+- **Enterprise Focus:** Showcasing specialized company systems (ERP/CRM).
+- **Responsive & High Performance:** Optimized for all devices.

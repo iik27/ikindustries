@@ -1,21 +1,21 @@
 import { Card, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
-import { BrainCircuit, Globe, Smartphone } from "lucide-react";
+import { Globe, Smartphone, LayoutDashboard } from "lucide-react";
 
 const services = [
   {
     icon: <Globe className="h-10 w-10 text-primary" />,
     title: "Website Development",
-    description: "Crafting beautiful, high-performance websites with modern technologies. From corporate sites to e-commerce platforms, we build for the future of the web.",
+    description: "Creating professional, high-performance websites. From stunning landing pages to complex e-commerce platforms, we build web solutions that deliver results.",
   },
   {
     icon: <Smartphone className="h-10 w-10 text-primary" />,
-    title: "Application Development",
-    description: "Developing robust and scalable mobile and desktop applications. We create intuitive user experiences that run seamlessly on any device.",
+    title: "Mobile App Development",
+    description: "Building native and cross-platform mobile applications. We deliver seamless user experiences on iOS and Android to keep your business accessible on the go.",
   },
   {
-    icon: <BrainCircuit className="h-10 w-10 text-primary" />,
-    title: "AI Solutions",
-    description: "Integrating cutting-edge Artificial Intelligence to automate processes, gain insights, and create smarter products. We bring the power of AI to your business.",
+    icon: <LayoutDashboard className="h-10 w-10 text-primary" />,
+    title: "Company Systems",
+    description: "Developing robust internal systems including ERP, CRM, and custom dashboards. We automate your workflows and centralize your business data.",
   },
 ];
 
@@ -24,9 +24,9 @@ export default function Services() {
     <section id="services" className="bg-secondary">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-2xl mx-auto">
-          <h2 className="font-headline text-3xl font-bold tracking-tight text-foreground sm:text-4xl">Our Services</h2>
+          <h2 className="font-headline text-3xl font-bold tracking-tight text-foreground sm:text-4xl">Our Specializations</h2>
           <p className="mt-4 text-lg text-foreground/80">
-            We offer a comprehensive suite of technology services to bring your vision to life.
+            We provide specialized digital solutions to help your business operate more efficiently and reach more customers.
           </p>
         </div>
         <div className="mt-16 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 max-w-6xl mx-auto">

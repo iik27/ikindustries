@@ -58,8 +58,8 @@ export default function Header() {
         {/* Mobile Header */}
         <div className="flex items-center justify-between h-20 md:hidden">
           <Link href="/" className="flex-shrink-0 flex items-center gap-2 text-2xl font-headline font-bold whitespace-nowrap">
-            <Image src="https://iili.io/ffDrAW7.png" alt="IK Industries Logo" width={32} height={32} className="rounded-full" />
-            <span>IK Industries</span>
+            <Image src="https://iili.io/ffDrAW7.png" alt="IK Labs Logo" width={32} height={32} className="rounded-full" />
+            <span>IK Labs</span>
           </Link>
           <div className="flex items-center gap-2">
             <ThemeToggle />
@@ -77,8 +77,8 @@ export default function Header() {
                 </SheetHeader>
                 <div className="flex flex-col h-full p-6">
                   <Link href="/" className="flex items-center gap-2 text-2xl font-headline font-bold mb-8">
-                      <Image src="https://iili.io/ffDrAW7.png" alt="IK Industries Logo" width={32} height={32} className="rounded-full" />
-                      <span>IK Industries</span>
+                      <Image src="https://iili.io/ffDrAW7.png" alt="IK Labs Logo" width={32} height={32} className="rounded-full" />
+                      <span>IK Labs</span>
                   </Link>
                   <nav className="flex flex-col gap-6">
                     {NAV_LINKS.map((link) => (
@@ -103,8 +103,8 @@ export default function Header() {
             <div className="w-1/3"></div> {/* Spacer */}
             <div className="w-1/3 flex justify-center">
               <Link href="/" className="flex-shrink-0 flex items-center gap-2 text-2xl font-headline font-bold whitespace-nowrap">
-                <Image src="https://iili.io/ffDrAW7.png" alt="IK Industries Logo" width={32} height={32} className="rounded-full" />
-                <span>IK Industries</span>
+                <Image src="https://iili.io/ffDrAW7.png" alt="IK Labs Logo" width={32} height={32} className="rounded-full" />
+                <span>IK Labs</span>
               </Link>
             </div>
             <div className="w-1/3 flex justify-end">

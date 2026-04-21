@@ -12,8 +12,8 @@ export default function Footer() {
           <div className="flex flex-col sm:flex-row justify-between items-center gap-6">
              <div className="flex justify-center md:justify-start items-center">
               <Link href="/" className="flex items-center gap-2 text-xl font-headline font-bold">
-                <Image src="https://iili.io/ffDrAW7.png" alt="IK Industries Logo" width={28} height={28} className="rounded-full" />
-                <span>IK Industries</span>
+                <Image src="https://iili.io/ffDrAW7.png" alt="IK Labs Logo" width={28} height={28} className="rounded-full" />
+                <span>IK Labs</span>
               </Link>
             </div>
             
@@ -28,7 +28,7 @@ export default function Footer() {
             </div>
           </div>
           <div className="border-t border-primary-foreground/20 pt-6 text-center text-sm text-primary-foreground/70">
-            <p>&copy; {currentYear} IK Industries. All rights reserved. Developed by Muhamad Taufik Hidayat.</p>
+            <p>&copy; {currentYear} IK Labs. All rights reserved. Developed by Muhamad Taufik Hidayat.</p>
           </div>
         </div>
       </div>

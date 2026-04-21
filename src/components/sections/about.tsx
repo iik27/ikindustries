@@ -66,13 +66,13 @@ export default function About() {
           {/* Left Column: Profile Info & Chat Interface */}
           <div className="md:col-span-3">
             <h2 className="font-headline text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-              Meet the Enthusiast
+              The Vision Behind IK Labs
             </h2>
             <p className="mt-4 text-lg text-foreground/80">
-              Muhamad Taufik Hidayat, the part of IK Industries, is a passionate technologist with a drive for excellence and innovation. With years of experience in full-stack development, frond-end development & system analyst, he leads the company with a vision to create impactful digital solutions that solve real-world problems.
+              Muhamad Taufik Hidayat, the founder of **IK Labs**, is a dedicated technologist focused on transforming businesses through digital innovation. With deep expertise in full-stack development and systems analysis, he leads IK Labs to build high-impact websites, mobile apps, and enterprise-grade company systems.
             </p>
             <p className="mt-4 text-foreground/80">
-              His expertise spans across modern web technologies, scalable backend architectures, and intelligent system design. **Have a question? Ask my AI assistant below!**
+              At IK Labs, we don't just write code; we solve operational challenges by designing intelligent systems that grow with your business. **Have a question about how we can help your company? Ask my AI assistant below!**
             </p>
             <div className="mt-6 flex items-center gap-4">
               <Button variant="outline" size="icon" asChild>
@@ -91,12 +91,12 @@ export default function About() {
             <div className="mt-8 pt-8 border-t">
                <h3 className="text-xl font-headline font-semibold flex items-center gap-2">
                 <MessageSquare className="h-6 w-6 text-primary"/>
-                Ask Me Anything
+                Ask IK Labs Assistant
               </h3>
               <div className="mt-4 border rounded-lg bg-secondary/30 h-96 flex flex-col">
                 <div ref={chatContainerRef} className="flex-1 p-4 space-y-4 overflow-y-auto">
                   <ChatBubble role="model">
-                    <p>Hello! I'm Iik's AI assistant. Feel free to ask me anything about my skills, projects, or services.</p>
+                    <p>Hello! I'm the AI assistant for IK Labs. Feel free to ask me about our web development, mobile app services, or how we build internal company systems.</p>
                   </ChatBubble>
                   {conversation.map((msg, index) => (
                     <ChatBubble key={index} role={msg.role}>
@@ -119,7 +119,7 @@ export default function About() {
                       type="text"
                       value={inputValue}
                       onChange={(e) => setInputValue(e.target.value)}
-                      placeholder="e.g., What is your favorite tech?"
+                      placeholder="e.g., Can you build an ERP system?"
                       className="pr-12"
                       disabled={isPending}
                     />

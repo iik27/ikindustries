@@ -5,8 +5,8 @@ import CookieBanner from '@/components/cookie-banner';
 import { ThemeProvider } from '@/components/theme-provider';
 
 export const metadata: Metadata = {
-  title: 'IK Industries | Technology & Development',
-  description: 'IK Industries specializes in technology, application development, website development, and AI solutions. Led by Muhamad Taufik Hidayat.',
+  title: 'IK Labs | Web, Mobile & Enterprise Systems',
+  description: 'IK Labs specializes in crafting professional websites, high-performance mobile applications, and robust company systems. Led by Muhamad Taufik Hidayat.',
 };
 
 export default function RootLayout({
