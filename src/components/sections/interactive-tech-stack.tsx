@@ -1,7 +1,6 @@
 'use client';
 
-import React, { useState, useEffect, useCallback, useTransition } from 'react';
-import { z } from 'zod';
+import React, { useState, useEffect, useTransition, useMemo } from 'react';
 import { Card, CardContent } from "@/components/ui/card";
 import { generateCode } from '@/ai/flows/generate-code-flow';
 import anime from 'animejs';
@@ -24,6 +23,8 @@ import {
 } from '@/components/icons';
 import { cn } from '@/lib/utils';
 import { Skeleton } from '../ui/skeleton';
+import { useLanguage } from '../language-provider';
+import { translations } from '@/lib/translations';
 
 const technologies = [
     { name: "Next.js", icon: <IconBrandNextjs className="h-10 w-10" />, language: "jsx" },
@@ -42,21 +43,6 @@ const technologies = [
     { name: "Git", icon: <IconBrandGit className="h-10 w-10" />, language: "bash" },
     { name: "VS Code", icon: <IconBrandVSCode className="h-10 w-10" />, language: "json" },
 ];
-
-const defaultCode = `
-import type { NextPage } from 'next';
-
-const Home: NextPage = () => {
-  return (
-    <div>
-      <h1>Welcome to Next.js!</h1>
-      <p>Click a tech icon to see a code snippet.</p>
-    </div>
-  );
-};
-
-export default Home;
-`.trim();
 
 const Typewriter = ({ text, onDone }: { text: string, onDone: () => void }) => {
     const [displayedText, setDisplayedText] = useState('');
@@ -81,12 +67,36 @@ const Typewriter = ({ text, onDone }: { text: string, onDone: () => void }) => {
 };
 
 export default function InteractiveTechStack() {
+  const { language } = useLanguage();
+  const t = translations[language].techStack;
+
+  const defaultCode = useMemo(() => `
+import type { NextPage } from 'next';
+
+const Home: NextPage = () => {
+  return (
+    <div>
+      <h1>IK Labs</h1>
+      <p>${t.defaultCodeMessage}</p>
+    </div>
+  );
+};
+
+export default Home;
+  `.trim(), [t.defaultCodeMessage]);
+
   const [activeTech, setActiveTech] = useState('Next.js');
   const [generatedCode, setGeneratedCode] = useState({ code: defaultCode, language: 'jsx'});
   const [isPending, startTransition] = useTransition();
 
+  // Update code message when language changes if no tech was clicked yet
   useEffect(() => {
-    // Pulse animation for the active tech icon
+    if (generatedCode.code.includes('Click') || generatedCode.code.includes('Klik')) {
+        setGeneratedCode({ code: defaultCode, language: 'jsx' });
+    }
+  }, [language, defaultCode, generatedCode.code]);
+
+  useEffect(() => {
     const targetClass = `.tech-btn-${activeTech.replace(/\s+/g, '-').toLowerCase()}`;
     anime({
       targets: targetClass,
@@ -104,7 +114,7 @@ export default function InteractiveTechStack() {
               setGeneratedCode(result);
           } catch (error) {
               console.error("Failed to generate code:", error);
-              setGeneratedCode({ code: `// Error generating code for ${techName}`, language: 'text' });
+              setGeneratedCode({ code: `// ${t.errorCode} ${techName}`, language: 'text' });
           }
       });
   };
@@ -113,9 +123,9 @@ export default function InteractiveTechStack() {
     <section id="tech-stack" className="bg-background">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-2xl mx-auto">
-          <h2 className="font-headline text-3xl font-bold tracking-tight text-foreground sm:text-4xl">My Tech Stack</h2>
+          <h2 className="font-headline text-3xl font-bold tracking-tight text-foreground sm:text-4xl">{t.title}</h2>
           <p className="mt-4 text-lg text-foreground/80">
-            I leverage a modern, robust tech stack to build high-quality applications. Click on an icon to see an AI-generated code snippet.
+            {t.description}
           </p>
         </div>
         

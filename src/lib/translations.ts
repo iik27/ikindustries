@@ -24,6 +24,12 @@ export const translations = {
       mobile: 'Aplikasi Mobile',
       enterprise: 'Sistem Perusahaan',
     },
+    techStack: {
+      title: 'Teknologi Kami',
+      description: 'Kami memanfaatkan stack teknologi modern dan tangguh untuk membangun aplikasi berkualitas tinggi. Klik ikon untuk melihat cuplikan kode buatan AI.',
+      defaultCodeMessage: 'Klik ikon teknologi untuk melihat cuplikan kode.',
+      errorCode: 'Gagal menghasilkan kode untuk'
+    },
     process: {
       title: 'Proses Pengembangan Kami',
       subtitle: 'Dari konsep hingga peluncuran, kami mengikuti proses yang terstruktur dan transparan untuk memastikan keberhasilan proyek Anda.',
@@ -68,6 +74,12 @@ export const translations = {
       web: 'Web Development',
       mobile: 'Mobile Applications',
       enterprise: 'Enterprise Systems',
+    },
+    techStack: {
+      title: 'Our Tech Stack',
+      description: 'We leverage a modern and robust tech stack to build high-quality applications. Click an icon to see an AI-generated code snippet.',
+      defaultCodeMessage: 'Click a tech icon to see a code snippet.',
+      errorCode: 'Failed to generate code for'
     },
     process: {
       title: 'Our Development Process',
