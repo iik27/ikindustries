@@ -1,4 +1,6 @@
-import { notFound } from 'next/navigation';
+'use client';
+
+import { notFound, useParams } from 'next/navigation';
 import Image from 'next/image';
 import { PortfolioItems } from '@/lib/portfolio-items';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
@@ -8,28 +10,26 @@ import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import { ArrowLeft, ExternalLink, Github } from 'lucide-react';
+import { useLanguage } from '@/components/language-provider';
+import { translations } from '@/lib/translations';
 
-type PortfolioItemPageProps = {
-  params: {
-    slug: string;
-  };
-};
+export default function PortfolioItemPage() {
+  const { slug } = useParams();
+  const { language } = useLanguage();
+  const t = translations[language].portfolio;
 
-export function generateStaticParams() {
-  return PortfolioItems.map((item) => ({
-    slug: item.slug,
-  }));
-}
-
-export default async function PortfolioItemPage({ params }: PortfolioItemPageProps) {
-  const awaitedParams = await params;
-  const item = PortfolioItems.find((p) => p.slug === awaitedParams.slug);
+  const item = PortfolioItems.find((p) => p.slug === slug);
 
   if (!item) {
     notFound();
   }
 
   const image = PlaceHolderImages.find((img) => img.id === item.imageId);
+  
+  const displayTitle = item.title;
+  const displayDescription = language === 'en' ? item.description_en : item.description;
+  const displayChallenge = language === 'en' ? item.challenge_en : item.challenge;
+  const displaySolution = language === 'en' ? item.solution_en : item.solution;
 
   return (
     <>
@@ -42,24 +42,24 @@ export default async function PortfolioItemPage({ params }: PortfolioItemPagePro
                 <Button variant="ghost" asChild className="pl-0">
                   <Link href="/portfolio">
                     <ArrowLeft className="mr-2 h-4 w-4" />
-                    Kembali ke Portofolio
+                    {t.back}
                   </Link>
                 </Button>
               </div>
 
               <h1 className="font-headline text-4xl font-bold tracking-tight text-foreground sm:text-5xl">
-                {item.title}
+                {displayTitle}
               </h1>
 
               <p className="mt-4 text-lg text-foreground/70">
-                {item.description}
+                {displayDescription}
               </p>
 
               {image && (
                 <div className="aspect-video relative my-8 rounded-lg overflow-hidden shadow-lg">
                   <Image
                     src={image.imageUrl}
-                    alt={item.title}
+                    alt={displayTitle}
                     fill
                     sizes="(max-width: 1024px) 100vw, 1024px"
                     className="object-cover"
@@ -71,20 +71,20 @@ export default async function PortfolioItemPage({ params }: PortfolioItemPagePro
 
               <div className="grid md:grid-cols-3 gap-8 md:gap-12">
                 <div className="md:col-span-2 prose mx-auto">
-                    <h2>Tentang Proyek</h2>
+                    <h2>{t.about}</h2>
                     
-                    <h3>Tantangan</h3>
-                    <p>{item.challenge}</p>
+                    <h3>{t.challenge}</h3>
+                    <p>{displayChallenge}</p>
 
-                    <h3>Solusi</h3>
-                    <p>{item.solution}</p>
+                    <h3>{t.solution}</h3>
+                    <p>{displaySolution}</p>
                 </div>
                 <aside className="md:col-span-1">
                   <div className="sticky top-28 bg-secondary p-6 rounded-lg">
-                    <h3 className="font-headline font-semibold text-lg text-foreground">Info Proyek</h3>
+                    <h3 className="font-headline font-semibold text-lg text-foreground">{t.projectInfo}</h3>
                     
                     <div className="mt-4">
-                      <h4 className="font-semibold text-sm text-foreground/80 mb-2">Teknologi</h4>
+                      <h4 className="font-semibold text-sm text-foreground/80 mb-2">{t.technologies}</h4>
                       <div className="flex flex-wrap gap-2">
                         {item.technologies.map((tech) => (
                           <Badge key={tech} variant="secondary">
@@ -100,7 +100,7 @@ export default async function PortfolioItemPage({ params }: PortfolioItemPagePro
                             {item.liveUrl && item.liveUrl !== '#' && (
                                <Button asChild variant="default">
                                     <a href={item.liveUrl} target="_blank" rel="noopener noreferrer">
-                                        Lihat Proyek Langsung
+                                        {t.liveProject}
                                         <ExternalLink className="ml-2 h-4 w-4" />
                                     </a>
                                </Button>
@@ -109,7 +109,7 @@ export default async function PortfolioItemPage({ params }: PortfolioItemPagePro
                                <Button asChild variant="outline">
                                     <a href={item.githubUrl} target="_blank" rel="noopener noreferrer">
                                         <Github className="mr-2 h-4 w-4" />
-                                        Lihat di GitHub
+                                        {t.github}
                                     </a>
                                </Button>
                             )}

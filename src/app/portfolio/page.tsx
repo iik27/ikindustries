@@ -1,3 +1,5 @@
+'use client';
+
 import Image from "next/image";
 import Link from "next/link";
 import { PortfolioItems } from "@/lib/portfolio-items";
@@ -7,8 +9,12 @@ import Footer from "@/components/footer";
 import { CardContent, CardFooter } from "@/components/ui/card";
 import { ArrowRight } from "lucide-react";
 import ShineBorderCard from "@/components/shine-border-card";
+import { useLanguage } from "@/components/language-provider";
+import { translations } from "@/lib/translations";
 
 export default function PortfolioListPage() {
+  const { language } = useLanguage();
+  const t = translations[language].portfolio;
   const portfolioImages = PlaceHolderImages.filter(p => p.id.startsWith('portfolio-'));
 
   return (
@@ -18,15 +24,16 @@ export default function PortfolioListPage() {
         <section className="bg-background pt-32 pb-16 sm:pt-40 sm:pb-24">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center max-w-2xl mx-auto">
-              <h1 className="font-headline text-4xl font-bold tracking-tight text-foreground sm:text-5xl">Karya Kami</h1>
+              <h1 className="font-headline text-4xl font-bold tracking-tight text-foreground sm:text-5xl">{t.title}</h1>
               <p className="mt-4 text-xl text-foreground/80">
-                Pameran semangat, kreativitas, dan komitmen kami terhadap keunggulan.
+                {t.subtitle}
               </p>
             </div>
             <div className="mt-16 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 max-w-6xl mx-auto">
               {PortfolioItems.map((item) => {
                 const image = portfolioImages.find(img => img.id === item.imageId);
                 if (!image) return null;
+                const displayTitle = item.title;
                 return (
                   <Link key={item.slug} href={`/portfolio/${item.slug}`} className="block group">
                     <ShineBorderCard className="h-full overflow-hidden">
@@ -43,7 +50,7 @@ export default function PortfolioListPage() {
                         </div>
                       </CardContent>
                       <CardFooter className="p-4 flex justify-between items-center bg-card">
-                        <h3 className="font-headline font-semibold text-foreground">{item.title}</h3>
+                        <h3 className="font-headline font-semibold text-foreground">{displayTitle}</h3>
                         <ArrowRight className="h-5 w-5 text-foreground/60 transform transition-transform duration-300 group-hover:translate-x-1" />
                       </CardFooter>
                     </ShineBorderCard>

@@ -4,8 +4,11 @@ export type PortfolioItem = {
   slug: string;
   title: string;
   description: string;
+  description_en: string;
   challenge: string;
+  challenge_en: string;
   solution: string;
+  solution_en: string;
   technologies: string[];
   imageId: string;
   liveUrl?: string;

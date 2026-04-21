@@ -1,3 +1,5 @@
+'use client';
+
 import Image from "next/image";
 import Link from "next/link";
 import { BlogPosts } from "@/lib/blog-posts";
@@ -9,8 +11,12 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import ShineBorderCard from "@/components/shine-border-card";
+import { useLanguage } from "@/components/language-provider";
+import { translations } from "@/lib/translations";
 
 export default function BlogListPage() {
+  const { language } = useLanguage();
+  const t = translations[language].blog;
   const blogImages = PlaceHolderImages.filter(p => p.id.startsWith('blog-'));
 
   return (
@@ -20,14 +26,15 @@ export default function BlogListPage() {
         <section className="bg-background pt-32 pb-16 sm:pt-40 sm:pb-24">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center max-w-2xl mx-auto">
-              <h1 className="font-headline text-4xl font-bold tracking-tight text-foreground sm:text-5xl">Blog Kami</h1>
+              <h1 className="font-headline text-4xl font-bold tracking-tight text-foreground sm:text-5xl">{t.title}</h1>
               <p className="mt-4 text-xl text-foreground/80">
-                Wawasan, tren, dan cerita dari dunia teknologi dan pengembangan.
+                {t.subtitle}
               </p>
             </div>
             <div className="mt-16 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 max-w-6xl mx-auto">
               {BlogPosts.map((post) => {
                 const image = blogImages.find(img => img.id === post.imageId);
+                const displayTitle = language === 'en' ? post.title_en : post.title;
                 return (
                   <ShineBorderCard key={post.slug} className="group flex flex-col overflow-hidden">
                     {image && (
@@ -51,7 +58,7 @@ export default function BlogListPage() {
                         ))}
                       </div>
                       <CardTitle className="font-headline text-xl leading-snug">
-                        <Link href={`/blog/${post.slug}`} className="hover:text-primary transition-colors">{post.title}</Link>
+                        <Link href={`/blog/${post.slug}`} className="hover:text-primary transition-colors">{displayTitle}</Link>
                       </CardTitle>
                        <CardDescription className="text-sm text-foreground/70 pt-1">
                         {post.date} &middot; {post.author}
@@ -60,7 +67,7 @@ export default function BlogListPage() {
                     <CardFooter className="mt-auto">
                        <Button variant="link" asChild className="px-0">
                         <Link href={`/blog/${post.slug}`}>
-                          Baca Selengkapnya
+                          {t.readMore}
                           <ArrowRight className="ml-2 h-4 w-4" />
                         </Link>
                       </Button>
