@@ -4,7 +4,7 @@
     {
       "slug": "rajin-erp",
       "title": "Rajin Company Internal ERP",
-      "description": "Sistem manajemen sumber daya perusahaan (Enterprise Resource Planning) yang komprehensif untuk operasional franchise.",
+      "description": "Sistem manajemen sumber daya perusahaan (Enterprise Resource Planning) komprehensif untuk operasional franchise.",
       "challenge": "Menghilangkan silo informasi antar 10 divisi perusahaan dan mengintegrasikan seluruh rantai nilai bisnis mulai dari pengadaan bahan baku hingga logistik secara real-time dengan keamanan RBAC yang ketat.",
       "solution": "Membangun hub pusat menggunakan Next.js 15 dan Firebase Firestore, mengimplementasikan dasbor khusus divisi, serta mengintegrasikan Google Genkit untuk fitur pintar seperti Predictive Stock Recommendations dan Automatic Production Planning.",
       "technologies": [
@@ -34,6 +34,42 @@
         "Zod"
       ],
       "imageId": "portfolio-3",
+      "liveUrl": "#",
+      "githubUrl": "https://github.com/iik27"
+    },
+    {
+      "slug": "franchise-crm",
+      "title": "Franchise Management & CRM System",
+      "description": "Sistem manajemen terpusat untuk operasional bisnis kemitraan yang mengintegrasikan HQ dan Mitra.",
+      "challenge": "Menjaga standarisasi operasional dan kontrol performa di seluruh jaringan gerai mitra yang luas, serta mengintegrasikan sistem bantuan teknis secara terpusat.",
+      "solution": "Membangun platform web terpadu dengan Dashboard Analytics, Asset Tracking, dan Ticketing System menggunakan React 19, Zustand untuk manajemen state, dan Recharts untuk visualisasi data real-time.",
+      "technologies": [
+        "React 19",
+        "TypeScript",
+        "Zustand",
+        "Recharts",
+        "Lucide React",
+        "SheetJS"
+      ],
+      "imageId": "portfolio-5",
+      "liveUrl": "#",
+      "githubUrl": "https://github.com/iik27"
+    },
+    {
+      "slug": "automeet",
+      "title": "AutoMeet - Booking & Queue System",
+      "description": "Aplikasi mobile otomatisasi booking jadwal dan manajemen antrean pelanggan dengan integrasi video call.",
+      "challenge": "Menghilangkan proses komunikasi manual yang tidak efisien dalam penjadwalan pertemuan antara Customer Service dan pelanggan.",
+      "solution": "Aplikasi mobile lintas platform (React Native & Expo) terintegrasi dengan Jitsi Meet untuk konsultasi video, WhatsApp API, dan sistem notifikasi pengingat otomatis.",
+      "technologies": [
+        "React Native",
+        "Expo",
+        "TypeScript",
+        "Jitsi Meet",
+        "WhatsApp API",
+        "Reanimated"
+      ],
+      "imageId": "portfolio-6",
       "liveUrl": "#",
       "githubUrl": "https://github.com/iik27"
     },
