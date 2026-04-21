@@ -1,3 +1,4 @@
+
 export const translations = {
   id: {
     nav: {
@@ -34,13 +35,13 @@ export const translations = {
       }
     },
     techStack: {
-      title: 'Teknologi Kami',
-      description: 'Klik ikon teknologi untuk menganalisis potensi dan keunggulan teknis yang kami tawarkan melalui asisten laboratorium AI kami.',
-      defaultCodeMessage: 'Klik ikon teknologi untuk memulai analisis laboratorium.',
+      title: 'Laboratorium Teknologi',
+      description: 'Klik ikon teknologi untuk menganalisis potensi teknis dan keunggulan strategis yang kami tawarkan melalui asisten LabOS kami.',
+      defaultCodeMessage: 'Menunggu inisialisasi... Klik ikon teknologi untuk memulai analisis laboratorium.',
       advantages: 'Kelebihan Utama',
       features: 'Fitur Yang Dapat Dibangun',
       errorCode: 'Gagal menganalisis',
-      errorHint: 'Pastikan kunci API GenAI telah dikonfigurasi.'
+      errorHint: 'Pastikan koneksi API LabOS tersedia.'
     },
     process: {
       title: 'Proses Pengembangan Kami',
@@ -92,9 +93,9 @@ export const translations = {
     about: {
       title: 'Visi di Balik IK Labs',
       description: 'Muhamad Taufik Hidayat, pendiri **IK Labs**, adalah seorang teknolog berdedikasi yang fokus pada transformasi bisnis melalui inovasi digital.',
-      aiTitle: 'Tanya Asisten IK Labs',
-      aiPlaceholder: 'Misal: Bisakah Anda membangun sistem ERP?',
-      aiWelcome: 'Halo! Saya asisten AI untuk IK Labs. Silakan tanya saya tentang pengembangan web, aplikasi mobile, atau bagaimana kami membangun sistem internal perusahaan.'
+      aiTitle: 'Tanya Asisten LabOS',
+      aiPlaceholder: 'Ketik pesan Anda di sini...',
+      aiWelcome: 'Halo! Saya asisten LabOS IK Labs. Apa yang bisa saya bantu analisis hari ini?'
     },
     contact: {
       title: 'Hubungi Kami',
@@ -162,13 +163,13 @@ export const translations = {
       }
     },
     techStack: {
-      title: 'Our Tech Stack',
-      description: 'Click on a technology icon to analyze the technical potential and advantages we offer through our AI laboratory assistant.',
-      defaultCodeMessage: 'Click a tech icon to start laboratory analysis.',
+      title: 'Technology Laboratory',
+      description: 'Click on a technology icon to analyze the technical potential and strategic advantages we offer through our LabOS assistant.',
+      defaultCodeMessage: 'Waiting for initialisation... Click a tech icon to start laboratory analysis.',
       advantages: 'Key Advantages',
       features: 'Build-able Features',
       errorCode: 'Analysis failed for',
-      errorHint: 'Please ensure GenAI API key is configured.'
+      errorHint: 'Please ensure LabOS API connectivity.'
     },
     process: {
       title: 'Our Development Process',
@@ -220,9 +221,9 @@ export const translations = {
     about: {
       title: 'Vision Behind IK Labs',
       description: 'Muhamad Taufik Hidayat, founder of **IK Labs**, is a dedicated technologist focused on business transformation through digital innovation.',
-      aiTitle: 'Ask IK Labs Assistant',
-      aiPlaceholder: 'E.g.: Can you build an ERP system?',
-      aiWelcome: 'Hello! I am the AI assistant for IK Labs. Please ask me about web development, mobile apps, or how we build internal company systems.'
+      aiTitle: 'Ask LabOS Assistant',
+      aiPlaceholder: 'Type your message here...',
+      aiWelcome: 'Hello! I am the LabOS assistant for IK Labs. What analysis can I perform for you today?'
     },
     contact: {
       title: 'Contact Us',

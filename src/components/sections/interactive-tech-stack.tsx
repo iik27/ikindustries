@@ -1,7 +1,7 @@
 
 "use client";
 
-import React, { useState, useEffect, useTransition, useMemo, useRef } from 'react';
+import React, { useState, useEffect, useTransition, useRef } from 'react';
 import { Card, CardContent } from "@/components/ui/card";
 import { generateCode } from '@/ai/flows/generate-code-flow';
 import anime from 'animejs';
@@ -75,22 +75,20 @@ export default function InteractiveTechStack() {
   const [techDetails, setTechDetails] = useState<{ advantages: string[], features: string[] } | null>(null);
   const [isPending, startTransition] = useTransition();
 
-  // Reset state when language changes
   useEffect(() => {
     setTechDetails(null);
   }, [language]);
 
-  // Terminal Pulse Animation while loading
   useEffect(() => {
     if (isPending) {
         anime({
             targets: terminalRef.current,
             boxShadow: [
                 '0 0 0px rgba(var(--primary), 0)',
-                '0 0 20px rgba(var(--primary), 0.3)',
+                '0 0 30px rgba(var(--primary), 0.4)',
                 '0 0 0px rgba(var(--primary), 0)'
             ],
-            duration: 1500,
+            duration: 1000,
             loop: true,
             easing: 'easeInOutQuad'
         });
@@ -103,14 +101,13 @@ export default function InteractiveTechStack() {
   const handleTechClick = (techName: string) => {
       setActiveTech(techName);
       
-      // Button interaction animation
       const targetClass = `.tech-btn-${techName.replace(/\s+/g, '-').toLowerCase()}`;
       anime({
         targets: targetClass,
-        scale: [1, 1.2, 1],
-        rotate: [0, 5, -5, 0],
-        duration: 400,
-        easing: 'easeInOutBack'
+        scale: [1, 1.15, 1],
+        rotate: [0, 8, -8, 0],
+        duration: 500,
+        easing: 'easeOutElastic(1, .6)'
       });
 
       startTransition(async () => {
@@ -126,8 +123,10 @@ export default function InteractiveTechStack() {
   };
 
   return (
-    <section id="tech-stack" className="bg-background">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="tech-stack" className="bg-background relative overflow-hidden">
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:40px_40px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)]"></div>
+      
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center max-w-2xl mx-auto">
           <h2 className="font-headline text-3xl font-bold tracking-tight text-foreground sm:text-4xl">{t.title}</h2>
           <p className="mt-4 text-lg text-foreground/80">
@@ -135,80 +134,93 @@ export default function InteractiveTechStack() {
           </p>
         </div>
         
-        <div className="mt-16 max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          <div className="flex flex-wrap justify-center gap-6 lg:justify-start">
+        <div className="mt-16 max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-3 gap-4">
               {technologies.map((tech) => (
                 <button 
                     key={tech.name} 
                     onClick={() => handleTechClick(tech.name)}
                     className={cn(
-                        "flex flex-col items-center justify-center gap-2 w-24 text-center rounded-xl p-3 transition-all duration-300",
+                        "flex flex-col items-center justify-center gap-2 rounded-xl p-4 transition-all duration-300 border border-transparent",
                         `tech-btn-${tech.name.replace(/\s+/g, '-').toLowerCase()}`,
-                        activeTech === tech.name ? 'bg-primary/10 shadow-inner' : 'hover:bg-secondary'
+                        activeTech === tech.name 
+                          ? 'bg-primary/10 border-primary/30 shadow-[0_0_15px_rgba(var(--primary),0.1)]' 
+                          : 'hover:bg-secondary hover:border-border'
                     )}
                     aria-label={`Analyze ${tech.name}`}
                 >
                   <div className="bg-background/50 p-2 rounded-lg shadow-sm">
                     {tech.icon}
                   </div>
-                  <p className="text-xs font-semibold text-foreground/80 uppercase tracking-wider">{tech.name}</p>
+                  <p className="text-[10px] font-bold text-foreground/60 uppercase tracking-widest">{tech.name}</p>
                 </button>
               ))}
           </div>
 
-          <div className="lg:max-w-md w-full" ref={terminalRef}>
-             <Card className="bg-card/50 shadow-2xl border-primary/20 overflow-hidden rounded-xl">
+          <div className="lg:max-w-xl w-full" ref={terminalRef}>
+             <Card className="bg-[#0a0c10] border-primary/20 shadow-2xl overflow-hidden rounded-2xl relative">
+                {/* Laboratory Scanline Effect */}
+                <div className="absolute inset-0 pointer-events-none bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,0,0,0.1)_50%),linear-gradient(90deg,rgba(255,0,0,0.02),rgba(0,255,0,0.01),rgba(0,0,128,0.02))] bg-[size:100%_4px,3px_100%] z-20"></div>
+                
                 <CardContent className="p-0">
-                    <div className="flex justify-between items-center px-4 py-2.5 border-b bg-muted/80">
-                        <div className="flex items-center gap-3">
-                            <div className="flex items-center gap-1.5">
-                                <div className="w-3 h-3 rounded-full bg-red-500/80"></div>
-                                <div className="w-3 h-3 rounded-full bg-yellow-500/80"></div>
-                                <div className="w-3 h-3 rounded-full bg-green-500/80"></div>
+                    <div className="flex justify-between items-center px-6 py-4 border-b border-white/5 bg-white/5 backdrop-blur-md">
+                        <div className="flex items-center gap-4">
+                            <div className="flex items-center gap-2">
+                                <div className={cn("w-2.5 h-2.5 rounded-full", isPending ? "bg-yellow-500 animate-pulse" : "bg-red-500")}></div>
+                                <div className="w-2.5 h-2.5 rounded-full bg-yellow-500/30"></div>
+                                <div className="w-2.5 h-2.5 rounded-full bg-green-500/30"></div>
                             </div>
-                            <p className="text-[10px] font-mono font-bold text-foreground/40 uppercase tracking-[0.2em] ml-2">Laboratory Terminal</p>
+                            <p className="text-[10px] font-mono font-bold text-white/30 uppercase tracking-[0.3em] ml-2">LabOS v2.5.0</p>
                         </div>
-                        <p className="text-[10px] font-mono font-medium text-primary uppercase tracking-widest">{activeTech}</p>
+                        <div className="px-3 py-1 rounded bg-primary/20 border border-primary/30">
+                           <p className="text-[10px] font-mono font-bold text-primary uppercase tracking-widest">{activeTech}</p>
+                        </div>
                     </div>
-                    <div className="p-6 text-sm overflow-x-auto min-h-[400px] bg-[#0d1117]/95 text-blue-100/90 font-code">
+                    <div className="p-8 text-sm overflow-x-auto min-h-[450px] font-code">
                         {isPending ? (
-                            <div className="space-y-4">
-                                <div className="flex items-center gap-2 text-primary/60">
-                                    <div className="w-2 h-2 rounded-full bg-primary animate-pulse"></div>
-                                    <span className="text-xs uppercase tracking-tighter">Analyzing Lab Data...</span>
+                            <div className="space-y-6">
+                                <div className="flex items-center gap-3 text-primary/80">
+                                    <div className="w-2 h-2 rounded-full bg-primary animate-ping"></div>
+                                    <span className="text-xs font-bold uppercase tracking-widest">Initialising Laboratory Probe...</span>
                                 </div>
-                                <Skeleton className="h-4 w-[85%] bg-white/5" />
-                                <Skeleton className="h-4 w-[60%] bg-white/5" />
-                                <Skeleton className="h-4 w-[90%] bg-white/5" />
+                                <div className="space-y-3">
+                                  <Skeleton className="h-4 w-[90%] bg-white/5" />
+                                  <Skeleton className="h-4 w-[75%] bg-white/5" />
+                                  <Skeleton className="h-4 w-[85%] bg-white/5" />
+                                  <Skeleton className="h-4 w-[60%] bg-white/5" />
+                                </div>
                             </div>
                         ) : techDetails ? (
-                            <div className="space-y-6">
-                                <div className="space-y-3">
-                                    <h4 className="text-primary font-bold uppercase tracking-wider text-xs flex items-center gap-2">
-                                        <div className="w-1.5 h-1.5 bg-primary rounded-full"></div>
+                            <div className="space-y-10">
+                                <div className="space-y-4">
+                                    <h4 className="text-primary font-bold uppercase tracking-[0.2em] text-[10px] flex items-center gap-3">
+                                        <div className="w-2 h-2 bg-primary shadow-[0_0_8px_rgba(var(--primary),1)]"></div>
                                         {t.advantages}
                                     </h4>
-                                    <div className="space-y-1.5 ml-3.5">
+                                    <div className="space-y-3 ml-5">
                                         {techDetails.advantages.map((adv, i) => (
-                                            <p key={i} className="text-blue-100/70"><Typewriter text={`> ${adv}`} /></p>
+                                            <p key={i} className="text-blue-100/70 leading-relaxed"><Typewriter text={`[+] ${adv}`} /></p>
                                         ))}
                                     </div>
                                 </div>
-                                <div className="space-y-3">
-                                    <h4 className="text-primary font-bold uppercase tracking-wider text-xs flex items-center gap-2">
-                                        <div className="w-1.5 h-1.5 bg-primary rounded-full"></div>
+                                <div className="space-y-4">
+                                    <h4 className="text-primary font-bold uppercase tracking-[0.2em] text-[10px] flex items-center gap-3">
+                                        <div className="w-2 h-2 bg-primary shadow-[0_0_8px_rgba(var(--primary),1)]"></div>
                                         {t.features}
                                     </h4>
-                                    <div className="space-y-1.5 ml-3.5">
+                                    <div className="space-y-3 ml-5">
                                         {techDetails.features.map((feat, i) => (
-                                            <p key={i} className="text-blue-100/70"><Typewriter text={`> ${feat}`} /></p>
+                                            <p key={i} className="text-blue-100/70 leading-relaxed"><Typewriter text={`[>] ${feat}`} /></p>
                                         ))}
                                     </div>
                                 </div>
                             </div>
                         ) : (
-                            <div className="flex items-center justify-center h-[300px] text-blue-100/30">
-                                <p className="text-center font-mono italic">{t.defaultCodeMessage}</p>
+                            <div className="flex flex-col items-center justify-center h-[350px] text-white/20">
+                                <div className="w-16 h-16 border-2 border-dashed border-white/10 rounded-full flex items-center justify-center mb-6 animate-[spin_10s_linear_infinite]">
+                                  <div className="w-2 h-2 bg-primary rounded-full"></div>
+                                </div>
+                                <p className="text-center font-mono italic text-xs tracking-widest">{t.defaultCodeMessage}</p>
                             </div>
                         )}
                     </div>
