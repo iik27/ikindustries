@@ -92,6 +92,7 @@ export default Home;
   const [generatedCode, setGeneratedCode] = useState({ code: defaultCode, language: 'jsx'});
   const [isPending, startTransition] = useTransition();
 
+  // Reset code snippet when language changes to ensure the comment is translated
   useEffect(() => {
     if (generatedCode.code.includes('/**') || generatedCode.code.includes('/*')) {
         setGeneratedCode({ code: defaultCode, language: 'jsx' });

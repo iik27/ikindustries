@@ -79,6 +79,7 @@ export default function Header() {
       )}
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Mobile Nav */}
         <div className="flex items-center justify-between h-20 md:hidden">
           <Link href="/" className="flex-shrink-0 flex items-center gap-2 text-2xl font-brand font-bold tracking-tight whitespace-nowrap">
             <div className="relative w-8 h-8 rounded-full overflow-hidden bg-white p-0.5 border border-primary/20 shadow-sm">
@@ -99,7 +100,7 @@ export default function Header() {
               <SheetContent side="right" className="w-[300px] bg-background p-0">
                 <SheetHeader className="p-6 pb-0 text-left">
                   <SheetTitle className="text-xl font-brand font-bold">IK Labs Menu</SheetTitle>
-                  <SheetDescription className="sr-only">Navigasi utama.</SheetDescription>
+                  <SheetDescription className="sr-only">Navigasi utama situs.</SheetDescription>
                 </SheetHeader>
                 <div className="flex flex-col h-full p-6 pt-2">
                   <nav className="flex flex-col gap-4">
@@ -119,6 +120,7 @@ export default function Header() {
           </div>
         </div>
 
+        {/* Desktop Nav */}
         <div className="hidden md:flex flex-col items-center justify-center py-4">
           <div className="flex items-center justify-between w-full">
             <div className="w-1/3 flex items-center gap-4">

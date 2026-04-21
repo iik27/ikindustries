@@ -7,7 +7,7 @@ import { LanguageProvider } from '@/components/language-provider';
 
 export const metadata: Metadata = {
   title: 'IK Labs | Web, Mobile & Enterprise Systems',
-  description: 'IK Labs specializes in crafting professional websites, high-performance mobile applications, and robust company systems. Led by Muhamad Taufik Hidayat.',
+  description: 'IK Labs spesialis dalam pembuatan website profesional, aplikasi mobile performa tinggi, dan sistem perusahaan terintegrasi. Dipimpin oleh Muhamad Taufik Hidayat.',
   icons: {
     icon: 'https://iili.io/ffDrAW7.png',
   },
