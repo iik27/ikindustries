@@ -4,10 +4,18 @@
     {
       "slug": "rajin-erp",
       "title": "Rajin Company Internal ERP",
-      "description": "Sistem manajemen sumber daya perusahaan (ERP) komprehensif yang dirancang khusus untuk operasional bisnis franchise.",
+      "description": "Sistem manajemen sumber daya perusahaan (Enterprise Resource Planning) yang komprehensif, dirancang khusus untuk mengelola operasional bisnis berbasis kemitraan (franchise).",
       "challenge": "Menghilangkan silo informasi antar 10 divisi perusahaan (seperti Produksi, Bisdev, hingga Finance) dan mengintegrasikan seluruh rantai nilai bisnis mulai dari pengadaan bahan baku hingga logistik secara real-time dengan keamanan RBAC yang ketat.",
-      "solution": "Membangun hub pusat menggunakan Next.js 15 dan Firebase Firestore, mengimplementasikan dasbor khusus divisi, serta mengintegrasikan Google Genkit untuk fitur Predictive Stock Recommendations dan Automatic Production Planning.",
-      "technologies": ["Next.js 15", "Firebase", "Firestore", "Genkit AI", "ShadCN UI", "RBAC", "Company Systems"],
+      "solution": "Membangun hub pusat menggunakan Next.js 15 dan Firebase Firestore, mengimplementasikan dasbor khusus divisi, serta mengintegrasikan Google Genkit untuk fitur pintar seperti Predictive Stock Recommendations dan Automatic Production Planning.",
+      "technologies": [
+        "Next.js 15",
+        "Firebase",
+        "Firestore",
+        "Genkit AI",
+        "ShadCN UI",
+        "RBAC",
+        "Company Systems"
+      ],
       "imageId": "portfolio-4",
       "liveUrl": "#",
       "githubUrl": "https://github.com/iik27"
@@ -15,55 +23,18 @@
     {
       "slug": "kasirin-pos",
       "title": "Kasirin POS",
-      "description": "Aplikasi Point of Sale (POS) modern lintas platform yang dirancang untuk menyederhanakan transaksi di kafe, restoran, dan toko ritel.",
+      "description": "Aplikasi Point of Sale (POS) modern yang dirancang untuk menyederhanakan dan mempercepat proses transaksi di berbagai jenis usaha seperti kafe, restoran, dan toko ritel.",
       "challenge": "Menciptakan pengalaman kasir yang cepat dan konsisten di berbagai perangkat (Android dan Web) dari satu basis kode tunggal dengan antarmuka yang responsif dan fleksibel.",
       "solution": "Menggunakan Flutter untuk performa native lintas platform, Provider untuk manajemen state terpusat, dan desain responsif 'Ice Blue' yang adaptif terhadap berbagai ukuran layar.",
-      "technologies": ["Flutter", "Dart", "Android", "Web", "Provider", "Mobile App"],
+      "technologies": [
+        "Flutter",
+        "Dart",
+        "Android",
+        "Web",
+        "Provider",
+        "Mobile App"
+      ],
       "imageId": "portfolio-2",
-      "liveUrl": "#",
-      "githubUrl": "https://github.com/iik27"
-    },
-    {
-      "slug": "hospital-management-system",
-      "title": "MediCloud Hospital System",
-      "description": "Sistem informasi rumah sakit (SIMRS) komprehensif mulai dari pendaftaran online hingga rekam medis elektronik (EMR).",
-      "challenge": "Digitalisasi ribuan rekam medis fisik ke dalam sistem digital yang harus dapat diakses dengan cepat oleh dokter di berbagai unit tanpa hambatan teknis.",
-      "solution": "Arsitektur cloud-native yang didesain untuk skalabilitas tinggi, dilengkapi dengan sistem pencadangan otomatis dan antarmuka yang sangat mudah dipelajari oleh staf medis.",
-      "technologies": ["React", "TypeScript", "Node.js", "Cloud Firestore", "Company Systems"],
-      "imageId": "portfolio-3",
-      "liveUrl": "#",
-      "githubUrl": "https://github.com/iik27"
-    },
-    {
-      "slug": "corporate-global-trade",
-      "title": "Global Trade Hub",
-      "description": "Website korporat untuk perusahaan perdagangan internasional dengan fitur katalog produk interaktif dan CMS kustom.",
-      "challenge": "Membangun citra brand yang prestisius di kancah global melalui visual yang menarik namun tetap mempertahankan kecepatan loading yang luar biasa.",
-      "solution": "Implementasi Server-Side Rendering (SSR) dan optimasi gambar tingkat lanjut untuk memastikan situs memuat dalam kurang dari 1 detik di berbagai belahan dunia.",
-      "technologies": ["Next.js", "Tailwind CSS", "Contentful CMS", "Website Development"],
-      "imageId": "portfolio-5",
-      "liveUrl": "#",
-      "githubUrl": "https://github.com/iik27"
-    },
-    {
-      "slug": "stylehub-ecommerce",
-      "title": "StyleHub Fashion Store",
-      "description": "Platform e-commerce fashion premium dengan fitur virtual try-on dasar dan integrasi gateway pembayaran otomatis.",
-      "challenge": "Meningkatkan tingkat konversi dengan memberikan pengalaman belanja yang mulus dan personal bagi setiap pengguna.",
-      "solution": "Integrasi sistem rekomendasi berbasis AI dan penyederhanaan alur checkout (One-Page Checkout) untuk mengurangi cart abandonment.",
-      "technologies": ["Next.js", "Stripe", "Tailwind CSS", "Website Development"],
-      "imageId": "portfolio-6",
-      "liveUrl": "#",
-      "githubUrl": "https://github.com/iik27"
-    },
-    {
-      "slug": "fleet-track-pro",
-      "title": "FleetTrack Pro Dashboard",
-      "description": "Dashboard analitik untuk manajemen armada kendaraan perusahaan yang memberikan wawasan tentang konsumsi bahan bakar.",
-      "challenge": "Memproses data telemetri dalam jumlah besar dan menampilkannya dalam visualisasi yang mudah dipahami oleh manajer operasional secara instan.",
-      "solution": "Penggunaan D3.js untuk visualisasi data interaktif dan sistem caching untuk memastikan dashboard tetap responsif meskipun memproses data historis yang masif.",
-      "technologies": ["React", "D3.js", "PostgreSQL", "Company Systems"],
-      "imageId": "portfolio-1",
       "liveUrl": "#",
       "githubUrl": "https://github.com/iik27"
     }
