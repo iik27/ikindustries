@@ -1,9 +1,10 @@
+
 "use client";
 
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { Menu } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger, SheetDescription } from '@/components/ui/sheet';
 import { cn } from '@/lib/utils';
@@ -22,8 +23,8 @@ interface NavLinkProps {
 const NavLink = ({ href, label, isMobile = false, onClick }: NavLinkProps) => {
   const isExternal = href.startsWith('http') || href.startsWith('#');
   const className = isMobile 
-    ? "text-lg font-medium text-foreground hover:text-primary transition-colors py-2"
-    : "text-sm font-medium text-foreground/80 hover:text-primary transition-colors";
+    ? "text-lg font-medium text-foreground hover:text-primary transition-colors py-2 border-b border-border/50"
+    : "text-sm font-medium text-foreground/70 hover:text-primary transition-colors relative after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-[2px] after:bg-primary after:transition-all hover:after:w-full";
 
   if (isExternal) {
     return (
@@ -55,9 +56,7 @@ export default function Header() {
   const NAV_LINKS = [
     { href: '/#development-process', label: t.process },
     { href: '/#services', label: t.services },
-    { href: '/#strengths', label: t.strengths },
     { href: '/portfolio', label: t.portfolio },
-    { href: '/#testimonials', label: t.testimonials },
     { href: '/blog', label: t.blog },
     { href: '/#about', label: t.about },
     { href: '/#contact', label: t.contact },
@@ -65,7 +64,7 @@ export default function Header() {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 10);
+      setIsScrolled(window.scrollY > 20);
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
@@ -74,75 +73,71 @@ export default function Header() {
   return (
     <header
       className={cn(
-        'fixed top-0 left-0 right-0 z-50 transition-all duration-300',
-        isScrolled ? 'bg-background/80 backdrop-blur-lg border-b' : 'bg-transparent'
+        'fixed top-0 left-0 right-0 z-50 transition-all duration-500',
+        isScrolled 
+          ? 'bg-background/80 backdrop-blur-xl border-b h-16 shadow-sm' 
+          : 'bg-transparent h-24'
       )}
     >
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Mobile Nav */}
-        <div className="flex items-center justify-between h-20 md:hidden">
-          <Link href="/" className="flex-shrink-0 flex items-center gap-2 text-2xl font-brand font-bold tracking-tight whitespace-nowrap">
-            <div className="relative w-8 h-8 rounded-full overflow-hidden bg-white p-0.5 border border-primary/20 shadow-sm">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 h-full">
+        <div className="flex items-center justify-between h-full">
+          {/* Logo Section */}
+          <Link href="/" className="flex items-center gap-3 transition-transform hover:scale-105">
+            <div className="relative w-9 h-9 rounded-full overflow-hidden bg-white p-0.5 border border-primary/20 shadow-sm">
               <Image src="https://iili.io/ffDrAW7.png" alt="IK Labs Logo" fill className="object-contain" />
             </div>
-            <span className="text-foreground">IK Labs</span>
+            <span className="text-xl font-brand font-bold tracking-tight text-foreground">IK Labs</span>
           </Link>
+
+          {/* Desktop Navigation */}
+          <nav className="hidden lg:flex items-center gap-8">
+            {NAV_LINKS.map((link) => (
+              <NavLink key={link.href} href={link.href} label={link.label} />
+            ))}
+          </nav>
+
+          {/* Actions Section */}
           <div className="flex items-center gap-2">
-            <LanguageToggle />
-            <ThemeToggle />
+            <div className="hidden sm:flex items-center gap-2 mr-2">
+              <LanguageToggle />
+              <ThemeToggle />
+            </div>
+
+            {/* Mobile Menu Trigger */}
             <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
-              <SheetTrigger asChild>
-                <Button variant="ghost" size="icon">
+              <SheetTrigger asChild className="lg:hidden">
+                <Button variant="ghost" size="icon" className="rounded-full">
                   <Menu className="h-6 w-6" />
                   <span className="sr-only">Menu</span>
                 </Button>
               </SheetTrigger>
-              <SheetContent side="right" className="w-[300px] bg-background p-0">
-                <SheetHeader className="p-6 pb-0 text-left">
-                  <SheetTitle className="text-xl font-brand font-bold">IK Labs Menu</SheetTitle>
+              <SheetContent side="right" className="w-full sm:w-[350px] bg-background border-l">
+                <SheetHeader className="p-6 pb-2 text-left border-b">
+                  <div className="flex items-center justify-between">
+                    <SheetTitle className="text-xl font-brand font-bold">IK Labs</SheetTitle>
+                    <div className="flex items-center gap-2">
+                      <LanguageToggle />
+                      <ThemeToggle />
+                    </div>
+                  </div>
                   <SheetDescription className="sr-only">Navigasi utama situs.</SheetDescription>
                 </SheetHeader>
-                <div className="flex flex-col h-full p-6 pt-2">
-                  <nav className="flex flex-col gap-4">
+                <div className="flex flex-col h-full p-6 space-y-4">
+                  <nav className="flex flex-col gap-2">
                     {NAV_LINKS.map((link) => (
                       <NavLink 
-                          key={link.href} 
-                          href={link.href} 
-                          label={link.label} 
-                          isMobile 
-                          onClick={() => setIsMobileMenuOpen(false)}
-                        />
+                        key={link.href} 
+                        href={link.href} 
+                        label={link.label} 
+                        isMobile 
+                        onClick={() => setIsMobileMenuOpen(false)}
+                      />
                     ))}
                   </nav>
                 </div>
               </SheetContent>
             </Sheet>
           </div>
-        </div>
-
-        {/* Desktop Nav */}
-        <div className="hidden md:flex flex-col items-center justify-center py-4">
-          <div className="flex items-center justify-between w-full">
-            <div className="w-1/3 flex items-center gap-4">
-               <LanguageToggle />
-            </div>
-            <div className="w-1/3 flex justify-center">
-              <Link href="/" className="flex-shrink-0 flex items-center gap-2 text-2xl font-brand font-bold tracking-tight whitespace-nowrap transition-opacity hover:opacity-80">
-                <div className="relative w-9 h-9 rounded-full overflow-hidden bg-white p-0.5 border border-primary/20 shadow-sm">
-                  <Image src="https://iili.io/ffDrAW7.png" alt="IK Labs Logo" fill className="object-contain" />
-                </div>
-                <span className="text-foreground">IK Labs</span>
-              </Link>
-            </div>
-            <div className="w-1/3 flex justify-end">
-              <ThemeToggle />
-            </div>
-          </div>
-          <nav className="flex items-center gap-8 mt-5">
-            {NAV_LINKS.map((link) => (
-               <NavLink key={link.href} href={link.href} label={link.label} />
-            ))}
-          </nav>
         </div>
       </div>
     </header>
