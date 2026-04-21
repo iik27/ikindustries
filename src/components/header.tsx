@@ -1,4 +1,3 @@
-
 "use client";
 
 import React, { useState, useEffect } from 'react';
@@ -82,7 +81,7 @@ export default function Header() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Mobile Header */}
         <div className="flex items-center justify-between h-20 md:hidden">
-          <Link href="/" className="flex-shrink-0 flex items-center gap-2 text-2xl font-brand font-semibold tracking-tight whitespace-nowrap">
+          <Link href="/" className="flex-shrink-0 flex items-center gap-2 text-2xl font-brand font-bold tracking-tight whitespace-nowrap">
             <div className="relative w-8 h-8 rounded-full overflow-hidden bg-white p-0.5 border border-primary/20 shadow-sm">
               <Image src="https://iili.io/ffDrAW7.png" alt="IK Labs Logo" fill className="object-contain" />
             </div>
@@ -97,19 +96,13 @@ export default function Header() {
                   <Menu className="h-6 w-6" />
                   <span className="sr-only">Buka menu</span>
                 </Button>
-              </Trigger>
+              </SheetTrigger>
               <SheetContent side="right" className="w-[300px] bg-background p-0">
-                <SheetHeader className="p-6 pb-0">
-                  <SheetTitle className="sr-only">Menu Navigasi</SheetTitle>
-                  <SheetDescription className="sr-only">Daftar tautan navigasi untuk situs ini.</SheetDescription>
+                <SheetHeader className="p-6 pb-0 text-left">
+                  <SheetTitle className="text-xl font-brand font-bold">IK Labs Menu</SheetTitle>
+                  <SheetDescription className="sr-only">Navigasi utama situs.</SheetDescription>
                 </SheetHeader>
-                <div className="flex flex-col h-full p-6">
-                  <Link href="/" className="flex items-center gap-2 text-2xl font-brand font-semibold tracking-tight mb-8" onClick={() => setIsMobileMenuOpen(false)}>
-                      <div className="relative w-8 h-8 rounded-full overflow-hidden bg-white p-0.5 border border-primary/20 shadow-sm">
-                        <Image src="https://iili.io/ffDrAW7.png" alt="IK Labs Logo" fill className="object-contain" />
-                      </div>
-                      <span>IK Labs</span>
-                  </Link>
+                <div className="flex flex-col h-full p-6 pt-2">
                   <nav className="flex flex-col gap-4">
                     {NAV_LINKS.map((link) => (
                       <NavLink 
@@ -134,7 +127,7 @@ export default function Header() {
                <LanguageToggle />
             </div>
             <div className="w-1/3 flex justify-center">
-              <Link href="/" className="flex-shrink-0 flex items-center gap-2 text-2xl font-brand font-semibold tracking-tight whitespace-nowrap transition-opacity hover:opacity-80">
+              <Link href="/" className="flex-shrink-0 flex items-center gap-2 text-2xl font-brand font-bold tracking-tight whitespace-nowrap transition-opacity hover:opacity-80">
                 <div className="relative w-9 h-9 rounded-full overflow-hidden bg-white p-0.5 border border-primary/20 shadow-sm">
                   <Image src="https://iili.io/ffDrAW7.png" alt="IK Labs Logo" fill className="object-contain" />
                 </div>

@@ -1,4 +1,3 @@
-
 'use client';
 
 import { useState, useEffect } from 'react';
@@ -22,7 +21,7 @@ export default function Footer() {
       <div className="container mx-auto py-12 px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 items-start">
           <div className="flex flex-col gap-4">
-            <Link href="/" className="flex items-center gap-2 text-2xl font-brand font-semibold tracking-tight transition-opacity hover:opacity-90">
+            <Link href="/" className="flex items-center gap-2 text-2xl font-brand font-bold tracking-tight transition-opacity hover:opacity-90">
               <div className="relative w-8 h-8 rounded-full overflow-hidden bg-white p-0.5 border border-primary/10">
                 <Image src="https://iili.io/ffDrAW7.png" alt="IK Labs Logo" fill className="object-contain" />
               </div>
