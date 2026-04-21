@@ -76,7 +76,7 @@ export default function Header() {
         'fixed top-0 left-0 right-0 z-50 transition-all duration-500',
         isScrolled 
           ? 'bg-background/80 backdrop-blur-xl border-b h-16 shadow-sm' 
-          : 'bg-transparent h-20'
+          : 'bg-transparent h-16'
       )}
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 h-full">
@@ -98,14 +98,14 @@ export default function Header() {
 
           {/* Actions Section */}
           <div className="flex items-center gap-2">
-            <div className="hidden sm:flex items-center gap-1">
+            <div className="flex items-center gap-1">
               <LanguageToggle />
               <ThemeToggle />
             </div>
 
             {/* Mobile Menu Trigger */}
             <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
-              <SheetTrigger asChild className="lg:hidden">
+              <SheetTrigger asChild className="lg:hidden ml-2">
                 <Button variant="ghost" size="icon" className="rounded-full h-9 w-9">
                   <Menu className="h-5 w-5" />
                   <span className="sr-only">Menu</span>
@@ -115,10 +115,6 @@ export default function Header() {
                 <SheetHeader className="p-4 pb-2 text-left border-b">
                   <div className="flex items-center justify-between">
                     <SheetTitle className="text-xl font-brand font-bold">IK Labs</SheetTitle>
-                    <div className="flex items-center gap-1">
-                      <LanguageToggle />
-                      <ThemeToggle />
-                    </div>
                   </div>
                   <SheetDescription className="sr-only">Navigasi utama situs.</SheetDescription>
                 </SheetHeader>
