@@ -100,7 +100,7 @@ export default function Header() {
               <SheetContent side="right" className="w-[300px] bg-background p-0">
                 <SheetHeader className="p-6 pb-0 text-left">
                   <SheetTitle className="text-xl font-brand font-bold">IK Labs Menu</SheetTitle>
-                  <SheetDescription className="sr-only">Situs navigasi utama.</SheetDescription>
+                  <SheetDescription className="sr-only">Navigasi utama.</SheetDescription>
                 </SheetHeader>
                 <div className="flex flex-col h-full p-6 pt-2">
                   <nav className="flex flex-col gap-4">

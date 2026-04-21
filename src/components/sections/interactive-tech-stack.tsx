@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import React, { useState, useEffect, useTransition, useMemo } from 'react';
 import { Card, CardContent } from "@/components/ui/card";
@@ -44,7 +44,7 @@ const technologies = [
     { name: "VS Code", icon: <IconBrandVSCode className="h-10 w-10" />, language: "json" },
 ];
 
-const Typewriter = ({ text, onDone }: { text: string, onDone: () => void }) => {
+const Typewriter = ({ text }: { text: string }) => {
     const [displayedText, setDisplayedText] = useState('');
     
     useEffect(() => {
@@ -56,12 +56,11 @@ const Typewriter = ({ text, onDone }: { text: string, onDone: () => void }) => {
                 i++;
             } else {
                 clearInterval(intervalId);
-                onDone();
             }
-        }, 20);
+        }, 15);
 
         return () => clearInterval(intervalId);
-    }, [text, onDone]);
+    }, [text]);
 
     return <>{displayedText}</>;
 };
@@ -73,11 +72,15 @@ export default function InteractiveTechStack() {
   const defaultCode = useMemo(() => `
 import type { NextPage } from 'next';
 
+/**
+ * IK Labs Code Explorer
+ * ${t.defaultCodeMessage}
+ */
 const Home: NextPage = () => {
   return (
     <div>
       <h1>IK Labs</h1>
-      <p>${t.defaultCodeMessage}</p>
+      <p>Innovative Solutions Lab</p>
     </div>
   );
 };
@@ -89,9 +92,8 @@ export default Home;
   const [generatedCode, setGeneratedCode] = useState({ code: defaultCode, language: 'jsx'});
   const [isPending, startTransition] = useTransition();
 
-  // Update code message when language changes if no tech was clicked yet
   useEffect(() => {
-    if (generatedCode.code.includes('Click') || generatedCode.code.includes('Klik')) {
+    if (generatedCode.code.includes('/**') || generatedCode.code.includes('/*')) {
         setGeneratedCode({ code: defaultCode, language: 'jsx' });
     }
   }, [language, defaultCode, generatedCode.code]);
@@ -111,10 +113,17 @@ export default Home;
       startTransition(async () => {
           try {
               const result = await generateCode({ technology: techName });
-              setGeneratedCode(result);
+              if (result && result.code) {
+                setGeneratedCode(result);
+              } else {
+                 throw new Error("Empty result");
+              }
           } catch (error) {
-              console.error("Failed to generate code:", error);
-              setGeneratedCode({ code: `// ${t.errorCode} ${techName}`, language: 'text' });
+              console.error("AI Generation Error:", error);
+              setGeneratedCode({ 
+                code: `// ${t.errorCode} ${techName}\n// ${t.errorHint}`, 
+                language: 'text' 
+              });
           }
       });
   };
@@ -148,31 +157,35 @@ export default Home;
               ))}
           </div>
 
-          <div className="lg:max-w-md">
-             <Card className="bg-card/50 shadow-lg">
+          <div className="lg:max-w-md w-full">
+             <Card className="bg-card/50 shadow-lg border-primary/20">
                 <CardContent className="p-0">
-                    <div className="flex justify-between items-center px-4 py-2 border-b">
-                        <p className="text-sm font-medium">{activeTech}</p>
+                    <div className="flex justify-between items-center px-4 py-2 border-b bg-muted/50 rounded-t-lg">
+                        <p className="text-xs font-mono font-medium text-primary uppercase tracking-widest">{activeTech}</p>
                         <div className="flex items-center gap-1.5">
-                            <div className="w-3 h-3 rounded-full bg-red-500"></div>
-                            <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
-                            <div className="w-3 h-3 rounded-full bg-green-500"></div>
+                            <div className="w-2.5 h-2.5 rounded-full bg-red-500/80"></div>
+                            <div className="w-2.5 h-2.5 rounded-full bg-yellow-500/80"></div>
+                            <div className="w-2.5 h-2.5 rounded-full bg-green-500/80"></div>
                         </div>
                     </div>
-                    <pre className="p-4 text-sm overflow-x-auto min-h-[300px] bg-muted/30 whitespace-pre-wrap">
-                        <code className={cn("font-code", `language-${generatedCode.language}`)}>
-                            {isPending ? (
-                                <div className="space-y-2">
-                                    <Skeleton className="h-4 w-[80%]" />
-                                    <Skeleton className="h-4 w-[90%]" />
-                                    <Skeleton className="h-4 w-[70%]" />
-                                    <Skeleton className="h-4 w-[85%]" />
-                                </div>
-                            ) : (
-                                <Typewriter text={generatedCode.code} onDone={() => {}} />
-                            )}
-                        </code>
-                    </pre>
+                    <div className="p-4 text-sm overflow-x-auto min-h-[350px] bg-muted/20 font-code">
+                        {isPending ? (
+                            <div className="space-y-3">
+                                <Skeleton className="h-4 w-[85%]" />
+                                <Skeleton className="h-4 w-[60%]" />
+                                <Skeleton className="h-4 w-[90%]" />
+                                <Skeleton className="h-4 w-[75%]" />
+                                <Skeleton className="h-4 w-[40%]" />
+                                <Skeleton className="h-4 w-[80%]" />
+                            </div>
+                        ) : (
+                            <pre className="whitespace-pre-wrap break-words leading-relaxed">
+                                <code className={cn("text-foreground/90", `language-${generatedCode.language}`)}>
+                                    <Typewriter text={generatedCode.code} />
+                                </code>
+                            </pre>
+                        )}
+                    </div>
                 </CardContent>
             </Card>
           </div>

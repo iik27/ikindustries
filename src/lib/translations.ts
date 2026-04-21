@@ -37,7 +37,8 @@ export const translations = {
       title: 'Teknologi Kami',
       description: 'Kami memanfaatkan stack teknologi modern dan tangguh untuk membangun aplikasi berkualitas tinggi. Klik ikon untuk melihat cuplikan kode buatan AI.',
       defaultCodeMessage: 'Klik ikon teknologi untuk melihat cuplikan kode.',
-      errorCode: 'Gagal menghasilkan kode untuk'
+      errorCode: 'Gagal menghasilkan kode untuk',
+      errorHint: 'Pastikan kunci API GenAI telah dikonfigurasi di server.'
     },
     process: {
       title: 'Proses Pengembangan Kami',
@@ -162,7 +163,8 @@ export const translations = {
       title: 'Our Tech Stack',
       description: 'We leverage a modern and robust tech stack to build high-quality applications. Click an icon to see an AI-generated code snippet.',
       defaultCodeMessage: 'Click a tech icon to see a code snippet.',
-      errorCode: 'Failed to generate code for'
+      errorCode: 'Failed to generate code for',
+      errorHint: 'Please ensure GenAI API key is configured on the server.'
     },
     process: {
       title: 'Our Development Process',
