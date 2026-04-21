@@ -118,7 +118,7 @@
       "title": "Ngabuburit Fun Meet",
       "description": "Platform sosial berbasis web untuk perencanaan bukber secara anonim dan real-time.",
       "challenge": "Memfasilitasi koordinasi sosial yang sensitif privasi tanpa pendaftaran, serta mengotomatiskan alur kerja diskusi, voting lokasi, hingga konfirmasi kehadiran secara terjadwal.",
-      "solution": "Implementasi 'Ghost Mode' menggunakan Firebase Anonymous Auth dan moderasi konten berbasis AI (Genkit Gemini). Dilengkapi Smart Location Voting dan Automated Data Lifecycle (TTL) yang menghapus data setiap pukul 19:00.",
+      "solution": "Implementasi 'Ghost Mode' menggunakan Firebase Anonymous Auth dan moderasi konten berbasis AI (Genkit Gemini). Dilengkapi Smart Location Voting dan Automated Data Lifecycle (TTL) yang menghapus data setiap hari pukul 19:00.",
       "technologies": [
         "Next.js 15",
         "Firebase Anonymous Auth",

@@ -9,7 +9,7 @@
     {
       "id": "hero",
       "description": "Abstract technology background for hero section",
-      "imageUrl": "https://images.unsplash.com/photo-1550745165-9bc0b252726a?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3",
+      "imageUrl": "https://images.unsplash.com/photo-1550745165-9bc0b252726a?q=80&w=2070&auto=format&fit=crop",
       "imageHint": "abstract technology"
     },
     {
@@ -39,7 +39,7 @@
     {
       "id": "portfolio-5",
       "description": "Franchise Management & CRM System analytics dashboard",
-      "imageUrl": "https://images.unsplash.com/photo-1543286386-21f1e9968424?q=80&w=2070&auto=format&fit=crop",
+      "imageUrl": "https://images.unsplash.com/photo-1551288049-bbbda536339a?q=80&w=2070&auto=format&fit=crop",
       "imageHint": "business analytics"
     },
     {
