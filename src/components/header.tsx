@@ -8,21 +8,26 @@ import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger, SheetDescription } from '@/components/ui/sheet';
 import { cn } from '@/lib/utils';
 import { ThemeToggle } from '@/components/theme-toggle';
-
-const NAV_LINKS = [
-  { href: '/#development-process', label: 'Proses' },
-  { href: '/#services', label: 'Layanan' },
-  { href: '/#strengths', label: 'Keunggulan' },
-  { href: '/portfolio', label: 'Portofolio' },
-  { href: '/#testimonials', label: 'Testimoni' },
-  { href: '/blog', label: 'Blog' },
-  { href: '/#about', label: 'Tentang' },
-  { href: '/#contact', label: 'Kontak' },
-];
+import { LanguageToggle } from '@/components/language-toggle';
+import { useLanguage } from './language-provider';
+import { translations } from '@/lib/translations';
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const { language } = useLanguage();
+  const t = translations[language].nav;
+
+  const NAV_LINKS = [
+    { href: '/#development-process', label: t.process },
+    { href: '/#services', label: t.services },
+    { href: '/#strengths', label: t.strengths },
+    { href: '/portfolio', label: t.portfolio },
+    { href: '/#testimonials', label: t.testimonials },
+    { href: '/blog', label: t.blog },
+    { href: '/#about', label: t.about },
+    { href: '/#contact', label: t.contact },
+  ];
 
   useEffect(() => {
     const handleScroll = () => {
@@ -62,8 +67,8 @@ export default function Header() {
             <span>IK Labs</span>
           </Link>
           <div className="flex items-center gap-2">
+            <LanguageToggle />
             <ThemeToggle />
-            <span className="sr-only">Ganti Tema</span>
             <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
               <SheetTrigger asChild>
                 <Button variant="ghost" size="icon">
@@ -101,7 +106,9 @@ export default function Header() {
         {/* Desktop Header */}
         <div className="hidden md:flex flex-col items-center justify-center py-4">
           <div className="flex items-center justify-between w-full">
-            <div className="w-1/3"></div> {/* Spacer */}
+            <div className="w-1/3 flex items-center gap-4">
+               <LanguageToggle />
+            </div>
             <div className="w-1/3 flex justify-center">
               <Link href="/" className="flex-shrink-0 flex items-center gap-2 text-2xl font-headline font-bold whitespace-nowrap">
                 <Image src="https://iili.io/ffDrAW7.png" alt="IK Labs Logo" width={32} height={32} className="rounded-full" />

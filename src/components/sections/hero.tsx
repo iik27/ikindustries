@@ -5,9 +5,13 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import anime from 'animejs';
 import Link from 'next/link';
+import { useLanguage } from '../language-provider';
+import { translations } from '@/lib/translations';
 
 export default function Hero() {
   const bgRef = useRef<HTMLDivElement>(null);
+  const { language } = useLanguage();
+  const t = translations[language].hero;
 
   useEffect(() => {
     if (bgRef.current) {
@@ -46,24 +50,24 @@ export default function Hero() {
       <div className="container mx-auto relative z-10 px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto">
           <h1 className="font-headline text-4xl font-bold tracking-tight text-foreground sm:text-6xl lg:text-7xl">
-            Memberdayakan Bisnis dengan,
+            {t.title}
             <span className="block mt-2 sm:mt-4 bg-gradient-to-r from-primary via-blue-500 to-teal-400 bg-clip-text text-transparent">
-              Sistem Digital Terkini.
+              {t.subtitle}
             </span>
           </h1>
           <p className="mt-6 text-lg leading-8 text-foreground/80 max-w-2xl mx-auto">
-            IK Labs berspesialisasi dalam mengembangkan website profesional, aplikasi mobile performa tinggi, dan sistem perusahaan terintegrasi yang mendorong keunggulan operasional.
+            {t.description}
           </p>
           <div className="mt-10 flex items-center justify-center gap-x-6">
             <Button size="lg" asChild>
               <Link href="/portfolio">
-                Lihat Proyek Kami
+                {t.viewProjects}
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Link>
             </Button>
             <Button size="lg" variant="ghost" asChild>
               <a href="#services">
-                Keahlian Kami <span aria-hidden="true" className="ml-1">→</span>
+                {t.ourExpertise} <span aria-hidden="true" className="ml-1">→</span>
               </a>
             </Button>
           </div>

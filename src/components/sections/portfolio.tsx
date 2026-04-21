@@ -1,4 +1,3 @@
-
 'use client';
 
 import { useEffect, useRef } from 'react';
@@ -11,12 +10,13 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import ShineBorderCard from "../shine-border-card";
 import anime from 'animejs';
+import { useLanguage } from '../language-provider';
 
 export default function Portfolio() {
   const sectionRef = useRef<HTMLDivElement>(null);
+  const { language } = useLanguage();
   const portfolioImages = PlaceHolderImages.filter(p => p.id.startsWith('portfolio-'));
 
-  // Show only 6 items on the homepage
   const itemsToShow = PortfolioItems.slice(0, 6);
 
   useEffect(() => {
@@ -48,9 +48,13 @@ export default function Portfolio() {
     <section id="portfolio" className="bg-secondary" ref={sectionRef}>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-2xl mx-auto">
-          <h2 className="font-headline text-3xl font-bold tracking-tight text-foreground sm:text-4xl">Portofolio Kami</h2>
+          <h2 className="font-headline text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+            {language === 'id' ? 'Portofolio Kami' : 'Our Portfolio'}
+          </h2>
           <p className="mt-4 text-lg text-foreground/80">
-            Intip kualitas dan kreativitas kami melalui beberapa proyek unggulan yang telah kami selesaikan.
+            {language === 'id' 
+              ? 'Intip kualitas dan kreativitas kami melalui beberapa proyek unggulan yang telah kami selesaikan.' 
+              : 'Take a look at our quality and creativity through some of the featured projects we have completed.'}
           </p>
         </div>
         <div className="mt-16 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 max-w-6xl mx-auto">
@@ -86,7 +90,9 @@ export default function Portfolio() {
         </div>
         <div className="mt-16 text-center">
             <Button size="lg" variant="outline" asChild>
-                <Link href="/portfolio">Lihat Semua Proyek</Link>
+                <Link href="/portfolio">
+                  {language === 'id' ? 'Lihat Semua Proyek' : 'View All Projects'}
+                </Link>
             </Button>
         </div>
       </div>
