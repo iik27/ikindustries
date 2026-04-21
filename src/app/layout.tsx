@@ -8,6 +8,9 @@ import { LanguageProvider } from '@/components/language-provider';
 export const metadata: Metadata = {
   title: 'IK Labs | Web, Mobile & Enterprise Systems',
   description: 'IK Labs specializes in crafting professional websites, high-performance mobile applications, and robust company systems. Led by Muhamad Taufik Hidayat.',
+  icons: {
+    icon: 'https://iili.io/ffDrAW7.png',
+  },
 };
 
 export default function RootLayout({
