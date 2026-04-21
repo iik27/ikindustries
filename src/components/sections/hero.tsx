@@ -37,7 +37,7 @@ export default function Hero() {
     tl.add({
       targets: '.hero-char',
       translateY: [
-        { value: -40, duration: 600, easing: 'easeOutExpo' },
+        { value: -44, duration: 600, easing: 'easeOutExpo' },
         { value: 0, duration: 800, easing: 'easeOutBounce', delay: 100 }
       ],
       rotate: {
@@ -65,11 +65,11 @@ export default function Hero() {
     if (bgRef.current) {
       bgRef.current.innerHTML = '<div class="absolute inset-0 bg-[radial-gradient(ellipse_60%_60%_at_50%_-10%,rgba(var(--primary),0.1),transparent)]"></div>';
       
-      const particlesCount = 15;
+      const particlesCount = 20;
       for (let i = 0; i < particlesCount; i++) {
         const dot = document.createElement('div');
-        dot.className = 'absolute bg-primary/10 rounded-full pointer-events-none particle-dot';
-        const size = Math.random() * 4 + 2;
+        dot.className = 'absolute bg-primary/20 rounded-full pointer-events-none particle-dot';
+        const size = Math.random() * 6 + 2;
         dot.style.width = `${size}px`;
         dot.style.height = `${size}px`;
         dot.style.left = `${Math.random() * 100}%`;
@@ -79,13 +79,13 @@ export default function Hero() {
 
       anime({
         targets: '.particle-dot',
-        translateX: () => anime.random(-50, 50),
-        translateY: () => anime.random(-50, 50),
-        scale: () => [0.5, 1.2],
-        opacity: () => [0.1, 0.3],
+        translateX: () => anime.random(-60, 60),
+        translateY: () => anime.random(-60, 60),
+        scale: () => [0.5, 1.5],
+        opacity: () => [0.1, 0.4],
         easing: 'easeInOutQuad',
-        duration: () => anime.random(4000, 8000),
-        delay: () => anime.random(0, 2000),
+        duration: () => anime.random(4000, 10000),
+        delay: () => anime.random(0, 3000),
         loop: true,
         direction: 'alternate'
       });
@@ -99,14 +99,14 @@ export default function Hero() {
   }, [language, t.title, t.subtitle]);
 
   return (
-    <section className="relative min-h-[75vh] flex items-center justify-center text-center overflow-hidden bg-background pt-20">
+    <section className="relative min-h-[70vh] flex items-center justify-center text-center overflow-hidden bg-background pt-16">
       <div ref={bgRef} className="absolute inset-0 z-0 opacity-50"></div>
       
       <div className="container mx-auto relative z-10 px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto">
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-primary/5 blur-[120px] rounded-full -z-10 pointer-events-none"></div>
           
-          <h1 ref={titleRef} className="font-headline text-3xl font-bold tracking-tight text-foreground sm:text-5xl lg:text-6xl leading-[1.1] mb-8">
+          <h1 ref={titleRef} className="font-headline text-3xl font-bold tracking-tight text-foreground sm:text-5xl lg:text-7xl leading-[1.1] mb-8 min-h-[4rem]">
             {t.title} {t.subtitle}
           </h1>
           
