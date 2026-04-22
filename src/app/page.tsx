@@ -12,7 +12,8 @@ import Blog from '@/components/sections/blog';
 import Contact from '@/components/sections/contact';
 import Footer from '@/components/footer';
 
-// Mengatur durasi maksimum untuk Server Actions di halaman ini (Vercel)
+// Mengatur durasi maksimum untuk Server Actions di halaman ini (Vercel Hobby: 10s, Pro: up to 300s)
+// Karena AI seringkali butuh waktu > 10 detik, kita set ke 60 detik.
 export const maxDuration = 60;
 
 export default function Home() {

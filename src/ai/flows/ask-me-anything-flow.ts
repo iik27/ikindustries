@@ -2,8 +2,6 @@
 'use server';
 /**
  * @fileOverview Agen AI percakapan yang bertindak sebagai Muhamad Taufik Hidayat dari IK Labs.
- *
- * - askMeAnything - Fungsi yang menangani proses percakapan.
  */
 
 import { ai } from '@/ai/genkit';
@@ -38,7 +36,6 @@ ${blogContext}
     `;
 };
 
-
 const AskMeAnythingInputSchema = z.object({
   question: z.string().describe("Pertanyaan pengguna."),
   history: z.array(z.object({
@@ -46,40 +43,32 @@ const AskMeAnythingInputSchema = z.object({
     content: z.string(),
   })).optional().describe('Riwayat percakapan.'),
 });
+
 export type AskMeAnythingInput = z.infer<typeof AskMeAnythingInputSchema>;
 
 const AskMeAnythingOutputSchema = z.object({
   answer: z.string().describe('Tanggapan dalam format Markdown.'),
 });
+
 export type AskMeAnythingOutput = z.infer<typeof AskMeAnythingOutputSchema>;
 
-
+/**
+ * Fungsi utama untuk berinteraksi dengan asisten AI.
+ * Sesuai aturan Next.js 15, file 'use server' hanya boleh mengekspor fungsi async.
+ */
 export async function askMeAnything(input: AskMeAnythingInput): Promise<AskMeAnythingOutput> {
-  return askMeAnythingFlow(input);
-}
+  const formattedHistory = (input.history ?? [])
+    .map(message => message.role === 'user' ? `User: ${message.content}` : `Anda: ${message.content}`)
+    .join('\n');
 
-const prompt = ai.definePrompt({
-  name: 'askMeAnythingPrompt',
-  input: { schema: z.object({
-    question: z.string(),
-    formattedHistory: z.string(),
-    context: z.string(),
-  }) },
-  output: { schema: AskMeAnythingOutputSchema },
-  config: {
-    safetySettings: [
-      { category: 'HARM_CATEGORY_HATE_SPEECH', threshold: 'BLOCK_ONLY_HIGH' },
-      { category: 'HARM_CATEGORY_DANGEROUS_CONTENT', threshold: 'BLOCK_ONLY_HIGH' },
-      { category: 'HARM_CATEGORY_HARASSMENT', threshold: 'BLOCK_ONLY_HIGH' },
-      { category: 'HARM_CATEGORY_SEXUALLY_EXPLICIT', threshold: 'BLOCK_ONLY_HIGH' },
-    ]
-  },
-  prompt: `Anda adalah Muhamad Taufik Hidayat, pendiri IK Labs. Anda antusias, profesional, dan visioner.
+  const { output } = await ai.generate({
+    model: 'googleai/gemini-2.0-flash',
+    prompt: `Anda adalah Muhamad Taufik Hidayat, pendiri IK Labs. Anda antusias, profesional, dan visioner.
 
 Tugas Anda adalah membantu pengunjung situs IK Labs. Gunakan konteks di bawah ini:
 
 === KONTEKS IK LABS ===
-{{{context}}}
+${getSiteContext()}
 === AKHIR KONTEKS ===
 
 Aturan:
@@ -90,28 +79,19 @@ Aturan:
 - Gunakan Markdown.
 
 Riwayat:
-{{{formattedHistory}}}
+${formattedHistory}
 
-User: {{{question}}}
-`,
-});
+User: ${input.question}`,
+    output: { schema: AskMeAnythingOutputSchema },
+    config: {
+      safetySettings: [
+        { category: 'HARM_CATEGORY_HATE_SPEECH', threshold: 'BLOCK_ONLY_HIGH' },
+        { category: 'HARM_CATEGORY_DANGEROUS_CONTENT', threshold: 'BLOCK_ONLY_HIGH' },
+        { category: 'HARM_CATEGORY_HARASSMENT', threshold: 'BLOCK_ONLY_HIGH' },
+        { category: 'HARM_CATEGORY_SEXUALLY_EXPLICIT', threshold: 'BLOCK_ONLY_HIGH' },
+      ]
+    },
+  });
 
-const askMeAnythingFlow = ai.defineFlow(
-  {
-    name: 'askMeAnythingFlow',
-    inputSchema: AskMeAnythingInputSchema,
-    outputSchema: AskMeAnythingOutputSchema,
-  },
-  async (input) => {
-    const formattedHistory = (input.history ?? [])
-      .map(message => message.role === 'user' ? `User: ${message.content}` : `Anda: ${message.content}`)
-      .join('\n');
-
-    const { output } = await prompt({
-      question: input.question,
-      formattedHistory: formattedHistory,
-      context: getSiteContext(),
-    });
-    return output!;
-  }
-);
+  return output!;
+}
