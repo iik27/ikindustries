@@ -71,7 +71,7 @@ export default function About() {
               {t.title}
             </h2>
             <div className="mt-4 text-lg text-foreground/80">
-              <ReactMarkdown className="prose-none">{t.description}</ReactMarkdown>
+              <ReactMarkdown className="prose dark:prose-invert prose-none">{t.description}</ReactMarkdown>
             </div>
             <p className="mt-4 text-foreground/80">
               {language === 'id' 
@@ -96,14 +96,14 @@ export default function About() {
                 <MessageSquare className="h-6 w-6 text-primary"/>
                 {t.aiTitle}
               </h3>
-              <div className="mt-4 border rounded-lg bg-secondary/30 h-96 flex flex-col">
+              <div className="mt-4 border rounded-lg bg-secondary/30 dark:bg-muted/20 h-96 flex flex-col">
                 <div ref={chatContainerRef} className="flex-1 p-4 space-y-4 overflow-y-auto">
                   <ChatBubble role="model">
                     <p>{t.aiWelcome}</p>
                   </ChatBubble>
                   {conversation.map((msg, index) => (
                     <ChatBubble key={index} role={msg.role}>
-                       <ReactMarkdown className="prose prose-sm prose-p:my-0">{msg.content}</ReactMarkdown>
+                       <ReactMarkdown className="prose dark:prose-invert prose-sm prose-p:my-0">{msg.content}</ReactMarkdown>
                     </ChatBubble>
                   ))}
                   {isPending && (

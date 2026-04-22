@@ -17,7 +17,7 @@ export default function Footer() {
   }, []);
 
   return (
-    <footer className="bg-primary text-primary-foreground">
+    <footer className="bg-slate-950 text-slate-200 border-t border-white/5">
       <div className="container mx-auto py-12 px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 items-start">
           <div className="flex flex-col gap-4">
@@ -27,7 +27,7 @@ export default function Footer() {
               </div>
               <span>IK Labs</span>
             </Link>
-            <p className="text-primary-foreground/70 text-sm max-w-xs">
+            <p className="text-slate-400 text-sm max-w-xs">
               {t.description}
             </p>
           </div>
@@ -49,21 +49,21 @@ export default function Footer() {
           <div className="flex flex-col gap-4 md:items-end">
             <h3 className="font-headline font-semibold text-lg">{t.followTitle}</h3>
             <div className="flex gap-4">
-              <a href="https://github.com/iik27" target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="bg-primary-foreground/10 p-2 rounded-full hover:bg-primary-foreground/20 transition-colors">
+              <a href="https://github.com/iik27" target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="bg-white/10 p-2 rounded-full hover:bg-white/20 transition-colors">
                 <Github className="h-5 w-5" />
               </a>
-              <a href="https://www.linkedin.com/in/iiiikkk" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="bg-primary-foreground/10 p-2 rounded-full hover:bg-primary-foreground/20 transition-colors">
+              <a href="https://www.linkedin.com/in/iiiikkk" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="bg-white/10 p-2 rounded-full hover:bg-white/20 transition-colors">
                 <Linkedin className="h-5 w-5" />
               </a>
             </div>
           </div>
         </div>
 
-        <div className="mt-12 pt-8 border-t border-primary-foreground/10 flex flex-col md:flex-row justify-between items-center gap-6">
-          <p className="text-sm text-primary-foreground/60 text-center md:text-left">
+        <div className="mt-12 pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-6">
+          <p className="text-sm text-slate-500 text-center md:text-left">
             &copy; {year || '2024'} IK Labs. {t.rights}
           </p>
-          <div className="flex gap-6 text-xs font-medium uppercase tracking-wider">
+          <div className="flex gap-6 text-xs font-medium uppercase tracking-wider text-slate-400">
             <Link href="/privacy-policy" className="hover:text-white transition-colors">{t.privacy}</Link>
             <Link href="/terms-of-service" className="hover:text-white transition-colors">{t.terms}</Link>
           </div>

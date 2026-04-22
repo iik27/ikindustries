@@ -70,7 +70,7 @@ export default function PortfolioItemPage() {
               )}
 
               <div className="grid md:grid-cols-3 gap-8 md:gap-12">
-                <div className="md:col-span-2 prose mx-auto">
+                <div className="md:col-span-2 prose dark:prose-invert mx-auto">
                     <h2>{t.about}</h2>
                     
                     <h3>{t.challenge}</h3>
@@ -80,7 +80,7 @@ export default function PortfolioItemPage() {
                     <p>{displaySolution}</p>
                 </div>
                 <aside className="md:col-span-1">
-                  <div className="sticky top-28 bg-secondary p-6 rounded-lg">
+                  <div className="sticky top-28 bg-secondary dark:bg-muted/30 p-6 rounded-lg">
                     <h3 className="font-headline font-semibold text-lg text-foreground">{t.projectInfo}</h3>
                     
                     <div className="mt-4">

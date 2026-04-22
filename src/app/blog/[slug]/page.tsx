@@ -75,7 +75,7 @@ export default function BlogPostPage() {
               )}
 
               <div
-                className="prose mx-auto"
+                className="prose dark:prose-invert mx-auto"
                 dangerouslySetInnerHTML={{ __html: displayContent }}
               />
             </div>
