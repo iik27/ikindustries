@@ -1,4 +1,3 @@
-
 import Header from '@/components/header';
 import Hero from '@/components/sections/hero';
 import DevelopmentProcess from '@/components/sections/development-process';

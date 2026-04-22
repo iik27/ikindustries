@@ -1,4 +1,3 @@
-
 'use server';
 /**
  * @fileOverview Agen AI percakapan yang bertindak sebagai Muhamad Taufik Hidayat dari IK Labs.
@@ -54,7 +53,6 @@ export type AskMeAnythingOutput = z.infer<typeof AskMeAnythingOutputSchema>;
 
 /**
  * Fungsi utama untuk berinteraksi dengan asisten AI.
- * Sesuai aturan Next.js 15, file 'use server' hanya boleh mengekspor fungsi async.
  */
 export async function askMeAnything(input: AskMeAnythingInput): Promise<AskMeAnythingOutput> {
   const formattedHistory = (input.history ?? [])
@@ -93,5 +91,9 @@ User: ${input.question}`,
     },
   });
 
-  return output!;
+  if (!output) {
+      throw new Error("Gagal mendapatkan respon dari AI.");
+  }
+
+  return output;
 }

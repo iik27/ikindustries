@@ -1,4 +1,3 @@
-
 'use server';
 /**
  * @fileOverview An AI flow to provide advantages and buildable features for a technology.
@@ -23,7 +22,6 @@ export type GetTechDetailsOutput = z.infer<typeof GetTechDetailsOutputSchema>;
 
 /**
  * Fungsi untuk menganalisis teknologi secara teknis.
- * Sesuai aturan Next.js 15, file 'use server' hanya boleh mengekspor fungsi async.
  */
 export async function generateCode(input: GetTechDetailsInput): Promise<GetTechDetailsOutput> {
   const { output } = await ai.generate({
@@ -38,5 +36,9 @@ Technology: ${input.technology}`,
     output: { schema: GetTechDetailsOutputSchema },
   });
 
-  return output!;
+  if (!output) {
+    throw new Error("Gagal menganalisis teknologi.");
+  }
+
+  return output;
 }
