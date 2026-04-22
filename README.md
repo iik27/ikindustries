@@ -18,11 +18,12 @@ This project uses **Genkit** with Google Gemini. To enable the AI features (AI A
 ### 2. Deployment Configuration (ENV)
 
 #### **Vercel**
-Jika Anda menggunakan Vercel, jangan masukkan file `.env` ke GitHub. Masukkan secara manual di:
-1. **Settings** > **Environment Variables**.
-2. Key: `GOOGLE_GENAI_API_KEY`
-3. Value: `kunci_api_anda_disini`
-4. Simpan dan **Redeploy**.
+Jika Anda menggunakan Vercel, pastikan memasukkan variabel berikut di dashboard Vercel:
+1. Masuk ke proyek Anda di Vercel.
+2. Buka **Settings** > **Environment Variables**.
+3. Tambahkan Key: `GOOGLE_GENAI_API_KEY`
+4. Masukkan Value: `kunci_api_anda_disini`
+5. Klik **Save** dan lakukan **Redeploy** untuk menerapkan perubahan.
 
 #### **Firebase App Hosting**
 Jika menggunakan Firebase, Anda bisa mengatur secrets melalui Firebase Console atau menggunakan `apphosting.yaml`.

@@ -60,7 +60,7 @@ export async function askMeAnything(input: AskMeAnythingInput): Promise<AskMeAny
 const prompt = ai.definePrompt({
   name: 'askMeAnythingPrompt',
   input: { schema: z.object({
-    question: AskMeAnythingInputSchema.shape.question,
+    question: z.string(),
     formattedHistory: z.string(),
   }) },
   output: { schema: AskMeAnythingOutputSchema },
