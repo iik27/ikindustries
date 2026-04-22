@@ -1,7 +1,7 @@
 
 'use client';
 
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import anime from 'animejs';
@@ -11,8 +11,17 @@ import { translations } from '@/lib/translations';
 
 const LaboratorySchematic = () => {
   const containerRef = useRef<SVGSVGElement>(null);
+  const [particles, setParticles] = useState<{ cx: number; cy: number; r: number }[]>([]);
 
   useEffect(() => {
+    // Generate particles only on the client side to avoid hydration mismatch
+    const newParticles = [...Array(20)].map(() => ({
+      cx: Math.random() * 800,
+      cy: Math.random() * 600,
+      r: Math.random() * 2.5,
+    }));
+    setParticles(newParticles);
+
     if (!containerRef.current) return;
 
     // Drawing effect for schematic lines
@@ -87,14 +96,14 @@ const LaboratorySchematic = () => {
         <text x="-450" y="185" className="text-[12px] fill-foreground/40 font-code tracking-[0.2em] uppercase">Lab_Protocol_Active</text>
       </g>
       
-      {/* Floating Particles */}
-      {[...Array(20)].map((_, i) => (
+      {/* Floating Particles - Rendered only after mount */}
+      {particles.map((p, i) => (
         <circle 
           key={i}
           className="schematic-node"
-          cx={Math.random() * 800}
-          cy={Math.random() * 600}
-          r={Math.random() * 2.5}
+          cx={p.cx}
+          cy={p.cy}
+          r={p.r}
           fill="currentColor"
         />
       ))}
@@ -103,28 +112,16 @@ const LaboratorySchematic = () => {
 };
 
 export default function Hero() {
-  const titleRef = useRef<HTMLHeadingElement>(null);
   const descriptionRef = useRef<HTMLParagraphElement>(null);
   const actionsRef = useRef<HTMLDivElement>(null);
   
   const { language } = useLanguage();
   const t = translations[language].hero;
 
-  useEffect(() => {
-    // Character staggered setup for the combined title
-    if (titleRef.current) {
-      const fullText = `${t.title} ${t.subtitle}`;
-      const words = fullText.split(' ');
-      
-      titleRef.current.innerHTML = words.map(word => 
-        `<span class="inline-block whitespace-nowrap">
-          ${word.split('').map(char => 
-            `<span class="inline-block opacity-0 hero-char">${char}</span>`
-          ).join('')}
-        </span>`
-      ).join(' ');
-    }
+  const fullText = `${t.title} ${t.subtitle}`;
+  const words = fullText.split(' ');
 
+  useEffect(() => {
     const tl = anime.timeline({
       easing: 'easeOutQuart',
       duration: 1200
@@ -178,8 +175,16 @@ export default function Hero() {
         <div className="max-w-5xl mx-auto">
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-primary/10 blur-[180px] rounded-full -z-10 pointer-events-none"></div>
           
-          <h1 ref={titleRef} className="font-headline text-4xl font-bold tracking-tight text-foreground sm:text-6xl lg:text-7xl leading-[1.2] mb-10 min-h-[12rem] flex flex-wrap justify-center gap-x-[0.35em] content-center">
-            {/* Characters injected via useEffect */}
+          <h1 className="font-headline text-4xl font-bold tracking-tight text-foreground sm:text-6xl lg:text-7xl leading-[1.2] mb-10 min-h-[12rem] flex flex-wrap justify-center gap-x-[0.35em] content-center">
+            {words.map((word, wordIdx) => (
+              <span key={`word-${wordIdx}`} className="inline-block whitespace-nowrap">
+                {word.split('').map((char, charIdx) => (
+                  <span key={`char-${wordIdx}-${charIdx}`} className="inline-block opacity-0 hero-char">
+                    {char}
+                  </span>
+                ))}
+              </span>
+            ))}
           </h1>
           
           <p ref={descriptionRef} className="text-lg sm:text-xl leading-relaxed text-foreground/75 max-w-2xl mx-auto opacity-0 font-medium px-4">
