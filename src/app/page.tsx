@@ -1,3 +1,4 @@
+
 import Header from '@/components/header';
 import Hero from '@/components/sections/hero';
 import DevelopmentProcess from '@/components/sections/development-process';
@@ -10,6 +11,9 @@ import Testimonials from '@/components/sections/testimonials';
 import Blog from '@/components/sections/blog';
 import Contact from '@/components/sections/contact';
 import Footer from '@/components/footer';
+
+// Mengatur durasi maksimum untuk Server Actions di halaman ini (Vercel)
+export const maxDuration = 60;
 
 export default function Home() {
   return (

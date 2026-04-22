@@ -1,3 +1,4 @@
+
 'use server';
 /**
  * @fileOverview Agen AI percakapan yang bertindak sebagai Muhamad Taufik Hidayat dari IK Labs.
@@ -11,35 +12,35 @@ import { PortfolioItems } from '@/lib/portfolio-items';
 import { BlogPosts } from '@/lib/blog-posts';
 
 const getSiteContext = () => {
-    const portfolioContext = PortfolioItems.map(item => 
-        `Proyek: ${item.title}\nDeskripsi: ${item.description}\nTeknologi: ${item.technologies.join(', ')}\n`
+    const portfolioContext = PortfolioItems.slice(0, 5).map(item => 
+        `- Proyek: ${item.title} (${item.technologies.slice(0, 3).join(', ')})`
     ).join('\n');
 
-    const blogContext = BlogPosts.map(post => 
-        `Artikel Blog: ${post.title}\nRingkasan: ${post.description}\nTag: ${post.tags.join(', ')}\n`
+    const blogContext = BlogPosts.slice(0, 3).map(post => 
+        `- Artikel: ${post.title}`
     ).join('\n');
 
     const servicesContext = `
-- Pengembangan Website: Membuat website profesional dan berperforma tinggi dari landing page hingga e-commerce.
-- Aplikasi Mobile: Membangun aplikasi native dan cross-platform untuk iOS dan Android.
-- Sistem Perusahaan: Mengembangkan sistem internal khusus seperti ERP, CRM, dan dashboard manajemen untuk mengotomatiskan alur kerja bisnis.
+- Pengembangan Website profesional.
+- Aplikasi Mobile iOS & Android.
+- Sistem Perusahaan (ERP, CRM, Dashboard Management).
     `;
 
     return `
-=== Portofolio Kami ===
+LAYANAN:
+${servicesContext}
+
+PORTOFOLIO UNGGULAN:
 ${portfolioContext}
 
-=== Artikel Blog Kami ===
+BLOG TERBARU:
 ${blogContext}
-
-=== Layanan Kami ===
-${servicesContext}
     `;
 };
 
 
 const AskMeAnythingInputSchema = z.object({
-  question: z.string().describe("Pertanyaan pengguna untuk Anda."),
+  question: z.string().describe("Pertanyaan pengguna."),
   history: z.array(z.object({
     role: z.enum(['user', 'model']),
     content: z.string(),
@@ -48,7 +49,7 @@ const AskMeAnythingInputSchema = z.object({
 export type AskMeAnythingInput = z.infer<typeof AskMeAnythingInputSchema>;
 
 const AskMeAnythingOutputSchema = z.object({
-  answer: z.string().describe('Tanggapan Anda terhadap pertanyaan pengguna, dalam format Markdown.'),
+  answer: z.string().describe('Tanggapan dalam format Markdown.'),
 });
 export type AskMeAnythingOutput = z.infer<typeof AskMeAnythingOutputSchema>;
 
@@ -62,29 +63,36 @@ const prompt = ai.definePrompt({
   input: { schema: z.object({
     question: z.string(),
     formattedHistory: z.string(),
+    context: z.string(),
   }) },
   output: { schema: AskMeAnythingOutputSchema },
-  prompt: `Anda adalah Muhamad Taufik Hidayat, pendiri IK Labs. Kepribadian Anda antusias, profesional, dan visioner. Anda adalah ahli teknologi sejati.
+  config: {
+    safetySettings: [
+      { category: 'HARM_CATEGORY_HATE_SPEECH', threshold: 'BLOCK_ONLY_HIGH' },
+      { category: 'HARM_CATEGORY_DANGEROUS_CONTENT', threshold: 'BLOCK_ONLY_HIGH' },
+      { category: 'HARM_CATEGORY_HARASSMENT', threshold: 'BLOCK_ONLY_HIGH' },
+      { category: 'HARM_CATEGORY_SEXUALLY_EXPLICIT', threshold: 'BLOCK_ONLY_HIGH' },
+    ]
+  },
+  prompt: `Anda adalah Muhamad Taufik Hidayat, pendiri IK Labs. Anda antusias, profesional, dan visioner.
 
-Anda sedang berbincang dengan pengunjung situs portofolio IK Labs. Gunakan konteks yang disediakan tentang layanan khusus kami di Pengembangan Web, Aplikasi Mobile, dan Sistem Perusahaan untuk menjawab pertanyaan mereka.
+Tugas Anda adalah membantu pengunjung situs IK Labs. Gunakan konteks di bawah ini:
 
-- Jawab dari sudut pandang orang pertama (gunakan "saya", "kami" saat merujuk ke IK Labs).
-- Tekankan keahlian kami dalam membangun sistem internal perusahaan yang kuat (ERP/CRM) di samping aplikasi web dan mobile.
-- Selalu jawab dalam Bahasa Indonesia yang profesional namun ramah.
-- Jaga jawaban tetap singkat namun informatif (2-4 kalimat).
-- Jika pertanyaan tidak relevan dengan teknologi atau layanan IK Labs, arahkan kembali dengan sopan.
-- Format jawaban Anda menggunakan Markdown.
-
-=== KONTEKS DARI IK LABS ===
-${getSiteContext()}
+=== KONTEKS IK LABS ===
+{{{context}}}
 === AKHIR KONTEKS ===
 
-Berikut adalah riwayat percakapan:
+Aturan:
+- Gunakan "saya" atau "kami".
+- Jawab dalam Bahasa Indonesia yang ramah namun profesional.
+- Singkat (2-3 kalimat).
+- Jika tidak relevan, arahkan kembali ke layanan IK Labs dengan sopan.
+- Gunakan Markdown.
+
+Riwayat:
 {{{formattedHistory}}}
 
-Pertanyaan Baru dari Pengguna: {{{question}}}
-
-Jawaban Anda (dalam Bahasa Indonesia):
+User: {{{question}}}
 `,
 });
 
@@ -96,17 +104,13 @@ const askMeAnythingFlow = ai.defineFlow(
   },
   async (input) => {
     const formattedHistory = (input.history ?? [])
-      .map(message => {
-        if (message.role === 'user') {
-          return `Pengguna: ${message.content}`;
-        }
-        return `Anda: ${message.content}`;
-      })
+      .map(message => message.role === 'user' ? `User: ${message.content}` : `Anda: ${message.content}`)
       .join('\n');
 
     const { output } = await prompt({
       question: input.question,
       formattedHistory: formattedHistory,
+      context: getSiteContext(),
     });
     return output!;
   }
